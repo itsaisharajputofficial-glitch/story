@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1e8">
+<meta name="description" content="A Mad Man’s Fiction — Part Sixteen. A serial work of fiction.">
+<title>A Mad Man’s Fiction — Part Sixteen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90' fill='%238f1d2c'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --font-body:"Literata",Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+  --font-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --reader-scale:1;
+  --bg:#f7f1e8;--surface:#fdfaf4;--text:#2a231c;--muted:#8d7d6c;--accent:#8f1d2c;
+  --accent-soft:rgba(143,29,44,.07);--line:rgba(42,35,28,.15);--topbar:rgba(247,241,232,.88);
+  --shadow:0 20px 60px rgba(30,20,12,.08);
+}
+[data-theme="sepia"]{--bg:#f1e7cf;--surface:#f7efe0;--text:#44351f;--muted:#8b7958;--accent:#7e1a29;--accent-soft:rgba(126,26,41,.08);--line:rgba(68,53,31,.18);--topbar:rgba(241,231,207,.9)}
+[data-theme="dark"]{--bg:#15110e;--surface:#1c1713;--text:#ddd2c5;--muted:#9b8d7d;--accent:#e08c99;--accent-soft:rgba(224,140,153,.13);--line:rgba(221,210,197,.16);--topbar:rgba(21,17,14,.9)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:calc(1.075rem * var(--reader-scale))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.82;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s ease,color .4s ease;overflow-x:hidden}
+a{color:var(--accent)}
+::selection{background:var(--accent);color:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:70;box-shadow:0 0 10px var(--accent)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem clamp(.9rem,4vw,2rem);background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--font-display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--muted);white-space:nowrap;text-decoration:none}
+.controls{display:flex;align-items:center;gap:.3rem}
+.icon-btn{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;min-width:2.1rem;height:2.1rem;padding:0 .55rem;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:.92rem;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.cover{min-height:100vh;min-height:100dvh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.4rem 4rem;position:relative}
+.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,var(--accent-soft),transparent 60%);pointer-events:none}
+.cover>*{position:relative}
+.cover-kicker{letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--muted);margin:0 0 1.6rem;max-width:34rem;line-height:2}
+.cover-title{font-family:var(--font-display);font-weight:600;font-size:clamp(3.1rem,11vw,6.5rem);line-height:.96;margin:0;letter-spacing:-.01em}
+.cover-sub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 0}
+.cover-cta{margin-top:2.6rem}
+.cta{display:inline-block;text-decoration:none;color:var(--surface);background:var(--accent);padding:.85rem 1.9rem;border-radius:999px;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(143,29,44,.28)}
+.cta:hover{transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.2rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+.reader{padding:0 clamp(1.2rem,4vw,2rem)}
+.toc{padding:4rem 0 5rem;max-width:40rem;margin:0 auto;scroll-margin-top:5rem}
+.toc-heading{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;font-size:1rem;color:var(--muted);margin:0 0 2rem}
+.toc-heading::after{content:"";display:block;width:3.4rem;height:1px;background:var(--accent);margin:.9rem auto 0}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:flex;flex-direction:column;gap:.1rem;text-decoration:none;color:var(--text);padding:1.15rem .4rem;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.toc a:hover{background:var(--accent-soft);padding-left:.9rem}
+.toc .num{font-family:var(--font-display);font-size:.78rem;letter-spacing:.2em;color:var(--accent)}
+.toc .name{font-family:var(--font-display);font-weight:600;font-size:1.35rem;line-height:1.1}
+.toc .sub{color:var(--muted);font-style:italic;font-size:.92rem}
+
+.part{max-width:42rem;margin:0 auto;padding:6rem 0 3rem;scroll-margin-top:4.5rem}
+.part-header{text-align:center;margin-bottom:2.6rem}
+.series{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.part-title{font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,7vw,3.2rem);letter-spacing:.06em;line-height:1;margin:0}
+.epigraph{color:var(--muted);font-style:italic;font-size:.95em;margin:1.2rem auto 0;max-width:32rem}
+.part p{margin:0 0 1.4em}
+.part p.lead::first-letter{font-family:var(--font-display);font-weight:600;float:left;font-size:3.3em;line-height:.8;padding:.05em .13em 0 0;color:var(--accent)}
+hr.ornament{border:0;margin:2.7rem auto;text-align:center;overflow:visible}
+hr.ornament::after{content:"✦ ✦ ✦";color:var(--muted);font-size:.78rem;opacity:.8}
+p.msg{text-align:center;margin:2.4rem auto;max-width:28rem;background:var(--accent-soft);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:1.05rem 1.4rem;font-size:.98em}
+p.msg .who{font-family:var(--font-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.9em;color:var(--accent);margin-right:.35em}
+p.msg .sep{color:var(--muted)}
+p.thought{text-align:center;font-style:italic;font-size:1.14em;line-height:1.6;color:var(--muted);margin:2.2rem auto;max-width:30rem}
+p.thought::before{content:"“ ";color:var(--accent);opacity:.55}
+p.thought::after{content:" ”";color:var(--accent);opacity:.55}
+.part-end{text-align:center;margin:4rem auto 0;padding-top:2.4rem;border-top:1px solid var(--line);max-width:34rem}
+.end-title{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:.82rem;color:var(--muted);margin:0 0 1rem}
+.end-title::before,.end-title::after{content:"—";margin:0 .7em;opacity:.55}
+.end-next{color:var(--muted);font-style:italic;margin:0}
+.end-next em{color:var(--accent);font-style:italic}
+.end-next strong{font-style:normal;letter-spacing:.04em}
+.part-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.nav-link{text-decoration:none;color:var(--text);border:1px solid var(--line);padding:.7rem 1.15rem;border-radius:999px;font-size:.9rem;transition:border-color .2s,color .2s}
+.nav-link:hover{border-color:var(--accent);color:var(--accent)}
+.nav-link.contents{color:var(--muted)}
+.nav-link.disabled{opacity:.35;pointer-events:none}
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:55;display:none;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:999px;width:2.6rem;height:2.6rem;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);font-size:1rem;transition:transform .2s}
+#toTop:hover{transform:translateY(-3px)}
+.colophon{padding:3rem 1.25rem 5rem;text-align:center;color:var(--muted);font-size:.85rem}
+.colophon .mark{font-family:var(--font-display);font-size:1.6rem;color:var(--accent)}
+@media (max-width:640px){.part-nav{flex-direction:column}.nav-link{text-align:center}.brand{font-size:.66rem}}
+@media (max-width:420px){.part p.lead::first-letter{font-size:2.7em}.toc a{padding:1rem .3rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">A Mad Man’s Fiction</a>
+  <div class="controls" role="group" aria-label="Reading controls">
+    <a class="icon-btn" href="index.html#toc" aria-label="Contents" title="Contents">☰</a>
+    <button id="fontMinus" class="icon-btn" aria-label="Decrease text size" title="Smaller text">A−</button>
+    <button id="fontPlus" class="icon-btn" aria-label="Increase text size" title="Larger text">A+</button>
+    <button id="themeBtn" class="icon-btn" aria-label="Change theme" title="Theme">☀</button>
+  </div>
+</header>
+
+<main class="reader">
+  <section id="part-16" class="part" aria-labelledby="part-16-title">
+    <header class="part-header">
+      <p class="series">A Mad Man’s Fiction</p>
+      <h2 class="part-title" id="part-16-title">Part Sixteen</h2>
+      <p class="epigraph">This is a work of fiction of a mad man with mad tastes.</p>
+    </header>
+<hr class="ornament" aria-hidden="true">
+<p class="lead">It began, as so much of this story began, with a saree.</p>
+<p>Not the blue one, this time. The school saree. The one I wore to teach, the plain cotton with the dull border, the one I had worn for twenty years and never once thought of as anything but a uniform. He had asked for it, and I had looked at him as if he had asked for my skin.</p>
+<p>And yet, standing there in his doorway, watching him lay it out on the bed, I understood something I had never understood in all those twenty years. The saree was not a uniform. It was a costume. The costume of the sanskari teacher, the respectable woman, the woman who stood in front of little girls and corrected their postures and never once, not once, let them see the woman underneath. And he was asking me to put it on one last time, so that he could take it off, and in the taking off, take off the whole costume with it.</p>
+<p>That was the real photograph he wanted. Not the saree. The woman the saree had been hiding.</p>
+<p>And I was ready. I had been ready since the hotel. I had been ready, I think, since the first time he looked at me the way he was looking at me now.</p>
+<p>“The school saree,” I said, and I heard the disbelief in my own voice. “Why the school saree?”</p>
+<p>“Because it is the one you wear when you are most yourself,” he said, and he was laying things out on the bed with the care of a man setting a table: the school saree, the blue saree, the bridal red, the petticoat, a string of jasmine. “The teacher. The woman the whole colony respects. The woman who corrects little girls with a stick and taps the floor to keep time.” He looked up at me, and his eyes were bright and dark. “I want to photograph her first. The respectable one. And then I want to photograph what she becomes when the respect comes off.”</p>
+<p>I stood in the doorway of his room and I looked at the bed, at the sarees laid out like three women, and I understood that this was not a photograph he was going to take. It was a confession he was going to draw out of me, one layer of cloth at a time, and I was going to let him, because I had already said yes, in the dawn light of a hotel room, and because the yes had not once, since that night, felt like a mistake.</p>
+<p>“Then photograph me,” I said. “The teacher. And the other one. And whoever is under them both.”</p>
+<p>He smiled, that slow, dark, wolf smile, and he lifted the camera.</p>
+<p>I should say, before I go further, that I had been thinking about this day ever since the hotel. Not with dread, the way I had once thought about the other things he asked of me. With anticipation. The photographs had stopped being a threat in my mind and become a promise, a way of being seen that I had never had before, and I found, to my own surprise, that I wanted it. I wanted to be captured. I wanted to be kept. I wanted, for the first time in my life, to be the subject of something instead of the background of everything.</p>
+<p>Ravi was at the shop. Kamala had been sent away. The house was ours, and the afternoon light was coming through the window the way it does in old photographs, golden and slow, and I had put on the school saree without being asked, because I knew, by now, the shape of the thing he was going to ask for.</p>
+<p>And I had wanted, for once, to be ready before he asked.</p>
+<p>There is a particular stillness in a house that is waiting for a secret to be made. The fans turn. The light slants. The dust hangs in the air, golden and patient. And I moved through that stillness the way a woman moves through the last hour before her wedding, touching things, straightening things, not because they needed it, but because my hands needed something to do that was not shaking.</p>
+<hr class="ornament" aria-hidden="true">
+<p>He had a real camera. Not the phone. A small black thing with a lens that caught the light, and he handled it the way a man handles a thing he has been waiting to use. And I understood, watching him, that this had been in him long before the confession, long before the blue saree, long before any of it. The eye. The wanting to look. The wanting to keep.</p>
+<p>“I used to think,” he said, as he adjusted something on the camera, “that photographs were the only honest way to look at you. Because in a photograph, you could not turn away. You could not cover yourself. You could not pretend you did not see me looking.” He lifted the camera to his eye. “A photograph does not let you hide, maa. That is why I have wanted this for so long.”</p>
+<p>And I thought, watching him, about the boy he had been, the one who sat outside the dance room and listened to my feet on the floor, the one who pressed his face into my saree in the temple queue. He had been looking at me all his life. Not at the mother, not at the teacher, but at the woman under them both, the woman everyone else was too busy, too polite, too blind to see. And he had been patient, and he had been quiet, and he had waited, and now, with a camera in his hand and the whole long afternoon ahead of us, he was going to do what he had always done, but finally, with my permission, and in the light.</p>
+<p>Look at me. That was all he had ever wanted. And I had spent twenty-five years looking away.</p>
+<p>Not today. Today I would look back.</p>
+<p>And then he began to shoot.</p>
+<p>I thought, as the first shutter clicked, about all the times I had been looked at in my life and looked away. The postman, the neighbors, the men in the temple queue, Ravi, all of them, and me always turning, always covering, always making myself smaller so that their eyes would find nothing to rest on. Twenty-five years of it. Twenty-five years of being looked at and refusing to be seen.</p>
+<p>But this was different. This look did not make me want to hide. This look was not hungry for something I did not want to give. This look was his, and it was full, and it was patient, and under it, I did not shrink. I grew. I became, frame by frame, more myself, more present, more there, until the room and the sarees and the camera all fell away and there was only the looking, and the being looked at, and the slow, mutual certainty that this was what both of us had always wanted.</p>
+<p>I had never been looked at like this. And I had never, not once, let myself be seen like this. And the two facts, I was beginning to understand, were the whole story of my life.</p>
+<hr class="ornament" aria-hidden="true">
+<p>The first photographs were of the teacher.</p>
+<p>I wore the school saree, pinned high and proper, and I stood in the middle of his room, and I did not know what to do with my hands, and I said so, and he laughed, and he said, “Then do what you do in class. Stand the way you stand. Hold the stick. I want the woman the girls see.”</p>
+<p>And so I did. I stood the way I stood in class, back straight, chin up, the way I had stood for twenty years, and the camera clicked, and I felt, for the first time in my life, what it was to be looked at without being touched, and it was strange, and it was thrilling, and it was, in some way I could not yet name, more intimate than anything we had done in the dark.</p>
+<p>“Good,” he said, and the camera clicked again. “Now the pallu. Drop it. Just a little. Show me the woman under the teacher.”</p>
+<p>I dropped the pallu. The cool air touched my shoulder, and the camera clicked, and I saw his face change, saw the focus in it sharpen, and I understood that I was not posing for him. I was undressing for him, one photograph at a time, and the camera was not a camera. It was his hand, and his eye, and his hunger, all made into glass and light.</p>
+<p>And I did not want to stop.</p>
+<p>“More,” I said, and I heard my own voice, low and rough, and I did not recognize it, and I loved it. “Photograph me more.”</p>
+<hr class="ornament" aria-hidden="true">
+<p>He did.</p>
+<p>The school saree came off, and I stood there in the petticoat and blouse, and the camera clicked, and then the blouse came off, and I stood in the petticoat alone, my breasts bare, my hair coming loose, and the camera clicked, and then the petticoat, and then there was only me, bare in the middle of his room, and the camera, and the sound of his breathing, and the whole world had narrowed to the two of us and the light.</p>
+<p>And then, in the bridal red, he changed. The playfulness left his face, and something else came into it, something quieter and more serious, and he said, “Now stand still, maa. And look at me. And don’t smile. I want the woman who walked into that wedding and claimed me.”</p>
+<p>And so I stood, in the bridal red, and I looked at him, and I did not smile, and I let the woman he was talking about rise up in me, the jealous, possessive, fierce woman who had dragged him into the dark and put her hand on him and said <em>you are mine,</em> and the camera clicked, and clicked, and I could feel her, that woman, filling me, and I understood that the camera was not taking photographs.</p>
+<p>It was taking me back to her. It was reminding me who I had become.</p>
+<p>“Now the blue saree,” he said, and his voice was rough now, and I could hear the effort in it, the way a man holds himself back. “The one from the beginning. I want to photograph you in the saree I dreamed about for a thousand nights.”</p>
+<p>I put it on. The blue saree. The one from the photograph. The one from the night of the confession. And as I wrapped it around myself, slowly, I felt something shift in me, some last door opening, and I understood that I was not the woman who had first worn this saree, the woman who had trembled and covered herself and asked herself what she was becoming.</p>
+<p>I was the woman who had answered that question. I was the woman who had become.</p>
+<p>He photographed me in the blue saree, and then out of it, and then in the bridal red, the one I had worn to the wedding, the one I had claimed him in, and then he led me to the mirror, the long mirror on the wardrobe, and he stood behind me, and he said, “Now look at yourself, maa. Look at what I see.”</p>
+<p>And I looked.</p>
+<hr class="ornament" aria-hidden="true">
+<p>I will try to write down what I saw, because it is important, and because I do not want to forget it.</p>
+<p>I saw a woman of forty-four, in a bridal red saree, with her hair loose and her lips parted and her eyes wild, and she was not beautiful in the way the young are beautiful, in the way that needs no effort and no history. She was beautiful in the way a thing is beautiful after it has been through fire. She was beautiful the way a song is beautiful after the singer has stopped being afraid of it.</p>
+<p>And she was mine. And she was his. And for the first time in my life, looking at her, I did not want to look away.</p>
+<p>“There you are,” he said softly, and his arms came around me, and he held the camera up, and he photographed the two of us in the mirror, me in my bridal red and him behind me, and the flash went off, and the image froze, and I understood that this was the photograph I had been waiting my whole life to see.</p>
+<p>Not a woman being looked at. A woman looking back.</p>
+<p>I do not know how long I stood there, looking at myself, while he watched me look. I only know that something in me settled, the way silt settles in water, and the woman in the mirror stopped being a stranger, and stopped being a version of me, and became simply me, the whole of me, the part I had hidden and the part I had shown and the part I had not known was there at all.</p>
+<p>And I said, out loud, to her, the way you speak to a woman you are finally proud to know, “There you are. I have been looking for you my whole life.”</p>
+<p>And the woman in the mirror smiled, and I smiled, and for that one moment, in that one room, there was no gap between the woman and her reflection. They were the same. They had always been the same. They had only been waiting for someone to hold up the mirror and say, <em>look.</em></p>
+<p>“Tell me what you see,” he said, against my hair.</p>
+<p>“Myself,” I whispered, and the word broke in my throat, and I did not try to hold it together. “I see myself. For the first time. I see myself.”</p>
+<p>“Good,” he said. “Because that is what I have been trying to show you since the night I first put my hand on you in the kitchen. That is the whole point, maa. Not the sin. Not the secret. This. You, finally seeing what I have always seen.”</p>
+<p>And he turned me in his arms, and he kissed me, and the camera fell to the bed, forgotten, and we came together there, in front of the mirror, with the flash still warm and the red saree falling away, and for the first time, I did not close my eyes.</p>
+<p>I kept them open. I watched. And what I watched was not a woman being ruined.</p>
+<p>It was a woman being born.</p>
+<hr class="ornament" aria-hidden="true">
+<p>Later, when the light had gone and the house was dark, he said, “Come. There is one more place.”</p>
+<p>The rooftop.</p>
+<p>The terrace was small, and the night was close, and the city spread out around us in a thousand lights, and the air was warm and smelled of dust and jasmine and the smoke of a hundred kitchens. And I stood at the edge of it, in my night saree, with my hair loose and my feet bare, and I understood, with a shiver that was half fear and half something else, that here there were no walls at all. The neighboring buildings rose up on every side, their windows lit, and any one of them, any single lit window, could have held a pair of eyes.</p>
+<p>“They could see us,” I whispered.</p>
+<p>“Yes,” he said, and he raised the camera, and I saw the red light of it blink once in the dark. “That is the point, maa. To be photographed where anyone could see. To be, for one moment, not hidden at all.” He stepped back, and the camera rose to his eye. “Do you trust me?”</p>
+<p>The question again. The same question he had asked in the car, and in the cinema, and in the dark of a marriage bed. And the answer was the same, and it came faster now, and with more of me behind it.</p>
+<p>“Yes,” I said.</p>
+<p>“Then let the saree fall. And stand there, in the dark, in the open, and let the whole city be your witness.”</p>
+<p>And I let it fall.</p>
+<p>The night air touched every part of me, and the city lights laid a faint gold on my skin, and I stood there, bare, on the rooftop of my own house, with my son’s camera on me and a hundred windows all around, and I was terrified, and I was free, and I understood, standing there, that this was what I had been running from my whole life, and that it was also what I had been running toward.</p>
+<p>The camera clicked, once, twice, and the flash lit me up for one white second, and then the dark came back, and somewhere, far off, a dog barked, and the city went on being the city, and I stood there, naked and seen and not hiding, and I did not once think of covering myself.</p>
+<p>He lowered the camera, and he came to me, and he wrapped me in his arms, and he said, against my hair, “That is the photograph I will keep forever, maa. The woman on the rooftop. The woman who stopped hiding.”</p>
+<p>And I held him, and I let the city look, and I was not afraid.</p>
+<hr class="ornament" aria-hidden="true">
+<p>Afterwards, we lay on the bed and looked at the photographs together, the camera between us, and I watched myself appear on the small screen, one image at a time, and I understood, finally, the thing I had found on the laptop all those weeks ago.</p>
+<p>The folder. The women in sarees. The images that had started all of this. I had thought, then, that they were the collection of a man with a sickness, a hunger for bodies shaped like his mother’s. And maybe they were, a little. But now, looking at my own photographs, I understood the deeper truth: they had been placeholders. Studies. Rehearsals for this. For the day he could photograph the real thing, the one woman, the only woman, and no longer need the substitutes.</p>
+<p>“I deleted them all,” he said quietly, as if he had read my thoughts. “The folder. All of them. The night after the confession. Because they were not you, and after I had you, or the hope of you, I could not look at them anymore. They were like reading a menu in a language I no longer spoke.”</p>
+<p>I looked at the screen, at my own face, my own body, my own eyes looking back at me, and I said, “And these?”</p>
+<p>“These I will keep.” He turned the camera off, and he set it aside, and he pulled me against him. “These are the only photographs I will ever need. You, in every saree. You, in the mirror. You, looking at me the way you are looking at me now.” He kissed the top of my head. “These are not a collection, maa. These are my whole life.”</p>
+<p>We went through them slowly, the way you go through an album of a life you never lived. The teacher, in her school saree, stiff and proper and hiding everything. The woman in the blue saree, softer, her eyes starting to open. The bride in red, fierce and claiming. The woman in the mirror, looking back at herself for the first time. And the woman on the rooftop, bare and unashamed, with the whole city spread out behind her like a witness.</p>
+<p>“You see,” he said, and his finger traced the last one on the screen, “it is all there. The whole journey. From the woman they think they know, to the woman you are.” He looked at me. “You have come so far, maa. And I wanted you to see it. I wanted you to see how far.”</p>
+<p>And I did see it. I saw it in those photographs, in my own face changing from one frame to the next, and the seeing of it was a kind of absolution, and I did not need a priest, and I did not need a god.</p>
+<p>I only needed the camera, and the man behind it, and the woman I had finally stopped hiding.</p>
+<p>I looked at those photographs for a long time, and I understood that they were worth the danger. That was the thing I kept coming back to, the thing I could not get past. The danger was real, and it was growing, and every photograph on that screen was another knot in the rope that could hang us both. But looking at them, at the woman I had become, at the journey written in my own face, I could not bring myself to wish a single one of them away.</p>
+<p>Because before the photographs, I had been a woman who existed only in the spaces other people left for her. And now, on that small screen, I was the whole frame. I was the subject. I was the story.</p>
+<p>And a story, once it is told, cannot be untold. Even if they burn the photographs. Even if they burn the camera. The woman in them is out now, and she is not going back into any frame she does not choose.</p>
+<p>And then, after a long moment, he said, in a different voice, the low, serious one, “But they are also the most dangerous thing we have. Do you understand that? The car, the washroom, the hotel, those were moments. These are proof. These are the thing that could end us.”</p>
+<p>I understood. I had understood the moment the first photograph was taken. The photographs were not just images. They were a confession, written in light, and if anyone ever found them, the whole careful architecture of our lives would come down in a single afternoon.</p>
+<p>“So we hide them,” I said, and my voice was steady. “We hide them the way we hide everything else. In a folder no one opens. Behind a password no one knows.”</p>
+<p>“On a device no one touches,” he agreed. And then, softly, “But we should be careful, maa. More careful than we have been. Because we have been lucky, and luck is not a plan.”</p>
+<p>The words settled into the room, and for a long time neither of us spoke, and I lay there with the weight of them on my chest, and I thought about all the small, careless things we had done in the last few weeks. The saree left on the wrong hook. The message that could have been read. The photograph that could have been sent to the wrong number. The door that could have been left unlocked. Any one of them, any single one, could have been the end, and the only thing that had saved us, again and again, was not our cleverness but the blind, ordinary inattention of the people around us.</p>
+<p>“That scares me,” I said, and I was surprised by how much I meant it. “Not the being caught. The being careless. The losing this because I was too happy to be careful.”</p>
+<p>“Then we will be careful,” he said. “Together. Every door. Every message. Every photograph. We do it all with two hands and two minds, or we do not do it at all.”</p>
+<p>“Together,” I repeated, and the word was a promise and a shield, and I held on to it the way a drowning woman holds a rope.</p>
+<p>I nodded against his chest, and I felt the weight of what he was saying settle over me, and I understood that the honeymoon was truly over now, and that the real world, with its keys and its maid and its sleeping husband and its unlocked doors, was waiting for us just outside this room.</p>
+<p>And somewhere, in the quiet of the house, a door opened and closed.</p>
+<hr class="ornament" aria-hidden="true">
+<footer class="part-end"><p class="end-title">End of Part Sixteen.</p><p class="end-next">To be continued in <strong>Part Seventeen</strong> — <em>the near-discovery, and the secret that almost breaks.</em></p></footer>
+    <nav class="part-nav" aria-label="Part navigation">
+      <a class="nav-link prev" href="part-15.html">&larr; Part Fifteen</a>
+      <a class="nav-link contents" href="index.html#toc">Contents</a>
+      <a class="nav-link next" href="part-17.html">Part Seventeen &rarr;</a>
+    </nav>
+  </section>
+  <footer class="colophon">
+    <div class="mark">✦</div>
+    <p>Part Sixteen of Part Twenty</p>
+  </footer>
+</main>
+<button id="toTop" aria-label="Back to top">↑</button>
+<script>
+(function () {
+  var root = document.documentElement;
+  var THEMES = ['light', 'sepia', 'dark'];
+  function readTheme() {
+    var t = localStorage.getItem('ammf-theme');
+    return THEMES.indexOf(t) >= 0 ? t : 'light';
+  }
+  function readScale() {
+    var s = parseFloat(localStorage.getItem('ammf-scale'));
+    return (s >= 0.8 && s <= 1.45) ? s : 1;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    var b = document.getElementById('themeBtn');
+    if (b) {
+      b.textContent = (t === 'light') ? '☀' : (t === 'sepia') ? '◐' : '☾';
+      b.setAttribute('aria-label', 'Theme: ' + t);
+    }
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim());
+  }
+  function cycleTheme() {
+    var i = THEMES.indexOf(root.getAttribute('data-theme') || 'light');
+    var next = THEMES[(i + 1) % THEMES.length];
+    applyTheme(next);
+    localStorage.setItem('ammf-theme', next);
+  }
+  function applyScale(s) { root.style.setProperty('--reader-scale', String(s)); }
+  function bumpScale(d) {
+    var s = Math.min(1.45, Math.max(0.8, Math.round((readScale() + d) * 100) / 100));
+    applyScale(s);
+    localStorage.setItem('ammf-scale', String(s));
+  }
+  var bar = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+    if (toTop) toTop.style.display = (h.scrollTop > 700) ? 'flex' : 'none';
+  }
+  var tb = document.getElementById('themeBtn');
+  if (tb) tb.addEventListener('click', cycleTheme);
+  var fm = document.getElementById('fontMinus');
+  var fp = document.getElementById('fontPlus');
+  if (fm) fm.addEventListener('click', function () { bumpScale(-0.05); });
+  if (fp) fp.addEventListener('click', function () { bumpScale(0.05); });
+  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  applyTheme(readTheme());
+  applyScale(readScale());
+  onScroll();
+})();
+</script>
+</body>
+</html>

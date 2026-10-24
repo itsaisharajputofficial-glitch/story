@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1e8">
+<meta name="description" content="A Mad Man’s Fiction — Part Eighteen. A serial work of fiction.">
+<title>A Mad Man’s Fiction — Part Eighteen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90' fill='%238f1d2c'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --font-body:"Literata",Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+  --font-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --reader-scale:1;
+  --bg:#f7f1e8;--surface:#fdfaf4;--text:#2a231c;--muted:#8d7d6c;--accent:#8f1d2c;
+  --accent-soft:rgba(143,29,44,.07);--line:rgba(42,35,28,.15);--topbar:rgba(247,241,232,.88);
+  --shadow:0 20px 60px rgba(30,20,12,.08);
+}
+[data-theme="sepia"]{--bg:#f1e7cf;--surface:#f7efe0;--text:#44351f;--muted:#8b7958;--accent:#7e1a29;--accent-soft:rgba(126,26,41,.08);--line:rgba(68,53,31,.18);--topbar:rgba(241,231,207,.9)}
+[data-theme="dark"]{--bg:#15110e;--surface:#1c1713;--text:#ddd2c5;--muted:#9b8d7d;--accent:#e08c99;--accent-soft:rgba(224,140,153,.13);--line:rgba(221,210,197,.16);--topbar:rgba(21,17,14,.9)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:calc(1.075rem * var(--reader-scale))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.82;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s ease,color .4s ease;overflow-x:hidden}
+a{color:var(--accent)}
+::selection{background:var(--accent);color:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:70;box-shadow:0 0 10px var(--accent)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem clamp(.9rem,4vw,2rem);background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--font-display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--muted);white-space:nowrap;text-decoration:none}
+.controls{display:flex;align-items:center;gap:.3rem}
+.icon-btn{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;min-width:2.1rem;height:2.1rem;padding:0 .55rem;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:.92rem;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.cover{min-height:100vh;min-height:100dvh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.4rem 4rem;position:relative}
+.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,var(--accent-soft),transparent 60%);pointer-events:none}
+.cover>*{position:relative}
+.cover-kicker{letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--muted);margin:0 0 1.6rem;max-width:34rem;line-height:2}
+.cover-title{font-family:var(--font-display);font-weight:600;font-size:clamp(3.1rem,11vw,6.5rem);line-height:.96;margin:0;letter-spacing:-.01em}
+.cover-sub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 0}
+.cover-cta{margin-top:2.6rem}
+.cta{display:inline-block;text-decoration:none;color:var(--surface);background:var(--accent);padding:.85rem 1.9rem;border-radius:999px;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(143,29,44,.28)}
+.cta:hover{transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.2rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+.reader{padding:0 clamp(1.2rem,4vw,2rem)}
+.toc{padding:4rem 0 5rem;max-width:40rem;margin:0 auto;scroll-margin-top:5rem}
+.toc-heading{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;font-size:1rem;color:var(--muted);margin:0 0 2rem}
+.toc-heading::after{content:"";display:block;width:3.4rem;height:1px;background:var(--accent);margin:.9rem auto 0}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:flex;flex-direction:column;gap:.1rem;text-decoration:none;color:var(--text);padding:1.15rem .4rem;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.toc a:hover{background:var(--accent-soft);padding-left:.9rem}
+.toc .num{font-family:var(--font-display);font-size:.78rem;letter-spacing:.2em;color:var(--accent)}
+.toc .name{font-family:var(--font-display);font-weight:600;font-size:1.35rem;line-height:1.1}
+.toc .sub{color:var(--muted);font-style:italic;font-size:.92rem}
+
+.part{max-width:42rem;margin:0 auto;padding:6rem 0 3rem;scroll-margin-top:4.5rem}
+.part-header{text-align:center;margin-bottom:2.6rem}
+.series{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.part-title{font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,7vw,3.2rem);letter-spacing:.06em;line-height:1;margin:0}
+.epigraph{color:var(--muted);font-style:italic;font-size:.95em;margin:1.2rem auto 0;max-width:32rem}
+.part p{margin:0 0 1.4em}
+.part p.lead::first-letter{font-family:var(--font-display);font-weight:600;float:left;font-size:3.3em;line-height:.8;padding:.05em .13em 0 0;color:var(--accent)}
+hr.ornament{border:0;margin:2.7rem auto;text-align:center;overflow:visible}
+hr.ornament::after{content:"✦ ✦ ✦";color:var(--muted);font-size:.78rem;opacity:.8}
+p.msg{text-align:center;margin:2.4rem auto;max-width:28rem;background:var(--accent-soft);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:1.05rem 1.4rem;font-size:.98em}
+p.msg .who{font-family:var(--font-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.9em;color:var(--accent);margin-right:.35em}
+p.msg .sep{color:var(--muted)}
+p.thought{text-align:center;font-style:italic;font-size:1.14em;line-height:1.6;color:var(--muted);margin:2.2rem auto;max-width:30rem}
+p.thought::before{content:"“ ";color:var(--accent);opacity:.55}
+p.thought::after{content:" ”";color:var(--accent);opacity:.55}
+.part-end{text-align:center;margin:4rem auto 0;padding-top:2.4rem;border-top:1px solid var(--line);max-width:34rem}
+.end-title{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:.82rem;color:var(--muted);margin:0 0 1rem}
+.end-title::before,.end-title::after{content:"—";margin:0 .7em;opacity:.55}
+.end-next{color:var(--muted);font-style:italic;margin:0}
+.end-next em{color:var(--accent);font-style:italic}
+.end-next strong{font-style:normal;letter-spacing:.04em}
+.part-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.nav-link{text-decoration:none;color:var(--text);border:1px solid var(--line);padding:.7rem 1.15rem;border-radius:999px;font-size:.9rem;transition:border-color .2s,color .2s}
+.nav-link:hover{border-color:var(--accent);color:var(--accent)}
+.nav-link.contents{color:var(--muted)}
+.nav-link.disabled{opacity:.35;pointer-events:none}
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:55;display:none;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:999px;width:2.6rem;height:2.6rem;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);font-size:1rem;transition:transform .2s}
+#toTop:hover{transform:translateY(-3px)}
+.colophon{padding:3rem 1.25rem 5rem;text-align:center;color:var(--muted);font-size:.85rem}
+.colophon .mark{font-family:var(--font-display);font-size:1.6rem;color:var(--accent)}
+@media (max-width:640px){.part-nav{flex-direction:column}.nav-link{text-align:center}.brand{font-size:.66rem}}
+@media (max-width:420px){.part p.lead::first-letter{font-size:2.7em}.toc a{padding:1rem .3rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">A Mad Man’s Fiction</a>
+  <div class="controls" role="group" aria-label="Reading controls">
+    <a class="icon-btn" href="index.html#toc" aria-label="Contents" title="Contents">☰</a>
+    <button id="fontMinus" class="icon-btn" aria-label="Decrease text size" title="Smaller text">A−</button>
+    <button id="fontPlus" class="icon-btn" aria-label="Increase text size" title="Larger text">A+</button>
+    <button id="themeBtn" class="icon-btn" aria-label="Change theme" title="Theme">☀</button>
+  </div>
+</header>
+
+<main class="reader">
+  <section id="part-18" class="part" aria-labelledby="part-18-title">
+    <header class="part-header">
+      <p class="series">A Mad Man’s Fiction</p>
+      <h2 class="part-title" id="part-18-title">Part Eighteen</h2>
+      <p class="epigraph">This is a work of fiction of a mad man with mad tastes.</p>
+    </header>
+<hr class="ornament" aria-hidden="true">
+<p class="lead">For three days, I did not decide anything.</p>
+<p>I moved through the house the way I always had, and I cooked, and I served, and I smiled, and I lay beside Ravi at night and listened to him breathe, and all the while, under the surface of the ordinary, the three doors stood open in my mind, and I walked up to each of them in turn, and I looked through, and I could not step.</p>
+<p>And the house went on around me, the way it always did, and that was the strangest part. The milk came, and the rotis rose, and the temple bell rang in the distance, and Ravi read his paper, and the whole world went on being exactly what it had always been, while I moved through it carrying a choice that was bigger than the house, bigger than the colony, bigger than any single thing I had ever been asked to carry.</p>
+<p>I found myself doing small things with absurd care. Folding the towels a certain way. Wiping the same counter twice. As if the choice could be postponed by the doing of small things, as if the doors would stop standing open if I only kept my hands busy enough.</p>
+<p>But the doors did not close. They only grew brighter, and the one in the middle, the dark warm one, the one that smelled of him, grew brighter than the rest, and I understood, somewhere around the third day, that I was not choosing between three doors at all.</p>
+<p>I was only waiting to be brave enough to admit which one I had already chosen.</p>
+<p>The first door, the one marked <em>stop</em>, was cold and familiar, and it smelled of the woman I had been, and every time I stood in front of it, I felt the whole weight of my old life press down on me, and I knew, with a bone-deep certainty, that if I walked through it, I would spend the rest of my days as a woman who had once been on fire and had chosen, deliberately, to go back into the cold.</p>
+<p>The second door, the one marked <em>confess</em>, was bright and terrible, and it smelled of burning, and every time I stood in front of it, I saw the house fall, and Ravi’s face, and the neighbors, and the colony, and the ruin of everything, and I knew that some truths, once spoken, cannot be unspoken, and that this was one of them.</p>
+<p>And the third door, the one marked <em>choose</em>, was dark and warm, and it smelled of him, and every time I stood in front of it, I felt the fire rise in me, and I did not want to step through it so much as I wanted to fall into it, and that, the wanting to fall, was the thing that frightened me most of all.</p>
+<p>So for three days, I did not decide. I only carried the three doors around inside me, like a woman carrying three heavy keys, and I waited for the one that would finally fit the lock.</p>
+<p>At night, lying beside Ravi, I would close my eyes and see the doors again, and I would imagine stepping through each one. Through the first, I saw myself growing old in this house, the fire gone out of me, my son married off to some girl like Roopa, my body returning to the dull, patient service it had known for twenty-five years. The vision was so cold it made me shiver.</p>
+<p>Through the second, I saw the truth spoken, and the house falling, and the colony closing over us like water, and I saw Ravi’s face, and I saw, worst of all, the look in his eyes when he understood that the woman he had married had been keeping a secret from him since the day their son was born. The vision was so terrible it made me turn away.</p>
+<p>And through the third, I saw fire. Not the fire that destroys. The fire that warms. I saw the two of us, together, in the dark, and the danger, and the wanting, and the long, unbroken road of it stretching out ahead, and the vision was so bright that I could not look at it for long, and yet I kept looking, because it was the only one of the three that made me feel, even for a second, that I was still alive.</p>
+<p>And that, I suppose, was the answer, had I been brave enough to see it sooner. A woman who is still alive will always choose the fire.</p>
+<p>And then, on the third night, I remembered the boy.</p>
+<hr class="ornament" aria-hidden="true">
+<p>His name, I will not write here. Let him stay where he is, in the years before everything, in the lane behind my father’s house, in the shade of the neem tree where he used to wait for me on the way back from the well.</p>
+<p>He was the first one. Not the first to touch me, though I will not lie and say he never did. The first one to look at me the way Deva looks at me now. The first one who made me understand, at seventeen, that a woman could be wanted, and that the wanting of her was not a thing to be afraid of, but a thing to be answered.</p>
+<p>He used to write me letters. Short ones, on cheap paper, folded into the shape of little birds, and he would leave them in the hollow of the neem tree, and I would take them out and read them and press them to my face, and I would write him back, and I would leave my letters in the same hollow, and for one whole summer, the neem tree was the most important place in the world.</p>
+<p>I remember the exact colour of the light in that lane, gold and green through the neem leaves, and the way my heart used to beat when I walked past the tree and saw, in the hollow, the little white shape of a folded letter. I remember the way his handwriting slanted, and the way he spelled my name, with a curl on the last letter, as if the name itself were a thing to be lingered over. And I remember the first time he kissed me, in the shadow of the temple wall, and how I had not been afraid, not for a single second, and how that absence of fear had been, I understand now, the first true thing my body ever told me.</p>
+<p>They took him away, and they burned the letters, and they told me it was for my own good, and I believed them, because I was seventeen and a girl, and girls believed what they were told. And so I closed that road, and I walked down the one they had chosen for me, and I called it duty, and I called it fate, and I never once, in twenty-five years, let myself ask whether the road I had wanted might still be there, waiting, under the dust.</p>
+<p>It was there. That was the thing I understood now, lying in the dark with the choice in my hands. The road had never gone anywhere. It had only been covered over, and I had spent twenty-five years walking on top of it, pretending it was not there.</p>
+<p>And now, at last, I was going to stop pretending.</p>
+<p>It was a strange thing, to find courage in a memory of cowardice. To look back at the girl of seventeen, the girl who had let them burn her letters and close her road, and to feel, not pity for her, but a fierce, protective love, and a determination that her story would not end the way it had begun.</p>
+<p>She had been too small to keep her road. I was not small anymore. I had been through fire, and I had come out the other side, and I was going to walk down whatever road I chose, and no one, not my father’s ghost, not my husband’s trust, not the whole weight of the colony, was going to close it for me again.</p>
+<p>This time, the choosing was mine. And this time, I was keeping it.</p>
+<p>And then my father found out, and the letters were burned, and the boy was sent away to his uncle’s house in another town, and I was married to Ravi within the year, and I never, not once, in twenty-five years, allowed myself to think about the road that had been closed to me that summer.</p>
+<p>Until now. Until this choice. Because the choice, I understood, lying in the dark with Ravi’s breathing beside me, was not really between three doors. It was between the woman who had let the road be closed for her, and the woman who was finally ready to walk down it with her eyes open.</p>
+<p>And I knew, with a certainty that came from somewhere very old and very deep, which of those two women I wanted to be.</p>
+<hr class="ornament" aria-hidden="true">
+<p>There is a thing I have never written down, and I will write it now, because if I do not, I will carry it to my grave, and because this story, my story, will not be true without it.</p>
+<p>On the fourth day, in the hour before dawn, I went to the old trunk in the corner of the store room, the one that has been locked since before Deva was born, and I stood in front of it for a long time, and I thought about what was inside it. The papers. The ones with the seals and the signatures. The ones that say, in the flat language of the law, a thing that no one in this house has ever spoken aloud.</p>
+<p>Once, years ago, a visiting aunt had looked at Deva, asleep on my lap, and had said, in that careless way of old women, “He looks nothing like you, you know. Nothing at all. All his father’s side, I suppose.” And I had flinched, and Ravi had changed the subject, and the aunt had gone back to her tea, and no one had ever spoken of it again. But the words had stayed, buried in me, next to the papers, next to the stone in the well.</p>
+<p class="thought">He looks nothing like you.</p>
+<p>And now, standing before the trunk in the dark, I understood why I had flinched. Not because the words were wrong. Because they were true, in a way the old woman could never have known, and the truth of them had been sitting in my chest for twenty-four years, waiting for me to be brave enough, or broken enough, to take it out and look at it.</p>
+<p>And then I thought the thought. The one I have never let myself think, the one that has lived at the bottom of me for twenty-four years, like a stone in a well.</p>
+<p class="thought">He is not my blood.</p>
+<p>The words came up out of the dark, and they were cold, and they were true, and for one terrible, glorious second, I let them absolve me. Not my blood. Not my son, not really, not in the way that matters, not in the way that would make this a sin beyond sin. I let the words do their work, and I felt the weight of the thing we had done lift, just a little, and I understood, in that second, why the papers had been locked away all these years, and why my hand had never once, in twenty-four years, reached for the key.</p>
+<p>Because the papers were not just papers. They were the one lie that could make everything we had done feel almost clean. And I did not want to be clean. That was the truth I found standing in front of that trunk in the dark. I did not want the absolution. I had earned the sin, and I wanted it to stay a sin, because the sin was the only thing that made it real.</p>
+<p><em>He is my son,</em> I thought, and the words came up and broke the cold ones, and I said them, out loud, to the locked trunk, to the dark, to the woman I had been and the woman I was becoming. <em>Whatever the papers say. However he came to me. He is my son, and I am his, and that is the only truth that has ever mattered.</em></p>
+<p>And then I turned away from the trunk, and I did not open it, and I did not look back.</p>
+<p>I left the key where it was. In the tea tin on the top shelf, where it has sat for twenty-four years, behind the cardamom, where no one but me knows to look. And I understood, in the act of leaving it there, that some doors are not meant to be opened, and some truths are not meant to be spoken, and that the keeping of a secret can be, in its own way, an act of love.</p>
+<p>The papers would stay locked. The aunt’s remark would stay buried. The word <em>adopted</em> would never once be spoken in this house. Not because I was ashamed of it, though I had been, once, and not because I was afraid of it, though I was, a little.</p>
+<p>But because it did not matter. He was my son. He had been my son from the moment they put him in my arms, and no paper, no blood, no law, could ever make him anything else.</p>
+<p>And I was done letting the paper have any say in what we were to each other.</p>
+<p>And I understood, walking out of the store room in the grey light, that I had just made the choice. Not with my body, and not with my mouth, but with the only part of me that had ever been able to choose anything at all.</p>
+<hr class="ornament" aria-hidden="true">
+<p>He was waiting for me in the kitchen.</p>
+<p>It was four in the morning, and the house was dark, and he was leaning against the counter the way he had a hundred mornings ago, in the beginning, when all of this was still a secret I was trying to keep from myself. And he looked at me, and I looked at him, and the three doors, the three heavy keys, fell out of my hands, and only one of them remained.</p>
+<p>“You have decided,” he said, and it was not a question.</p>
+<p>“I have decided,” I said.</p>
+<p>He waited. The kettle began to murmur on the stove. The grey light grew at the window. And then he said, very quietly, “Tell me.”</p>
+<p>And I told him.</p>
+<p>“I am not going to stop,” I said, and my voice was low and steady, and I heard, in it, the voice of the woman I had been waiting my whole life to become. “And I am not going to confess. I am going to choose. You. This. The fire. The danger. All of it.” I crossed the kitchen, and I stood in front of him, and I looked up into his face, and I said the words I had never once, in all these weeks, allowed myself to say in the light. “I love you. Not as a mother. Not as a sin. As a woman. I love you, and I am done pretending I don’t.”</p>
+<p>The silence that followed was the longest of my life.</p>
+<p>I stood there, in the grey light, with the words still hanging in the air between us, and I felt, for the first time in my life, the full weight of what it means to tell the truth. Not the small truths, the ones you let slip at dinner tables and temple queues. The big truth. The one you have been holding underwater for so long that saying it out loud feels like drowning and breathing at the same time.</p>
+<p>And I did not drown. I breathed. I breathed, and I stood still, and I let him look at me, and I looked back, and I understood that this, this standing in the light and being seen, was the thing I had been running from my whole life.</p>
+<p>And it was not a thing to run from. It was a thing to run toward.</p>
+<p>And then he reached out, and he took my face in both his hands, the way he had the first night, the way he had a hundred times since, and he looked at me, and his eyes were wet, and his voice, when it came, was rough and low and full of a thing I had never heard in it before.</p>
+<p>“I have loved you,” he said, “since I first understood what the word meant. And I have waited, every day of my life, to hear you say it back.” He pressed his forehead to mine. “So say it again, maa. Say it once more, and then never stop saying it.”</p>
+<p>“I love you,” I said. “I love you, I love you, I love you.”</p>
+<p>And then, in the grey light of the kitchen, with the kettle boiling over and the day coming on and the whole world asleep around us, he kissed me, and it was not a kiss of hunger, and not a kiss of sin, but a kiss of arrival, the kiss of two people who had finally, after twenty-five years and a thousand closed doors, found their way home to each other.</p>
+<p>And I understood, with a certainty that was deeper than anything I had ever known, that whatever came after this, whatever the world did to us, whatever we lost, we had already won the only thing that mattered.</p>
+<p>We had chosen. And we had chosen each other.</p>
+<p>I will remember that kitchen for the rest of my life. Not for what happened there, though what happened there changed everything. For the way the light came through the window, grey and then gold, and the way the kettle went on boiling, forgotten, and the way his hands felt on my face, and the way the words, the three small words I had been holding underwater for twenty-five years, finally broke the surface and breathed.</p>
+<p>I had said a great many things in my life. Prayers, and promises, and the small, careful lies that a marriage runs on. But I had never, not once, said the one thing that was true, to the one person it was true of, in the light.</p>
+<p>And now I had. And the saying of it had not ended the world. It had begun one.</p>
+<p>I was not afraid anymore. I was not even careful anymore, in the way I had been careful. I was only his, and he was mine, and the rest of the world could do what it liked.</p>
+<hr class="ornament" aria-hidden="true">
+<p>After that, the fear did not disappear. I will not pretend it did. The fear was still there, in the mornings, in the evenings, in the sound of Ravi’s key in the lock, in the way Kamala’s eyes followed me around the kitchen. But the fear was no longer the thing in charge. It had been demoted, the way a servant is demoted, to its proper place: a warning, not a master.</p>
+<p>And in the space where the fear had lived, something else grew. Something lighter, and hotter, and far more dangerous. A recklessness. A hunger that had been given permission, at last, to be as large as it actually was.</p>
+<p>Because I had chosen. That was the whole difference. I had stood in the grey light and said the word out loud, and the saying of it had changed the chemistry of everything. I was no longer a woman being dragged toward a thing she half wanted and half feared. I was a woman who had walked through the door of her own free will, and whatever was on the other side, she was going to meet it standing up, with her eyes open.</p>
+<p>And I understood, with a shiver that was part fear and part something else entirely, that there was more of me now than I had ever known. More wanting. More filth. More darkness. The doors I had been keeping locked inside myself, the ones I had never even admitted were there, had come unlatched, one by one, in the weeks since the first yes.</p>
+<p>And now, with the choice made, they were swinging open.</p>
+<p>I had spent my whole life believing I was one kind of woman, and I was discovering, door by door, that I was another kind entirely. A woman who had liked the danger in the corridor. A woman who had come apart at the word whore in a cinema. A woman who had stood bare on a rooftop and wanted the whole city to see. A woman who, if she was honest, wanted more than to be taken. She wanted to be bound, and commanded, and dared, and played with, and pushed to the very edge of herself, and then pushed past it.</p>
+<p>These things had always been in me. I understood that now. They had not been put there by him, and they had not been created by the fall. They had been there all along, locked in the rooms behind the rooms, and the only thing the fall had done was give me the key.</p>
+<p>And now, with the choice made, I was turning the key, and I was walking through, and I was not afraid of what I would find.</p>
+<p>I was only afraid, a little, that I had waited too long to begin.</p>
+<hr class="ornament" aria-hidden="true">
+<p>He must have seen it in my face, because that night, when the house was dark, he came to my door, and he did not knock. He simply stood there, in the dark of the corridor, and he said, very quietly, “I want to show you something.”</p>
+<p>“What?” I whispered.</p>
+<p>“Everything.” His voice was low, and there was something in it I had not heard before, something hungry and careful and full of promise. “Everything you have been too afraid to ask for. Everything I have been too patient to take.” He held out his hand. “You have chosen, maa. Now let me show you what you have chosen.”</p>
+<p>“Everything,” he said again, and the word hung in the dark of the corridor like a door swinging open. “The silk, and the rope, and the blindfold. The games, and the dares, and the roles we have never played. The things you have only ever dreamed of, maa, and the things you have not yet dared to dream.” His hand tightened on mine, and his voice dropped lower, and there was the wolf in it now, and the man, and the boy, all of them, all at once. “You have been a teacher all your life. Tonight, I want to be taught. And then I want to teach you. Everything. All night. With nothing held back and nothing left in the dark.”</p>
+<p>I looked at him, and the fire in me, the fire I had finally stopped pretending was not there, rose up and met the fire in him, and I said, in a voice I barely recognized as my own, “Then teach me. And let me teach you. And don’t stop until neither of us can remember our own names.”</p>
+<p>And I took his hand, and I followed him through the dark of the house, and I did not ask where we were going, because I did not need to.</p>
+<p>I knew. I had always known. I had been walking toward it since the first night in the blue saree.</p>
+<p>And now, at last, the walking was over, and the falling was about to begin.</p>
+<hr class="ornament" aria-hidden="true">
+<footer class="part-end"><p class="end-title">End of Part Eighteen.</p><p class="end-next">To be continued in <strong>Part Nineteen</strong> — <em>the full embrace, and every kink she kept locked.</em></p></footer>
+    <nav class="part-nav" aria-label="Part navigation">
+      <a class="nav-link prev" href="part-17.html">&larr; Part Seventeen</a>
+      <a class="nav-link contents" href="index.html#toc">Contents</a>
+      <a class="nav-link next" href="part-19.html">Part Nineteen &rarr;</a>
+    </nav>
+  </section>
+  <footer class="colophon">
+    <div class="mark">✦</div>
+    <p>Part Eighteen of Part Twenty</p>
+  </footer>
+</main>
+<button id="toTop" aria-label="Back to top">↑</button>
+<script>
+(function () {
+  var root = document.documentElement;
+  var THEMES = ['light', 'sepia', 'dark'];
+  function readTheme() {
+    var t = localStorage.getItem('ammf-theme');
+    return THEMES.indexOf(t) >= 0 ? t : 'light';
+  }
+  function readScale() {
+    var s = parseFloat(localStorage.getItem('ammf-scale'));
+    return (s >= 0.8 && s <= 1.45) ? s : 1;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    var b = document.getElementById('themeBtn');
+    if (b) {
+      b.textContent = (t === 'light') ? '☀' : (t === 'sepia') ? '◐' : '☾';
+      b.setAttribute('aria-label', 'Theme: ' + t);
+    }
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim());
+  }
+  function cycleTheme() {
+    var i = THEMES.indexOf(root.getAttribute('data-theme') || 'light');
+    var next = THEMES[(i + 1) % THEMES.length];
+    applyTheme(next);
+    localStorage.setItem('ammf-theme', next);
+  }
+  function applyScale(s) { root.style.setProperty('--reader-scale', String(s)); }
+  function bumpScale(d) {
+    var s = Math.min(1.45, Math.max(0.8, Math.round((readScale() + d) * 100) / 100));
+    applyScale(s);
+    localStorage.setItem('ammf-scale', String(s));
+  }
+  var bar = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+    if (toTop) toTop.style.display = (h.scrollTop > 700) ? 'flex' : 'none';
+  }
+  var tb = document.getElementById('themeBtn');
+  if (tb) tb.addEventListener('click', cycleTheme);
+  var fm = document.getElementById('fontMinus');
+  var fp = document.getElementById('fontPlus');
+  if (fm) fm.addEventListener('click', function () { bumpScale(-0.05); });
+  if (fp) fp.addEventListener('click', function () { bumpScale(0.05); });
+  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  applyTheme(readTheme());
+  applyScale(readScale());
+  onScroll();
+})();
+</script>
+</body>
+</html>

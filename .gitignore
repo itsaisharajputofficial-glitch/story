@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Captured network traffic — contains tokens/cookies, NEVER publish
+*.har
+
+# Internal backups, trimmed drafts, and working chapters
+.sepia-backup/
+.sepia-trimmed/
+Chapters/
+Bachelor-son’s/
+
+# Internal process / guardrail docs (not part of the published site)
+SCOPE.md
+story-plan.md
+uncensored-generation-guide.md

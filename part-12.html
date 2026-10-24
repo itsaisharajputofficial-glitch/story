@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1e8">
+<meta name="description" content="A Mad Man’s Fiction — Part Twelve. A serial work of fiction.">
+<title>A Mad Man’s Fiction — Part Twelve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90' fill='%238f1d2c'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --font-body:"Literata",Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+  --font-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --reader-scale:1;
+  --bg:#f7f1e8;--surface:#fdfaf4;--text:#2a231c;--muted:#8d7d6c;--accent:#8f1d2c;
+  --accent-soft:rgba(143,29,44,.07);--line:rgba(42,35,28,.15);--topbar:rgba(247,241,232,.88);
+  --shadow:0 20px 60px rgba(30,20,12,.08);
+}
+[data-theme="sepia"]{--bg:#f1e7cf;--surface:#f7efe0;--text:#44351f;--muted:#8b7958;--accent:#7e1a29;--accent-soft:rgba(126,26,41,.08);--line:rgba(68,53,31,.18);--topbar:rgba(241,231,207,.9)}
+[data-theme="dark"]{--bg:#15110e;--surface:#1c1713;--text:#ddd2c5;--muted:#9b8d7d;--accent:#e08c99;--accent-soft:rgba(224,140,153,.13);--line:rgba(221,210,197,.16);--topbar:rgba(21,17,14,.9)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:calc(1.075rem * var(--reader-scale))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.82;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s ease,color .4s ease;overflow-x:hidden}
+a{color:var(--accent)}
+::selection{background:var(--accent);color:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:70;box-shadow:0 0 10px var(--accent)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem clamp(.9rem,4vw,2rem);background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--font-display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--muted);white-space:nowrap;text-decoration:none}
+.controls{display:flex;align-items:center;gap:.3rem}
+.icon-btn{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;min-width:2.1rem;height:2.1rem;padding:0 .55rem;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:.92rem;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.cover{min-height:100vh;min-height:100dvh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.4rem 4rem;position:relative}
+.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,var(--accent-soft),transparent 60%);pointer-events:none}
+.cover>*{position:relative}
+.cover-kicker{letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--muted);margin:0 0 1.6rem;max-width:34rem;line-height:2}
+.cover-title{font-family:var(--font-display);font-weight:600;font-size:clamp(3.1rem,11vw,6.5rem);line-height:.96;margin:0;letter-spacing:-.01em}
+.cover-sub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 0}
+.cover-cta{margin-top:2.6rem}
+.cta{display:inline-block;text-decoration:none;color:var(--surface);background:var(--accent);padding:.85rem 1.9rem;border-radius:999px;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(143,29,44,.28)}
+.cta:hover{transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.2rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+.reader{padding:0 clamp(1.2rem,4vw,2rem)}
+.toc{padding:4rem 0 5rem;max-width:40rem;margin:0 auto;scroll-margin-top:5rem}
+.toc-heading{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;font-size:1rem;color:var(--muted);margin:0 0 2rem}
+.toc-heading::after{content:"";display:block;width:3.4rem;height:1px;background:var(--accent);margin:.9rem auto 0}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:flex;flex-direction:column;gap:.1rem;text-decoration:none;color:var(--text);padding:1.15rem .4rem;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.toc a:hover{background:var(--accent-soft);padding-left:.9rem}
+.toc .num{font-family:var(--font-display);font-size:.78rem;letter-spacing:.2em;color:var(--accent)}
+.toc .name{font-family:var(--font-display);font-weight:600;font-size:1.35rem;line-height:1.1}
+.toc .sub{color:var(--muted);font-style:italic;font-size:.92rem}
+
+.part{max-width:42rem;margin:0 auto;padding:6rem 0 3rem;scroll-margin-top:4.5rem}
+.part-header{text-align:center;margin-bottom:2.6rem}
+.series{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.part-title{font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,7vw,3.2rem);letter-spacing:.06em;line-height:1;margin:0}
+.epigraph{color:var(--muted);font-style:italic;font-size:.95em;margin:1.2rem auto 0;max-width:32rem}
+.part p{margin:0 0 1.4em}
+.part p.lead::first-letter{font-family:var(--font-display);font-weight:600;float:left;font-size:3.3em;line-height:.8;padding:.05em .13em 0 0;color:var(--accent)}
+hr.ornament{border:0;margin:2.7rem auto;text-align:center;overflow:visible}
+hr.ornament::after{content:"✦ ✦ ✦";color:var(--muted);font-size:.78rem;opacity:.8}
+p.msg{text-align:center;margin:2.4rem auto;max-width:28rem;background:var(--accent-soft);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:1.05rem 1.4rem;font-size:.98em}
+p.msg .who{font-family:var(--font-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.9em;color:var(--accent);margin-right:.35em}
+p.msg .sep{color:var(--muted)}
+p.thought{text-align:center;font-style:italic;font-size:1.14em;line-height:1.6;color:var(--muted);margin:2.2rem auto;max-width:30rem}
+p.thought::before{content:"“ ";color:var(--accent);opacity:.55}
+p.thought::after{content:" ”";color:var(--accent);opacity:.55}
+.part-end{text-align:center;margin:4rem auto 0;padding-top:2.4rem;border-top:1px solid var(--line);max-width:34rem}
+.end-title{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:.82rem;color:var(--muted);margin:0 0 1rem}
+.end-title::before,.end-title::after{content:"—";margin:0 .7em;opacity:.55}
+.end-next{color:var(--muted);font-style:italic;margin:0}
+.end-next em{color:var(--accent);font-style:italic}
+.end-next strong{font-style:normal;letter-spacing:.04em}
+.part-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.nav-link{text-decoration:none;color:var(--text);border:1px solid var(--line);padding:.7rem 1.15rem;border-radius:999px;font-size:.9rem;transition:border-color .2s,color .2s}
+.nav-link:hover{border-color:var(--accent);color:var(--accent)}
+.nav-link.contents{color:var(--muted)}
+.nav-link.disabled{opacity:.35;pointer-events:none}
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:55;display:none;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:999px;width:2.6rem;height:2.6rem;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);font-size:1rem;transition:transform .2s}
+#toTop:hover{transform:translateY(-3px)}
+.colophon{padding:3rem 1.25rem 5rem;text-align:center;color:var(--muted);font-size:.85rem}
+.colophon .mark{font-family:var(--font-display);font-size:1.6rem;color:var(--accent)}
+@media (max-width:640px){.part-nav{flex-direction:column}.nav-link{text-align:center}.brand{font-size:.66rem}}
+@media (max-width:420px){.part p.lead::first-letter{font-size:2.7em}.toc a{padding:1rem .3rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">A Mad Man’s Fiction</a>
+  <div class="controls" role="group" aria-label="Reading controls">
+    <a class="icon-btn" href="index.html#toc" aria-label="Contents" title="Contents">☰</a>
+    <button id="fontMinus" class="icon-btn" aria-label="Decrease text size" title="Smaller text">A−</button>
+    <button id="fontPlus" class="icon-btn" aria-label="Increase text size" title="Larger text">A+</button>
+    <button id="themeBtn" class="icon-btn" aria-label="Change theme" title="Theme">☀</button>
+  </div>
+</header>
+
+<main class="reader">
+  <section id="part-12" class="part" aria-labelledby="part-12-title">
+    <header class="part-header">
+      <p class="series">A Mad Man’s Fiction</p>
+      <h2 class="part-title" id="part-12-title">Part Twelve</h2>
+      <p class="epigraph">This is a work of fiction of a mad man with mad tastes.</p>
+    </header>
+<hr class="ornament" aria-hidden="true">
+<p class="lead">Saturday came, and I dressed for it the way a woman dresses for a wedding she is not supposed to be attending.</p>
+<p>The green saree. The one he had asked for. The one from the dinner, the one that showed the soft curve of my waist when I reached across a table. I put it on slowly, in front of the mirror, and I watched my own hands steady and sure on the pleats, and I remembered the first time I had worn it, how I had trembled, how the woman in the glass had looked like a stranger. She was not a stranger now. I knew her. I knew exactly what she was capable of, in the dark, in a car, on a road that led nowhere, and the knowing of it made my hands steady in a way that was its own kind of sin.</p>
+<p>I chose the blouse carefully, the low one, and I did not wear anything under the saree, and when I looked at myself in the glass, I saw a woman who was already halfway to the dark, already halfway to the thing that was waiting for her there. And I did not look away from her. I held her gaze, the way you hold the gaze of a woman you are finally proud to be.</p>
+<p>“Go,” I whispered to her. “Go and be ruined.”</p>
+<p>Ravi was at the shop. I told him I was going to the film with the ladies from the temple committee. He waved a hand without looking up. “Enjoy. You have been working too hard.”</p>
+<p>I smiled, and I said, “I will,” and I walked out of the house and into the afternoon, and the heat of the day rose up to meet me like a lover.</p>
+<p>I had woken at four, as always, and the morning had been ordinary and unbearable. The kitchen, the stove, the water boiling, and under everything, the hum of what was coming, the way a wire hums before the current reaches it. I had done my chores with my body and not my mind. My mind was already in the dark hall, already in the green saree, already waiting for the click.</p>
+<p>The walk to the car was two streets, and I took them slowly, and every step I felt the green silk move against my bare thighs, and I felt, with a little shock of heat, that I was already wet, already ready, already his, before he had touched me, before he had even seen me. The body does not lie. It had learned the schedule of its own ruin, and it was running ahead of me, hurrying toward the thing it wanted, the way a dog runs ahead on a path it knows by heart.</p>
+<p>Under the saree I wore nothing, the way he had taught me to, and the thought of it, the cool air moving against my bareness with every step, was a small, constant, private thrill. I had become a woman with no underthings and no shame, and the two facts, I was discovering, went together like a lock and a key. The colony wives I passed, with their petticoats and their lowered eyes, would have crossed the road to avoid me if they had known what walked among them.</p>
+<p>I smiled at them all. I smiled, and I walked on, toward the car, toward the dark, toward the man who was going to hold the switch.</p>
+<hr class="ornament" aria-hidden="true">
+<p>He was waiting in the car two streets away.</p>
+<p>I got in, and the first thing I saw was the small black box on the seat between us. It was no bigger than a matchbox, wrapped in plain paper, and it sat there like a question.</p>
+<p>“Is that it?” I said, and my voice came out lower than I meant it to.</p>
+<p>“It is.” He did not look at me. He was watching the road, and his profile was sharp in the afternoon light, and his jaw was set the way it got when he was holding something back. “Do you want to see it now, or in the hall?”</p>
+<p>“Now,” I whispered.</p>
+<p>He reached over, and he took the box, and he unwrapped it, slowly, and he held it out to me, and there it was, in the palm of his hand, a small, smooth, egg-shaped thing in a soft pink, with a thin cord and a little switch, and I understood, with a rush of heat that went straight to my cunt, exactly what it was and exactly where it was going to go.</p>
+<p>“It is small,” he said, and his voice was low and even, and he turned it over in his fingers, and I watched those fingers and I remembered where they had been and my mouth went dry. “It will sit inside you, and you will feel it, and only you will know it is there. And I,” he held up the switch, a little plastic thing with two buttons, “will decide everything that happens after that.”</p>
+<p>“Deva.”</p>
+<p>“Do you trust me, maa?”</p>
+<p>The question hung in the air between us, and I did not have to think about my answer. I had crossed a line in the car that could not be uncrossed, and I had not wanted to uncross it, and the only thing left in me that resembled fear was the good kind, the kind that made everything sharp and bright.</p>
+<p>“Yes,” I said. “I trust you.”</p>
+<p>“Then open your legs.”</p>
+<hr class="ornament" aria-hidden="true">
+<p>He put it in me there, in the car, in a quiet side street, while the city went about its Saturday around us.</p>
+<p>His fingers, warm and sure, sliding up under the green saree, and then the smooth, cool press of the toy, and I gasped, and he pushed, slow, and I felt it seat itself inside me, and then his fingers were gone, and there was only the small, patient weight of it, and the knowledge that he held the switch in his other hand, and that I was now, completely and literally, in his control.</p>
+<p>He did not turn it on. Not yet. He just looked at me, and he smiled, that slow, dark, wolf smile, and he said, “Now let us go watch a film, maa.”</p>
+<p>And he started the car, and I sat there in the passenger seat with a thing inside me and my thighs pressed together and my whole body humming with anticipation, and I understood that the next three hours were going to be the longest and the most exquisitely cruel of my life.</p>
+<hr class="ornament" aria-hidden="true">
+<p>The hall was dark and cold, and the film was three hours long, and we sat in the third row from the back, in the corner, where the shadows were deepest.</p>
+<p>He had chosen the seats. Of course he had. He had thought of everything, the way he always did. The corner, the shadows, the emptiness of the row, the way the green saree pooled around me and hid the fact that under it, inside me, sat a small, smooth, pink thing that was waiting for the click of a switch.</p>
+<p>The lights went down. The screen lit up. The film began, a love story with songs, the kind everyone in the colony had been talking about, and I did not register a single frame of it.</p>
+<p>Because in the dark, his hand found my knee, and then his other hand, the one holding the switch, and I heard, over the first swell of the music, the smallest click.</p>
+<p>And the toy came alive.</p>
+<hr class="ornament" aria-hidden="true">
+<p>I will not pretend it was gentle.</p>
+<p>It was not. It was a sudden, humming, insistent vibration, deep inside me, and it took my breath, and I gripped the armrest, and my back arched, and I had to bite down on my lip to keep the sound in my throat from escaping into the dark.</p>
+<p>“Shhh,” he whispered, and his mouth was at my ear, and his hand was on my thigh, and his other hand, on the switch, turned it up, one notch, and the vibration deepened, and I thought I was going to come apart right there in the third row. “There are people all around us, maa. A hundred people watching the same film. And not one of them knows that the woman in the corner is being opened up by a toy that obeys my thumb. Not one of them knows what a whore the sanskari madam of this colony has become.”</p>
+<p>The word went through me like a current. Whore. He had never used that word before. Randi, yes. But whore, plain and ugly and true, in a cinema full of strangers, and the filth of it, and the truth of it, made my cunt clench around the humming thing inside me, and I moaned, low, and he turned it up again.</p>
+<p>“Look at the screen,” he said. “Watch the film. The heroine is dancing. Watch her. And hold still, maa, hold very, very still, because I have not even started yet.”</p>
+<p>I watched the screen. I watched a woman in a bright saree dance across a fake palace, and I felt the vibration inside me climb, and I held still, and I did not make a sound, and I understood, with a clarity that was its own kind of ecstasy, what he had made me into.</p>
+<p>Not a woman watching a film. A secret. A live, pulsing, hidden secret, sitting in the dark in a hall full of people, and only he, only he in the whole world, knew what was happening inside her.</p>
+<p>And that, more than the toy, more than the vibration, more than anything, was what was going to make me come.</p>
+<p>He kept me there for the length of two songs and an interval. The interval was the worst, because the lights came up, and people moved around us, and I had to sit there, composed, smiling, while a thing hummed inside me at a frequency so low it was barely there, and the woman in the row ahead turned to ask me the time, and I told her, and my voice was steady, and she never knew, never knew, that the woman answering her was holding herself together with nothing but her nails in the armrest and the knowledge that the man beside her held the switch.</p>
+<p>In the dark again, he leaned over, and his mouth was at my ear, and he said, “Do you want to know what I am going to do to you when this film is over, maa?”</p>
+<p>“Tell me,” I whispered, and my voice was already gone, already wrecked, and the film had two hours left.</p>
+<p>“I am going to take you somewhere with a door that locks,” he said, “and I am going to push you up against a wall, and I am going to fuck you until you forget your own name. And the only thing that will keep you quiet will be my hand over your mouth, and the only thing that will keep you standing will be me.” His hand slid higher under the saree, and his fingers found the wet heat of me, and I bit my lip so hard I tasted copper. “And you are going to love every second of it, aren’t you? My dirty, secret, sanskari whore.”</p>
+<p>“Yes,” I breathed. “Yes, yes, yes.”</p>
+<p>He turned the toy up, and the world went bright, and then he turned it off, and I nearly screamed, and he said, very softly, “Good. Then hold still, and watch the film.”</p>
+<hr class="ornament" aria-hidden="true">
+<p>He played me the way a musician plays a thing with strings.</p>
+<p>Up, and the world went thin and bright, and I was climbing, climbing, my nails in the armrest, my thighs shaking under the green silk. And then, just as I reached the edge, just as the wave began to crest, he turned it off, and the sudden silence inside me was a cruelty worse than any sound, and I whimpered, and he leaned in, and he said, “Not yet.”</p>
+<p>And then down, low, a murmur of vibration, just enough to keep me hovering, and the film went on, and the songs went on, and I sat there in the dark with my whole body wound tight around a thing that would not let me fall, and the wanting, the endless, unbearable wanting, was the whole film, was the whole world, was everything.</p>
+<p>“How do you feel, maa?” he whispered, and his hand was high on my thigh now, and his fingers were tracing slow circles on the silk, and his breath was warm on my ear.</p>
+<p>“Like I am going to die,” I breathed. “Like I am going to die if you don’t let me come.”</p>
+<p>“Good.” He turned it up, just a little, and I bit my lip so hard I tasted copper, and the woman on the screen danced on, oblivious, beautiful, free. “That is exactly how I want you. Now watch the film. We have two more hours.”</p>
+<p>Two more hours. The words were a sentence and a promise. I had never in my life wanted a film to end, and I had never in my life wanted one to be over, so that I could have him, all of him, in some dark place with a door that locked.</p>
+<p>And then, because he was cruel, and because he knew exactly what it did to me, he did it again. Up, up, up, until I was biting my tongue and gripping his thigh and seeing stars behind my closed eyes, and then, at the very lip of it, off. And the silence inside me was so total, so absolute, that I wanted to weep. I turned my face into his shoulder, and I breathed him in, and I heard myself make a sound, a small, desperate, animal sound, and he put his hand on the back of my neck, and he said, “Not yet, maa. Not until I say.”</p>
+<p>“I will die,” I whispered. “Deva, I will die before this film is over.”</p>
+<p>“Then you will die wet,” he said, and there was something almost tender in it, “and you will die mine. Now watch the screen.”</p>
+<p>And then, in the middle of the second song, he turned to me, and his eyes were black in the flickering light, and he said, very quietly, “Get up. We are going to the washroom.”</p>
+<hr class="ornament" aria-hidden="true">
+<p>The washroom was at the end of a long corridor, past the concession stand, past the soft drink counter, and the corridor was empty because the film was still running, and the only sound was the muffled thump of the music through the walls.</p>
+<p>He pushed me into the ladies’ washroom, and then he was inside with me, and the door clicked shut behind him, and we were alone, and the sound of the lock turning was the loudest thing I had ever heard.</p>
+<p>“I have been sitting in that hall for an hour,” he said, and he backed me against the cool tiles of the wall, and his hands were on me, and the toy was still inside me, still humming, low and relentless, and I was already so close, so close, that I thought the first touch of his hand would undo me. “Watching you bite your lip. Watching you shake. Listening to you try not to scream. And I cannot, I cannot wait one more minute to be inside you.”</p>
+<p>He turned the toy off, and he pulled it out of me, slow, and I felt the loss of it like a wound, and then he lifted me, and my back hit the wall, and my legs wrapped around him, and he was inside me, and I cried out, and the sound of it echoed off the tiles and the mirrors, and he swallowed it with his mouth, and we fucked against the wall of a cinema washroom while, through the walls, a love song swelled and swelled, and I thought, this, this is what it means to be alive.</p>
+<p>I want to record, for my own sake, how it felt, because I am afraid I will forget, and I never want to forget. The cold of the tiles against my back, and the heat of him inside me, and the distant swell of the film’s music through the walls, and the smell of disinfectant and of him and of me, and the knowledge, singing in my blood, that anyone, anyone, could walk through that door at any moment and catch the sanskari madam of the colony with her legs wrapped around her own son. It should have been the most shameful moment of my life. It was the most alive I had ever been. Those two facts are not contradictions. They are the same fact, seen from two sides.</p>
+<p>“Quiet,” he growled against my mouth, and his hips slammed into me, and the whole world was heat and tiles and the smell of disinfectant and the sound of our bodies and the terrible, wonderful risk of someone, anyone, walking down that corridor and hearing us. “Quiet, maa, or the whole cinema will know what a slut Ravi’s wife is.”</p>
+<p>“Then let them,” I sobbed, and I did not care, I did not care about anything but the hammer of him inside me and the wave that was finally, finally cresting, “let them know, let them all know, I am yours, I am your slut, I am your whore, I am your maa, just don’t stop, don’t stop, don’t,”</p>
+<p>And the door to the corridor swung open, and we both went still, and the world held its breath.</p>
+<p>A woman came in. I heard her first, the click of her heels on the tile, the rustle of her saree, and then her voice, humming the song from the film, and I thought, <em>this is it, this is how it ends, caught in a cinema washroom with my son inside me, and I do not even care, I only wish I could finish.</em></p>
+<p>He moved. Fast, silent, he dragged us both into the last stall, and he pressed me against the door of it, and his hand came over my mouth, and he was still inside me, still hard, and I could feel him trembling with the effort of holding still, and the woman was at the sink now, running the water, humming, and the whole world had narrowed to the sound of the tap and the pressure of his hand on my mouth and the impossible, unbearable weight of him inside me.</p>
+<p>And then, very slowly, so slowly I could have screamed, he moved.</p>
+<p>One inch. Then another. Silent, in the dark of the stall, with a stranger washing her hands three feet away, he fucked me in slow, silent, devastating strokes, and his eyes were on mine, and I saw in them the same thing I felt: the terror, and the thrill, and the sheer, mad, unhinged joy of it. The danger was not the price we were paying for the pleasure. The danger was the pleasure.</p>
+<p>The wave that had been cresting all evening, the wave he had built and denied and built again with that little pink toy, finally, silently, broke. I came, with his hand over my mouth and a stranger humming on the other side of the stall door, and my body convulsed around him, and I bit down on his palm, and I screamed, soundlessly, into the dark.</p>
+<p>The tap turned off. The woman left. The door swung shut. And the silence came back, and he pulled me against him, and he buried his face in my neck, and he finished, with one long, shuddering, silent thrust, and we stood there in the dark, holding each other, wrecked and laughing and terrified and utterly, completely, alive.</p>
+<hr class="ornament" aria-hidden="true">
+<p>We walked out of that cinema separately, and we did not look at each other, and no one looked at us, because we were nothing, just a mother and her son leaving a film, and the ordinary world closed over us like water.</p>
+<p>And I understood, sitting beside him in the car with the green saree still damp and the smell of the washroom still on my skin, that we had crossed another line, and that the next line, the one I could already see coming, was the most dangerous of all.</p>
+<p>Because the risk of a cinema washroom was nothing, nothing, compared to the risk of what he whispered to me, there in the car, with the city lights sliding over his face.</p>
+<p>“Tonight,” he said, and his voice was low and certain, “when the house is asleep, you will come to me. And we will do it in your bed. In the bed you share with him. Beside my father while he sleeps.”</p>
+<p>I stared at him, and my heart stopped, and then started again, at double speed.</p>
+<p>“Deva,” I breathed. “That is madness.”</p>
+<p>“Yes,” he said, and he smiled, that slow, dark, wolf smile. “It is. And you will come anyway, won’t you, maa? Because the madness is the only part that still frightens you, and the fear is the only part that still makes you feel alive.”</p>
+<p>And I did not answer. Because I did not need to. We both already knew.</p>
+<p>We drove home through the thickening evening, and the city lit up around us, and I watched the lights and I thought about the bed. The bed I had slept in for twenty-five years. The bed where my husband snored, and my son had never once, in all those years, been. The bed I had made and unmade a thousand times, in sickness and in duty and in the long, dry years of a marriage that had forgotten what beds were for.</p>
+<p>And tonight, he was going to come to that bed, and I was going to let him, and the thought of it, the sacrilege of it, made me press my thighs together under the green silk, because it was the one line I had sworn, in some far-off part of my heart, that I would never cross.</p>
+<p>But the far-off part of my heart had gone quiet. It had been quiet since the car, since the banyan grove, since the first time I said yes and meant it. And what was left of me, what was real of me, was already counting the hours until the house went dark.</p>
+<p>The thought of Ravi did not come to me often anymore, and when it did, it came like a distant bell, heard through walls, easy to ignore. But tonight it came differently. Tonight I saw him, in my mind, the way he would be in a few hours: flat on his back, his mouth open, his glasses on the nightstand, his bad knee propped on a pillow, trusting me. Trusting the house. Trusting the son whose bed was two doors down.</p>
+<p>And I was going to lie in that same bed, beside that same sleeping man, and let that same son inside me.</p>
+<p>The cruelty of it, and the thrill of it, and the terrible, bottomless sweetness of it, all rose up together, and I let them come, and I did not push a single one of them away.</p>
+<p>And that night, when I lay down beside Ravi and felt the house settle into its sleeping shape, I did not sleep. I lay very still, and I listened to the clock, and I waited for the one sound I knew was coming: the soft creak of a door down the hall, and the weight of a body I had carried inside me, climbing into the bed I shared with another man.</p>
+<p>I did not have to wait long.</p>
+<hr class="ornament" aria-hidden="true">
+<footer class="part-end"><p class="end-title">End of Part Twelve.</p><p class="end-next">To be continued in <strong>Part Thirteen</strong> — <em>the sleeping husband, and the silence that kills.</em></p></footer>
+    <nav class="part-nav" aria-label="Part navigation">
+      <a class="nav-link prev" href="part-11.html">&larr; Part Eleven</a>
+      <a class="nav-link contents" href="index.html#toc">Contents</a>
+      <a class="nav-link next" href="part-13.html">Part Thirteen &rarr;</a>
+    </nav>
+  </section>
+  <footer class="colophon">
+    <div class="mark">✦</div>
+    <p>Part Twelve of Part Twenty</p>
+  </footer>
+</main>
+<button id="toTop" aria-label="Back to top">↑</button>
+<script>
+(function () {
+  var root = document.documentElement;
+  var THEMES = ['light', 'sepia', 'dark'];
+  function readTheme() {
+    var t = localStorage.getItem('ammf-theme');
+    return THEMES.indexOf(t) >= 0 ? t : 'light';
+  }
+  function readScale() {
+    var s = parseFloat(localStorage.getItem('ammf-scale'));
+    return (s >= 0.8 && s <= 1.45) ? s : 1;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    var b = document.getElementById('themeBtn');
+    if (b) {
+      b.textContent = (t === 'light') ? '☀' : (t === 'sepia') ? '◐' : '☾';
+      b.setAttribute('aria-label', 'Theme: ' + t);
+    }
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim());
+  }
+  function cycleTheme() {
+    var i = THEMES.indexOf(root.getAttribute('data-theme') || 'light');
+    var next = THEMES[(i + 1) % THEMES.length];
+    applyTheme(next);
+    localStorage.setItem('ammf-theme', next);
+  }
+  function applyScale(s) { root.style.setProperty('--reader-scale', String(s)); }
+  function bumpScale(d) {
+    var s = Math.min(1.45, Math.max(0.8, Math.round((readScale() + d) * 100) / 100));
+    applyScale(s);
+    localStorage.setItem('ammf-scale', String(s));
+  }
+  var bar = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+    if (toTop) toTop.style.display = (h.scrollTop > 700) ? 'flex' : 'none';
+  }
+  var tb = document.getElementById('themeBtn');
+  if (tb) tb.addEventListener('click', cycleTheme);
+  var fm = document.getElementById('fontMinus');
+  var fp = document.getElementById('fontPlus');
+  if (fm) fm.addEventListener('click', function () { bumpScale(-0.05); });
+  if (fp) fp.addEventListener('click', function () { bumpScale(0.05); });
+  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  applyTheme(readTheme());
+  applyScale(readScale());
+  onScroll();
+})();
+</script>
+</body>
+</html>

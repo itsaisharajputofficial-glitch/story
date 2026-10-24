@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1e8">
+<meta name="description" content="A Mad Man’s Fiction — Part Nineteen. A serial work of fiction.">
+<title>A Mad Man’s Fiction — Part Nineteen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90' fill='%238f1d2c'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --font-body:"Literata",Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+  --font-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --reader-scale:1;
+  --bg:#f7f1e8;--surface:#fdfaf4;--text:#2a231c;--muted:#8d7d6c;--accent:#8f1d2c;
+  --accent-soft:rgba(143,29,44,.07);--line:rgba(42,35,28,.15);--topbar:rgba(247,241,232,.88);
+  --shadow:0 20px 60px rgba(30,20,12,.08);
+}
+[data-theme="sepia"]{--bg:#f1e7cf;--surface:#f7efe0;--text:#44351f;--muted:#8b7958;--accent:#7e1a29;--accent-soft:rgba(126,26,41,.08);--line:rgba(68,53,31,.18);--topbar:rgba(241,231,207,.9)}
+[data-theme="dark"]{--bg:#15110e;--surface:#1c1713;--text:#ddd2c5;--muted:#9b8d7d;--accent:#e08c99;--accent-soft:rgba(224,140,153,.13);--line:rgba(221,210,197,.16);--topbar:rgba(21,17,14,.9)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:calc(1.075rem * var(--reader-scale))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.82;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s ease,color .4s ease;overflow-x:hidden}
+a{color:var(--accent)}
+::selection{background:var(--accent);color:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:70;box-shadow:0 0 10px var(--accent)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem clamp(.9rem,4vw,2rem);background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--font-display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--muted);white-space:nowrap;text-decoration:none}
+.controls{display:flex;align-items:center;gap:.3rem}
+.icon-btn{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;min-width:2.1rem;height:2.1rem;padding:0 .55rem;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:.92rem;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.cover{min-height:100vh;min-height:100dvh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.4rem 4rem;position:relative}
+.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,var(--accent-soft),transparent 60%);pointer-events:none}
+.cover>*{position:relative}
+.cover-kicker{letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--muted);margin:0 0 1.6rem;max-width:34rem;line-height:2}
+.cover-title{font-family:var(--font-display);font-weight:600;font-size:clamp(3.1rem,11vw,6.5rem);line-height:.96;margin:0;letter-spacing:-.01em}
+.cover-sub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 0}
+.cover-cta{margin-top:2.6rem}
+.cta{display:inline-block;text-decoration:none;color:var(--surface);background:var(--accent);padding:.85rem 1.9rem;border-radius:999px;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(143,29,44,.28)}
+.cta:hover{transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.2rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+.reader{padding:0 clamp(1.2rem,4vw,2rem)}
+.toc{padding:4rem 0 5rem;max-width:40rem;margin:0 auto;scroll-margin-top:5rem}
+.toc-heading{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;font-size:1rem;color:var(--muted);margin:0 0 2rem}
+.toc-heading::after{content:"";display:block;width:3.4rem;height:1px;background:var(--accent);margin:.9rem auto 0}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:flex;flex-direction:column;gap:.1rem;text-decoration:none;color:var(--text);padding:1.15rem .4rem;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.toc a:hover{background:var(--accent-soft);padding-left:.9rem}
+.toc .num{font-family:var(--font-display);font-size:.78rem;letter-spacing:.2em;color:var(--accent)}
+.toc .name{font-family:var(--font-display);font-weight:600;font-size:1.35rem;line-height:1.1}
+.toc .sub{color:var(--muted);font-style:italic;font-size:.92rem}
+
+.part{max-width:42rem;margin:0 auto;padding:6rem 0 3rem;scroll-margin-top:4.5rem}
+.part-header{text-align:center;margin-bottom:2.6rem}
+.series{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.part-title{font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,7vw,3.2rem);letter-spacing:.06em;line-height:1;margin:0}
+.epigraph{color:var(--muted);font-style:italic;font-size:.95em;margin:1.2rem auto 0;max-width:32rem}
+.part p{margin:0 0 1.4em}
+.part p.lead::first-letter{font-family:var(--font-display);font-weight:600;float:left;font-size:3.3em;line-height:.8;padding:.05em .13em 0 0;color:var(--accent)}
+hr.ornament{border:0;margin:2.7rem auto;text-align:center;overflow:visible}
+hr.ornament::after{content:"✦ ✦ ✦";color:var(--muted);font-size:.78rem;opacity:.8}
+p.msg{text-align:center;margin:2.4rem auto;max-width:28rem;background:var(--accent-soft);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:1.05rem 1.4rem;font-size:.98em}
+p.msg .who{font-family:var(--font-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.9em;color:var(--accent);margin-right:.35em}
+p.msg .sep{color:var(--muted)}
+p.thought{text-align:center;font-style:italic;font-size:1.14em;line-height:1.6;color:var(--muted);margin:2.2rem auto;max-width:30rem}
+p.thought::before{content:"“ ";color:var(--accent);opacity:.55}
+p.thought::after{content:" ”";color:var(--accent);opacity:.55}
+.part-end{text-align:center;margin:4rem auto 0;padding-top:2.4rem;border-top:1px solid var(--line);max-width:34rem}
+.end-title{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:.82rem;color:var(--muted);margin:0 0 1rem}
+.end-title::before,.end-title::after{content:"—";margin:0 .7em;opacity:.55}
+.end-next{color:var(--muted);font-style:italic;margin:0}
+.end-next em{color:var(--accent);font-style:italic}
+.end-next strong{font-style:normal;letter-spacing:.04em}
+.part-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.nav-link{text-decoration:none;color:var(--text);border:1px solid var(--line);padding:.7rem 1.15rem;border-radius:999px;font-size:.9rem;transition:border-color .2s,color .2s}
+.nav-link:hover{border-color:var(--accent);color:var(--accent)}
+.nav-link.contents{color:var(--muted)}
+.nav-link.disabled{opacity:.35;pointer-events:none}
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:55;display:none;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:999px;width:2.6rem;height:2.6rem;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);font-size:1rem;transition:transform .2s}
+#toTop:hover{transform:translateY(-3px)}
+.colophon{padding:3rem 1.25rem 5rem;text-align:center;color:var(--muted);font-size:.85rem}
+.colophon .mark{font-family:var(--font-display);font-size:1.6rem;color:var(--accent)}
+@media (max-width:640px){.part-nav{flex-direction:column}.nav-link{text-align:center}.brand{font-size:.66rem}}
+@media (max-width:420px){.part p.lead::first-letter{font-size:2.7em}.toc a{padding:1rem .3rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">A Mad Man’s Fiction</a>
+  <div class="controls" role="group" aria-label="Reading controls">
+    <a class="icon-btn" href="index.html#toc" aria-label="Contents" title="Contents">☰</a>
+    <button id="fontMinus" class="icon-btn" aria-label="Decrease text size" title="Smaller text">A−</button>
+    <button id="fontPlus" class="icon-btn" aria-label="Increase text size" title="Larger text">A+</button>
+    <button id="themeBtn" class="icon-btn" aria-label="Change theme" title="Theme">☀</button>
+  </div>
+</header>
+
+<main class="reader">
+  <section id="part-19" class="part" aria-labelledby="part-19-title">
+    <header class="part-header">
+      <p class="series">A Mad Man’s Fiction</p>
+      <h2 class="part-title" id="part-19-title">Part Nineteen</h2>
+      <p class="epigraph">This is a work of fiction of a mad man with mad tastes.</p>
+    </header>
+<hr class="ornament" aria-hidden="true">
+<p class="lead">He took me to his room, and he locked the door, and for the first time since all of this began, there was no message, no condition, no game of waiting. There was only the two of us, and the dark, and the whole night ahead, and the promise he had made in the corridor.</p>
+<p class="thought">Everything.</p>
+<p>The room was ready. I saw it as soon as the door closed behind us. The silk sarees, laid across the chair. The long strips of cloth, torn from an old petticoat, coiled on the bed. The blindfold, a dark scrap of cloth, folded beside them. The small box from the cinema, and another beside it, a new one I had not seen. And, on the floor, in the middle of the room, a circle of candles, already lit, their flames small and steady in the dark.</p>
+<p>I stood in the doorway and I looked at it all, and I understood that he had not prepared a night. He had prepared a temple.</p>
+<p>“Do you trust me, maa?” he said, and his voice was low, and the question was the same question he had asked in the car, and in the cinema, and on the rooftop, and every time I had answered yes, and every time the yes had been truer than the time before.</p>
+<p>“Yes,” I said. “With everything.”</p>
+<p>“Then tonight,” he said, “there are no roles we have not played, and no doors we do not open, and no words we do not say. Tonight, you are not my mother, and I am not your son. Tonight, we are whatever we want to be, for as long as we want to be it, and when the sun comes up, we will still be us, and the rest of the world will never know.” He held out his hand. “Come. Let me teach you.”</p>
+<p>He had thought of everything, because he always thought of everything, and as I stepped into the circle of candles, I saw, in the way he had arranged the room, the whole shape of the night he had planned. Not a series of acts. A journey. From the teacher to the student, from the bound to the free, from the seen to the unseen, from the woman I had been to the woman I was becoming. And I understood that I was not walking into a room. I was walking into the last, deepest part of myself, the part that had been waiting, all these years, for someone to light the candles and open the door.</p>
+<p>And he had. He had lit the candles, and he had opened the door, and he was standing on the other side of it, with his hand out, waiting.</p>
+<p>And I went to him, and I did not look back, because there was nothing behind me anymore but the woman I used to be, and she had nothing left to teach me.</p>
+<p>And I took his hand, and I stepped into the circle of candles, and the fire in me, the fire I had finally stopped denying, rose up to meet the flames.</p>
+<hr class="ornament" aria-hidden="true">
+<p>He began with the role.</p>
+<p>“The classroom,” he said, and his voice had already changed, had already become something older, and hungrier, and full of a game I had not played in twenty years. “You are the teacher. You are always the teacher, maa. And tonight, I am the student who has been sitting in the back row, watching you, wanting you, since the first day of class.” He stepped back, and he sat on the edge of the bed, and he looked up at me, and his eyes were the eyes of a boy, and the eyes of a wolf, and the eyes of a man, all at once. “Teach me, ma’am. I have been very bad.”</p>
+<p>I looked at him, and something in me, something old and buried, woke up. The teacher. The woman who had stood in front of a room full of girls for twenty years and never once let them see her want. And here, in the candlelight, with the room around us and the night ahead, she was being asked, at last, to let the want out.</p>
+<p>And I did.</p>
+<p>“Stand up,” I said, and my voice was not my own, and I loved it. “A student does not sit when his teacher is speaking.”</p>
+<p>He stood. Slowly, with his head bowed, the perfect picture of a boy caught. But his eyes, when they lifted to mine, were anything but sorry.</p>
+<p>“Come here,” I said. “Close the door. Lock it.” A pause. “And then come back and tell me what you have done to deserve me.”</p>
+<p>He came, and he locked the door, and then he was standing in front of me, close, so close I could feel the heat of him, and he said, in the voice of the boy in the back row, “I have thought about you every night, ma’am. I have touched myself thinking about you. I have written your name on my books and then torn the pages out.” He looked at me, and the game was a door, and we were both walking through it. “I have been very, very bad. Are you going to punish me?”</p>
+<p>And I reached up, and I took his face in my hand, the way I had taken a thousand girls’ faces to correct their posture, and I said, very quietly, “Worse than that, my boy. I am going to teach you.”</p>
+<p>And so I taught him. Not the steps of the dance, and not the shlokas, and not the lessons of a classroom. I taught him the only lesson that mattered, the one that had been waiting twenty years to be given. I made him kneel, and I made him wait, and I made him watch, and I made him beg, and all the while I stayed, in my mind, the teacher, the one with the stick and the straight back and the power, and he stayed, in his mind, the boy in the back row, the one who had been wanting me since the first day of class.</p>
+<p>And I found, in the role, a freedom I had never had as myself. Because as the teacher, I could say things, do things, want things, that Priya the wife and Priya the mother had never been allowed to want. The role was a mask, and the mask was a door, and behind the door, the woman I actually was came out into the light, and she was not sorry, and she was not shy, and she was not, in any way, the woman the colony thought it knew.</p>
+<p>“Look at me,” I said, and I tipped his chin up with one finger, the way I had corrected a thousand postures, “and tell me what you want from your teacher.”</p>
+<p>“You,” he said, and his voice was raw, and the game was a fire, and we were both in it. “All of you. Everything you have never let anyone see.”</p>
+<p>“Then earn it,” I said, and the words came out of the teacher, and out of the woman under her, and they were the same words. “Show me how badly you want it, and I will decide what you deserve.”</p>
+<p>The candles guttered, and the shadows moved on the walls, and I stood in the center of them, the teacher and the woman, and I understood that this was the oldest game in the world, the one that had been played in every classroom and every temple and every kitchen since the first woman was told to hide what she wanted. The game of who holds the power, and who is allowed to want, and what happens when the wanting is finally, after a lifetime, let out of its cage.</p>
+<p>And I was winning, and I was losing, and I did not care, because for the first time in my life, I was not watching myself play. I was playing.</p>
+<p>And the playing was the whole point.</p>
+<hr class="ornament" aria-hidden="true">
+<p>The silk came first.</p>
+<p>He had torn the old petticoat into long strips, and he held them up, and the candlelight made them look like gold, and he said, “Give me your wrists, ma’am. I want to bind you the way I have dreamed of binding you. With cloth that has been against your own skin. With the one thing in this house that is always, secretly, yours.”</p>
+<p>I gave him my wrists. I did not hesitate. And he bound them, slowly, with the silk, and the knots were soft and firm at once, and I felt, as the cloth tightened, not a loss of freedom, but a gaining of something else. A surrender that was, in its own strange way, the freest thing I had ever done.</p>
+<p>“Too tight?” he asked.</p>
+<p>“No,” I whispered. “Perfect.”</p>
+<p>And then he took the blindfold, the dark scrap of cloth, and he held it up, and he said, “And now your eyes, maa. Because I want you to feel everything, and see nothing, and know, the whole time, that it is me.”</p>
+<p>And the world went dark.</p>
+<hr class="ornament" aria-hidden="true">
+<p><em>To be continued in the dark,</em> I thought, and I did not know if I said it aloud, and I did not care, because in the dark, with my wrists bound and my eyes covered and the whole night ahead of me, I had become, at last, the thing I had been running from and running toward my whole life.</p>
+<p>A woman, bound, and blind, and completely, willingly, his.</p>
+<p>And the night was only just beginning.</p>
+<hr class="ornament" aria-hidden="true">
+<p>In the dark, I learned what the body knows without eyes.</p>
+<p>The first thing was his breath, on my throat, and then his mouth, and then his hands, and without my sight, every touch was a surprise, and every surprise was a small death and a small birth at once. He moved around me, and I could not follow him, could not anticipate him, could only stand there, bound and blind, and feel him find me, again and again, in the places I had hidden and the places I had not.</p>
+<p>“You are shaking,” he said, and his voice came from somewhere behind me, and then his hands were on my waist, and then my saree was sliding away, and I was bare in the dark, and I felt the air on my skin, and then his mouth, on my shoulder, and then lower, and then, and I could not see, and I could not reach, and I could only feel, and the feeling was everything.</p>
+<p>“I want you to beg,” he said, and his voice was at my ear now, and his hands were on my breasts, and the blindfold was wet where my tears had soaked it, and I did not know when I had started crying, only that I could not stop. “Beg me, maa. In the dark. With your hands bound. Tell me what you want, and mean every word.”</p>
+<p>“Everything,” I whispered, and it was the truth, and it came out of me like water from a well. “I want everything, Deva. I want your hands, and your mouth, and your body, and the dark, and the danger, and the being yours, and the never having to hide again, I want all of it, I want you, I want you, I want,”</p>
+<p>And then his mouth came down on mine, and he swallowed the rest of the words, and the world, the dark, blind, bound world, narrowed to the single point of his mouth on mine and his hands on my body and the long, sweet, terrible fall into everything.</p>
+<p>Without sight, the world came to me through skin and sound and smell, and I learned the shape of him all over again, in a way I had never known him. The calluses on his fingers. The heat of his mouth. The way his breath changed when he was close. And the sound of him, the small, low sounds he made when he thought I could not hear, and the way the room smelled of candle smoke and silk and us, and the way, without my eyes, all of it became one thing, one great, warm, drowning thing, and I let it take me.</p>
+<p>He asked me, once, in the dark, whether I was afraid, and I said, “No,” and I meant it, and he said, “Good. Because I am going to do things to you now that I have only ever done to myself in the dark, thinking of you.”</p>
+<p>And then he did them. Not roughly, and not gently, but with a care that was more terrible than either, the care of a man who has imagined a thing for years and is finally, finally, doing it, and wants to do it exactly right. And I took it all, and I asked for more, and the asking, in the dark, with my hands bound, was the most honest thing I had ever done.</p>
+<p>“This is what you were made for, maa,” he said, and his voice was everywhere and nowhere, and his hands were everywhere and nowhere, and I was nothing but the receiving of him, and the receiving was everything. “Not the kitchen. Not the temple. Not the pretending. This. Being mine. Being open. Being loved like this.”</p>
+<p>“Yes,” I sobbed. “Yes. I was made for this. I was made for you.”</p>
+<p>“Then prove it,” he said, and his voice was low and dark and full of a dare I could feel in the air between us. “I am going to untie your hands, and you are going to keep them where they are, above your head, without the silk, without anything holding them, just your own wanting. And if you move them, even once, I will stop, and I will not start again until you have begged for it. Do you understand?”</p>
+<p>And I understood, and the dare was the cruelest and the sweetest thing he had ever asked of me, because the silk was easy, and the wanting was not, and to hold myself open for him with nothing but my own will was the hardest thing I had ever done, and the most free.</p>
+<p>He untied me, and the silk fell away, and my hands stayed, above my head, trembling, and he looked at me in the candlelight, and he smiled, that slow, dark, wolf smile, and he said, “There she is. The woman who does not need to be tied. The woman who stays because she wants to.”</p>
+<p>And I stayed. God help me, I stayed, and I did not move my hands, and the staying, the willing staying, was the truest thing my body had ever said.</p>
+<hr class="ornament" aria-hidden="true">
+<p>He played a game with me, in the dark.</p>
+<p>“Listen,” he said, and his voice was soft and full of laughter and filth, “here are the rules. I am going to touch you, and you are going to tell me, every time, whether it is my hand or my mouth. And every time you are wrong, you will beg for one thing, and every time you are right, I will give you one thing. Do you understand?”</p>
+<p>“Yes,” I breathed.</p>
+<p>And so he touched me, in the dark, and I guessed, and I was wrong, and I begged, and I was right, and he gave, and the game went on, and on, and the darkness filled with his laughter and my broken guesses and the sound of my own wanting, and I understood, somewhere in the middle of it, that this was what he had meant by everything. Not the acts. The play. The game. The being known so completely that even the guessing was a kind of being touched.</p>
+<p>“Again,” he would say, and I would feel something, a brush, a press, a wet warmth, and I would guess, and sometimes I was right, and he would give, and the giving was never what I expected, and sometimes I was wrong, and I would beg, and the begging was never what I planned, and the whole thing went on and on, and I understood, somewhere in the dark, that the game had no end and no winner, and that this was the point. The play was the thing. The being played with was the thing. And the dark, and the bound hands, and the guessing, and the begging, and the giving, all of it together, was a single, unbroken, beautiful thing, and I was at the center of it, and I never wanted to leave.</p>
+<p>He put the toy inside me, the new one from the box, and he turned it on, and the dark filled with the hum of it, and I came, blind and bound, with his name on my lips and my whole body arching off the bed, and he did not turn it off, and the second wave took me before the first had finished, and I screamed, and the scream was swallowed by the dark, and he laughed, low and dark and full of love, and he said, “There is my good girl. There is my everything.”</p>
+<p>And I was. I was his everything, and he was mine, and the night, the long, dark, bound, blind, beautiful night, went on, and I lost count of the times I came, and I did not care, and I did not want it to end, ever, and I understood, at last, completely, what the ruin had been for.</p>
+<p>It had been for this. For the falling. For the being caught, and bound, and kept, and loved, in the dark, by the only man who had ever seen me.</p>
+<hr class="ornament" aria-hidden="true">
+<p>When he finally took the blindfold off, the candles had burned low, and the room was grey with the first light, and I blinked, and the world came back, and he was there, above me, his face flushed and beautiful and covered in the evidence of me, and he smiled, that slow, dark, wolf smile, and he said, “Say my name, maa. I want to hear it in the light.”</p>
+<p>“Deva,” I whispered. “Deva. My Deva. My everything.”</p>
+<p>And then, with my wrists still bound in the silk of my own petticoat, and the whole night written on both our bodies, he pushed inside me one last time, and we came together, in the grey light, with our eyes open, and it was the first time we had ever finished looking at each other.</p>
+<p>And the ruin, the long, slow ruin of the last few weeks, was complete.</p>
+<p>And I loved it. I loved it with my whole body and my whole heart and my whole, unbroken, unashamed soul.</p>
+<p>I was ruined, and I was free, and the two things were the same thing, and they had been the same thing all along.</p>
+<hr class="ornament" aria-hidden="true">
+<p>We lay there as the light grew, and the city woke, and the ordinary world came back to the edges of the room, and I did not move to cover myself, and I did not reach for my saree, and I did not, for the first time in my life, begin the long, familiar work of hiding.</p>
+<p>He lay beside me, and our hands were tangled, and the silk was still around my wrists, loose now, and I looked at him, and I looked at the room, and I looked at the two of us, and I understood, with a calm that went all the way down to my bones, that something had ended in this room, and something else had begun, and I was not the woman who had walked in.</p>
+<p>That woman had been afraid, even at the end, even in the choosing. Afraid of the world, and of the colony, and of the husband, and of the thousand small eyes that would judge her if they ever knew. And the woman lying here now, in the grey light, with the night written on her skin, was afraid of none of it.</p>
+<p>It is hard to explain what it is to wake from a night like that and find the world unchanged. The milkman still came. The crows still quarreled on the wire. The sun still rose over the same rooftops. And yet nothing was the same, because I was not the same, and the woman who got up from that bed and crossed the room to the window and looked out at the waking city was a woman the city had never seen.</p>
+<p>She was not afraid of the aunties. She was not afraid of the postman, or the neighbors, or the thousand small judgments that had ruled her life for forty-four years. She had been to the bottom of herself and come back, and the things that had once frightened her now seemed very small, and very far away, and she looked at them the way a woman looks at the remains of a fire that has already done its work.</p>
+<p>She was not burned by it. She was forged by it. And there is a difference, and the difference is everything.</p>
+<p>Because she had been bound, and she had been blind, and she had been taken apart and put back together, and she had discovered, in the dark, the thing that fear could not touch. Not a man. Not a sin. A self. A whole, unbroken, unashamed self, the one that had been waiting in the dark since she was a girl, and that had finally, after forty-four years, been allowed to stand in the light.</p>
+<p>“What happens now?” I whispered, and I did not mean the morning, and he knew it.</p>
+<p>“Now,” he said, and he turned his head on the pillow, and his eyes were soft, and there was no wolf in them, only the man, and the boy, and the whole of him, “now you go back out into the world, and you carry this with you. Not as a secret, maa. As a power. You walk into the kitchen, and the temple, and the colony, and you know, in your bones, that you are the most alive woman in any of those rooms. And you let that knowing change everything.”</p>
+<p>He lifted my bound wrists and kissed them, one, then the other, and he said, “The woman who walked out of this room is not the woman who walked in. And I cannot wait to see what she does with the world.”</p>
+<p>And neither could I. That was the strangest and the sweetest part. I could not wait to see it either. For the first time in my life, I was not dreading the future. I was not enduring it, the way I had endured everything else. I was looking forward to it, the way a woman looks forward to a journey she has finally been allowed to take.</p>
+<p>The woman I had been had spent twenty-five years waiting for permission. The woman I had become had stopped waiting.</p>
+<p>And the difference, the whole difference, was a locked door, and a night in the dark, and a man who had seen me the way no one else had ever seen me, and had not once, not for a single second, looked away.</p>
+<p>And I looked at him, and I felt it, the power he was talking about, rising up in me like a tide, and I understood, for the first time, that the fire had never been just about him, and never just about the body.</p>
+<p>It was about a woman who had finally stopped asking for permission to be alive.</p>
+<p>And she was not going to start asking again. Not ever.</p>
+<hr class="ornament" aria-hidden="true">
+<footer class="part-end"><p class="end-title">End of Part Nineteen.</p><p class="end-next">To be continued in <strong>Part Twenty</strong> — <em>the woman I became, and the bookend that closes the book.</em></p></footer>
+    <nav class="part-nav" aria-label="Part navigation">
+      <a class="nav-link prev" href="part-18.html">&larr; Part Eighteen</a>
+      <a class="nav-link contents" href="index.html#toc">Contents</a>
+      <a class="nav-link next" href="part-20.html">Part Twenty &rarr;</a>
+    </nav>
+  </section>
+  <footer class="colophon">
+    <div class="mark">✦</div>
+    <p>Part Nineteen of Part Twenty</p>
+  </footer>
+</main>
+<button id="toTop" aria-label="Back to top">↑</button>
+<script>
+(function () {
+  var root = document.documentElement;
+  var THEMES = ['light', 'sepia', 'dark'];
+  function readTheme() {
+    var t = localStorage.getItem('ammf-theme');
+    return THEMES.indexOf(t) >= 0 ? t : 'light';
+  }
+  function readScale() {
+    var s = parseFloat(localStorage.getItem('ammf-scale'));
+    return (s >= 0.8 && s <= 1.45) ? s : 1;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    var b = document.getElementById('themeBtn');
+    if (b) {
+      b.textContent = (t === 'light') ? '☀' : (t === 'sepia') ? '◐' : '☾';
+      b.setAttribute('aria-label', 'Theme: ' + t);
+    }
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim());
+  }
+  function cycleTheme() {
+    var i = THEMES.indexOf(root.getAttribute('data-theme') || 'light');
+    var next = THEMES[(i + 1) % THEMES.length];
+    applyTheme(next);
+    localStorage.setItem('ammf-theme', next);
+  }
+  function applyScale(s) { root.style.setProperty('--reader-scale', String(s)); }
+  function bumpScale(d) {
+    var s = Math.min(1.45, Math.max(0.8, Math.round((readScale() + d) * 100) / 100));
+    applyScale(s);
+    localStorage.setItem('ammf-scale', String(s));
+  }
+  var bar = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+    if (toTop) toTop.style.display = (h.scrollTop > 700) ? 'flex' : 'none';
+  }
+  var tb = document.getElementById('themeBtn');
+  if (tb) tb.addEventListener('click', cycleTheme);
+  var fm = document.getElementById('fontMinus');
+  var fp = document.getElementById('fontPlus');
+  if (fm) fm.addEventListener('click', function () { bumpScale(-0.05); });
+  if (fp) fp.addEventListener('click', function () { bumpScale(0.05); });
+  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  applyTheme(readTheme());
+  applyScale(readScale());
+  onScroll();
+})();
+</script>
+</body>
+</html>

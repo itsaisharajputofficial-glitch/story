@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1e8">
+<meta name="description" content="A Mad Man’s Fiction — Part Thirteen. A serial work of fiction.">
+<title>A Mad Man’s Fiction — Part Thirteen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90' fill='%238f1d2c'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --font-body:"Literata",Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+  --font-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --reader-scale:1;
+  --bg:#f7f1e8;--surface:#fdfaf4;--text:#2a231c;--muted:#8d7d6c;--accent:#8f1d2c;
+  --accent-soft:rgba(143,29,44,.07);--line:rgba(42,35,28,.15);--topbar:rgba(247,241,232,.88);
+  --shadow:0 20px 60px rgba(30,20,12,.08);
+}
+[data-theme="sepia"]{--bg:#f1e7cf;--surface:#f7efe0;--text:#44351f;--muted:#8b7958;--accent:#7e1a29;--accent-soft:rgba(126,26,41,.08);--line:rgba(68,53,31,.18);--topbar:rgba(241,231,207,.9)}
+[data-theme="dark"]{--bg:#15110e;--surface:#1c1713;--text:#ddd2c5;--muted:#9b8d7d;--accent:#e08c99;--accent-soft:rgba(224,140,153,.13);--line:rgba(221,210,197,.16);--topbar:rgba(21,17,14,.9)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:calc(1.075rem * var(--reader-scale))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.82;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s ease,color .4s ease;overflow-x:hidden}
+a{color:var(--accent)}
+::selection{background:var(--accent);color:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:70;box-shadow:0 0 10px var(--accent)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem clamp(.9rem,4vw,2rem);background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--font-display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--muted);white-space:nowrap;text-decoration:none}
+.controls{display:flex;align-items:center;gap:.3rem}
+.icon-btn{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;min-width:2.1rem;height:2.1rem;padding:0 .55rem;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:.92rem;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.cover{min-height:100vh;min-height:100dvh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.4rem 4rem;position:relative}
+.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,var(--accent-soft),transparent 60%);pointer-events:none}
+.cover>*{position:relative}
+.cover-kicker{letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--muted);margin:0 0 1.6rem;max-width:34rem;line-height:2}
+.cover-title{font-family:var(--font-display);font-weight:600;font-size:clamp(3.1rem,11vw,6.5rem);line-height:.96;margin:0;letter-spacing:-.01em}
+.cover-sub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 0}
+.cover-cta{margin-top:2.6rem}
+.cta{display:inline-block;text-decoration:none;color:var(--surface);background:var(--accent);padding:.85rem 1.9rem;border-radius:999px;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(143,29,44,.28)}
+.cta:hover{transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.2rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+.reader{padding:0 clamp(1.2rem,4vw,2rem)}
+.toc{padding:4rem 0 5rem;max-width:40rem;margin:0 auto;scroll-margin-top:5rem}
+.toc-heading{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;font-size:1rem;color:var(--muted);margin:0 0 2rem}
+.toc-heading::after{content:"";display:block;width:3.4rem;height:1px;background:var(--accent);margin:.9rem auto 0}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:flex;flex-direction:column;gap:.1rem;text-decoration:none;color:var(--text);padding:1.15rem .4rem;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.toc a:hover{background:var(--accent-soft);padding-left:.9rem}
+.toc .num{font-family:var(--font-display);font-size:.78rem;letter-spacing:.2em;color:var(--accent)}
+.toc .name{font-family:var(--font-display);font-weight:600;font-size:1.35rem;line-height:1.1}
+.toc .sub{color:var(--muted);font-style:italic;font-size:.92rem}
+
+.part{max-width:42rem;margin:0 auto;padding:6rem 0 3rem;scroll-margin-top:4.5rem}
+.part-header{text-align:center;margin-bottom:2.6rem}
+.series{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.part-title{font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,7vw,3.2rem);letter-spacing:.06em;line-height:1;margin:0}
+.epigraph{color:var(--muted);font-style:italic;font-size:.95em;margin:1.2rem auto 0;max-width:32rem}
+.part p{margin:0 0 1.4em}
+.part p.lead::first-letter{font-family:var(--font-display);font-weight:600;float:left;font-size:3.3em;line-height:.8;padding:.05em .13em 0 0;color:var(--accent)}
+hr.ornament{border:0;margin:2.7rem auto;text-align:center;overflow:visible}
+hr.ornament::after{content:"✦ ✦ ✦";color:var(--muted);font-size:.78rem;opacity:.8}
+p.msg{text-align:center;margin:2.4rem auto;max-width:28rem;background:var(--accent-soft);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:1.05rem 1.4rem;font-size:.98em}
+p.msg .who{font-family:var(--font-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.9em;color:var(--accent);margin-right:.35em}
+p.msg .sep{color:var(--muted)}
+p.thought{text-align:center;font-style:italic;font-size:1.14em;line-height:1.6;color:var(--muted);margin:2.2rem auto;max-width:30rem}
+p.thought::before{content:"“ ";color:var(--accent);opacity:.55}
+p.thought::after{content:" ”";color:var(--accent);opacity:.55}
+.part-end{text-align:center;margin:4rem auto 0;padding-top:2.4rem;border-top:1px solid var(--line);max-width:34rem}
+.end-title{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:.82rem;color:var(--muted);margin:0 0 1rem}
+.end-title::before,.end-title::after{content:"—";margin:0 .7em;opacity:.55}
+.end-next{color:var(--muted);font-style:italic;margin:0}
+.end-next em{color:var(--accent);font-style:italic}
+.end-next strong{font-style:normal;letter-spacing:.04em}
+.part-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.nav-link{text-decoration:none;color:var(--text);border:1px solid var(--line);padding:.7rem 1.15rem;border-radius:999px;font-size:.9rem;transition:border-color .2s,color .2s}
+.nav-link:hover{border-color:var(--accent);color:var(--accent)}
+.nav-link.contents{color:var(--muted)}
+.nav-link.disabled{opacity:.35;pointer-events:none}
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:55;display:none;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:999px;width:2.6rem;height:2.6rem;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);font-size:1rem;transition:transform .2s}
+#toTop:hover{transform:translateY(-3px)}
+.colophon{padding:3rem 1.25rem 5rem;text-align:center;color:var(--muted);font-size:.85rem}
+.colophon .mark{font-family:var(--font-display);font-size:1.6rem;color:var(--accent)}
+@media (max-width:640px){.part-nav{flex-direction:column}.nav-link{text-align:center}.brand{font-size:.66rem}}
+@media (max-width:420px){.part p.lead::first-letter{font-size:2.7em}.toc a{padding:1rem .3rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">A Mad Man’s Fiction</a>
+  <div class="controls" role="group" aria-label="Reading controls">
+    <a class="icon-btn" href="index.html#toc" aria-label="Contents" title="Contents">☰</a>
+    <button id="fontMinus" class="icon-btn" aria-label="Decrease text size" title="Smaller text">A−</button>
+    <button id="fontPlus" class="icon-btn" aria-label="Increase text size" title="Larger text">A+</button>
+    <button id="themeBtn" class="icon-btn" aria-label="Change theme" title="Theme">☀</button>
+  </div>
+</header>
+
+<main class="reader">
+  <section id="part-13" class="part" aria-labelledby="part-13-title">
+    <header class="part-header">
+      <p class="series">A Mad Man’s Fiction</p>
+      <h2 class="part-title" id="part-13-title">Part Thirteen</h2>
+      <p class="epigraph">This is a work of fiction of a mad man with mad tastes.</p>
+    </header>
+<hr class="ornament" aria-hidden="true">
+<p class="lead">I lay in the dark for what felt like hours.</p>
+<p>Ravi had come to bed at his usual time, and he had read his book, and he had turned off the lamp, and he had slept, and I had lain there beside him, rigid, listening, my whole body tuned to the smallest sound in the house. The clock on the wall ticked. The fan turned. Somewhere, a dog barked far off, and then was still. And I waited.</p>
+<p>I have waited for many things in my life. For my mother to come home, in the years before she didn’t. For Ravi to look at me the way he looked at his account books. For the milkman, the postman, the first light. But I had never waited like this, with every nerve in my body standing on end, with my blood already running hot, with the knowledge that the thing I was waiting for was not coming to me, but coming into my own bed, into my own dark, to do the one thing I had spent my whole life telling myself was unthinkable.</p>
+<p>And I was not afraid. That was the terrible part. I was not afraid of the sin. I was afraid only that he would not come, that some small sound, some turn of the moon, would keep him in his own bed, and I would lie here all night with the wanting and no one to answer it.</p>
+<p>Then, in the small hours, when the house was at its deepest, the door opened.</p>
+<p>And he came.</p>
+<p>The door did not creak. He had oiled the hinges, I think, or else he simply knew the house the way a thief knows a house he has been casing all his life, and he came through it like a shadow, and the first I knew of him was the weight of the mattress shifting.</p>
+<p>I lay on my side, facing away from Ravi, and the dark was absolute, and I felt him settle behind me, felt the heat of him along my back, felt his breath on my neck, and my heart, which I had thought could not beat any harder, began to slam against my ribs like a fist.</p>
+<p>“Don’t turn around,” he whispered, and his voice was so low it was barely a sound, and I felt it more than I heard it, a vibration against the shell of my ear. “Don’t move. He is six inches from your face.”</p>
+<p>Ravi lay on his back between us and the far edge of the bed, and I could hear him breathing, that slow, heavy, sleeping breathing that had once meant safety and now meant only that we were not alone, that the whole weight of the world was lying in this bed with us, blind and breathing, six inches away.</p>
+<p>“You have lost your mind,” I breathed, and I did not turn, and my voice did not shake, and that, the steadiness of it, was the most frightening thing of all.</p>
+<p>“Yes,” he said, and his hand found my hip through the thin cotton of my night saree, and his fingers spread, warm and certain, over the curve of me. “I lost it the day I first saw you in the blue saree. And you are going to lose yours now, maa, in this bed, beside this man, and you are going to be very, very quiet about it.”</p>
+<hr class="ornament" aria-hidden="true">
+<p>I should have stopped him.</p>
+<p>I should have rolled away, or whispered that this was too far, or simply lain still until the madness passed. I did none of those things. I lay there, in the bed of my marriage, with my husband asleep at my back and my son’s hand moving over me, and I did not stop him, and I did not want to stop him, and that, more than anything I had done in the last few weeks, told me exactly who I had become.</p>
+<p>I have asked myself, in the weeks since, whether there was a version of that night in which I stopped him. Whether there was some other Priya, some better Priya, who would have caught his wrist and whispered, no, not here, not in this bed, and sent him back to his own room. And I have looked for her, that other Priya, and I have not found her. I do not think she was ever in that room with us. I think she had been leaving, piece by piece, since the first night in the blue saree, and by the time my son climbed into my marriage bed, she was already gone, and the woman who lay in her place was someone else entirely.</p>
+<p>Someone who lay very still, and let the cloth be pulled up, and did not once look at the sleeping face six inches away, because if she had looked, she might have seen the man she married, and the man she married had no place in that bed anymore.</p>
+<p>He was only the guard. The blind, breathing guard. And the prisoner he was guarding had already escaped, and was already, in the dark, reaching back for the hand that held the key.</p>
+<p>His hand slid down, over my hip, over my thigh, and then back up, gathering the thin cotton, and then it was gone, and I felt the cloth pulled up, bared, and the night air touched the backs of my thighs, and then his hand was there, on bare skin, and I bit my lip so hard I tasted blood.</p>
+<p>“You are wet already,” he whispered against my neck, and his fingers found the proof of it, and I heard the faint, obscene sound of it in the dark, and I wanted to die, and I wanted him never to stop. “Wet, and I have not even touched you yet. What does that make you, maa? In your own marriage bed, with your husband asleep beside you, wet for your son before he has done a single thing?”</p>
+<p>“Yours,” I breathed, and the word was not a whisper, it was a vow, and I felt him shudder against me, and then his hand moved, and his fingers slid inside me, slow, silent, and I had to press my face into the pillow to keep the sound down.</p>
+<p>“Say it again,” he said, and his fingers curled, and the world tilted.</p>
+<p>“Yours,” I repeated, into the pillow, into the dark, into the six inches of silence between me and the man I had married. “I am yours. I have been yours since before I knew your name. Now, Deva, please, please,”</p>
+<p>“Quiet.” His hand left me, and I felt the loss of it like a wound, and then I felt him shift behind me, and I heard the soft, terrible sound of cloth moving, and then the heat of him, bare, pressed against the backs of my thighs, and I understood, with a clarity that was pure white terror and pure white want, what he was going to do.</p>
+<p>“Slow,” he whispered, and his arm came around me, and his hand closed over my mouth, warm and firm, and his lips were at my ear. “Very, very slow. And if you make one sound, maa, if you wake him, it all ends. Do you understand?”</p>
+<p>The words should have horrified me. They should have been the point where I came to my senses and pushed him away and whispered no, no, not here, not like this. But the words did not horrify me. They only made the wanting sharper, made the darkness closer, made the weight of him against my thighs the only real thing in a world gone soft and blurred. I wanted to be quiet. I wanted to be good. I wanted to be, in that bed, in that silence, exactly what he had made me, and nothing else.</p>
+<p>“Yes,” I breathed into the pillow, and the word was for him and for the dark and for the blind man sleeping behind me. “Yes, Deva. I understand.”</p>
+<p>I nodded against his hand, and I did not make a sound, and then, slowly, so slowly I could feel every inch of it, he pushed inside me.</p>
+<p>I have written about the first time in the car, and I have written about the washroom, but I must write this down too, because it was different, and I do not want the difference to be lost. In the car, I was loud and free and the world was wide open. In the washroom, I was desperate and quick and a locked door held the world at bay. But here, in this bed, there was no door. There was no open road. There was only the six inches of silence between me and my husband’s sleeping face, and the whole world compressed into that six inches, and the weight of him inside me, and the knowledge that every inch of pleasure was stolen from the very bed where I had spent twenty-five years learning to expect nothing.</p>
+<p>It was the silence that made it unbearable. Not the fear of being caught. The silence itself. The way every sound we did not make was louder than any scream, the way the slow, controlled movement of him inside me was a whole language of restraint, the way I could feel the effort in his body, the trembling in his arms as he held himself back, and I understood that he was giving me something in that bed that he had never given me anywhere else: his own terror, his own risk, his own willing descent into the same dark I had fallen into.</p>
+<p>We were equal now. That was the thing. For the first time, in that bed, we were equal. Two people doing the same unspeakable thing, together, in the dark, with the same blind man sleeping six inches away.</p>
+<p>He moved in me like water finding its way through stone. Not thrusting, not fast, but a slow, deep, relentless rocking that went on and on, and I lay there with his hand over my mouth and his breath on my neck, and I let it happen, and I let it build, and the words he whispered into my ear were the filthiest and the tenderest I had ever heard, and they were the same words, over and over, the way a prayer is the same words.</p>
+<p>“You are mine,” he breathed. “In his bed. In his house. Under his roof. Mine. Say it back to me, maa. Say it without a sound.”</p>
+<p>And I did. I mouthed it into the pillow, into his hand, into the dark: <em>yours, yours, yours,</em> and I felt myself climbing, felt the wave rising through the silence, felt the whole of my life narrowing to this single point of heat and taboo and the slow, endless, unbearable press of him inside me.</p>
+<p>“Do you know what he is dreaming about?” he whispered, and his hips rolled, deep, and I bit down on his palm. “He is dreaming about the shop. About numbers. About his knee. While his wife is full of his own son. And you are going to come for me, maa, right here, right now, with his dream still going on six inches from your face. And you are going to do it without making a single sound. That is your gift to me. That is the only gift I have ever wanted.”</p>
+<hr class="ornament" aria-hidden="true">
+<p>There is no language for what that was.</p>
+<p>I have tried, in the nights since, to find words for it, and I have failed every time. It was not like the car, where we could cry out and the trees would not tell. It was not like the washroom, where a locked door stood between us and the world. It was the most secret thing I have ever done, and it was secret in the oldest, darkest way, the way of a woman in a marriage bed who is not with her husband.</p>
+<p>He moved inside me, slow, silent, and the bed did not move, because he held himself so still, so controlled, that only the smallest, most terrible motion passed between us, and I lay there with his hand over my mouth and his body against my back and the full, unbearable length of him inside me, and I came apart, silently, in pieces, and Ravi slept on, blind and breathing, six inches from my face.</p>
+<p>And the worst of it, the very worst of it, was that I had never, in twenty-five years of lying in this bed, felt anything like it.</p>
+<p>“Feel him,” Deva whispered, and his hips moved, a fraction, a hair, and I felt it all the way up into my chest. “Feel him breathing. He is dreaming, maa. He is dreaming about the shop, or the temple, or his knee. And you are here, in his bed, with his son inside you. And you are going to come for me, silently, while he sleeps, and he will never know, never, that the woman he married has become this.”</p>
+<p>And I came. Not with a cry, not with a scream, but with a long, silent, full-body shudder that went on and on, and I bit down on his hand, and I arched against him, and the bed, God help me, the bed gave one small, soft creak.</p>
+<p>And Ravi stirred.</p>
+<p>I felt it first as a change in his breathing, a break in the long, even rhythm, and then a small, terrible sound, a grunt, and then the bed shifted, and I felt him turn, felt the weight of him roll toward us, and I stopped breathing, and I stopped existing, and there was only the dark and the heat of my son inside me and the slow, blind approach of the man I had married.</p>
+<p>“Priya,” Ravi mumbled, in his sleep, and his hand, in the dark, came up and landed on my shoulder.</p>
+<p>I thought I would die. I thought my heart would simply stop, right there, in the bed, with my husband’s hand on my shoulder and my son’s body pressed against my back and the whole monstrous architecture of my life balanced on the head of a pin.</p>
+<p>Deva did not move. He did not breathe. His hand was still over my mouth, and I could feel his pulse, wild, against my jaw, and I understood that he was as terrified as I was, and the terror of it, the two of us, frozen and silent, in the bed of the one man who could destroy us both, was the most alive I had ever been.</p>
+<p>I could feel Ravi’s breath on my face. Sour, warm, familiar. The breath of a man who had slept beside me for twenty-five years, who had never once, in all that time, known what was happening in the dark of his own bedroom. And I lay there with his hand on my shoulder and his breath on my face and his son’s cock still, impossibly, inside me, and I understood, in that frozen, endless second, that this was the price of the thing I had chosen. Not the danger. The dishonesty. The having to lie still, and be still, and be, in the truest sense, two people at once: the wife he had married, and the woman his son had come to.</p>
+<p>And I found, to my own horror and my own relief, that I could do it. I could hold both of us in my body and not break. I could lie, and be still, and wait, and not make a sound. I was better at this than I had ever dreamed. I was born for this. And that, more than anything, was what made me finally, fully, his.</p>
+<p>“Water,” Ravi mumbled, and then, thank every god, he rolled back, and his hand fell away, and the bed settled, and his breathing deepened, and the moment passed, and we were still, still alive, still hidden, still there.</p>
+<p>For a long, long minute, neither of us moved. And then, very slowly, Deva pulled out of me, and I felt the loss of him like a grief, and then his hand was at my hip, turning me, and in the dark I saw his face, and it was wild and beautiful and afraid, and he said, in the smallest whisper I have ever heard, “Not here. On you. On your skin. I want to mark you where he will never see.”</p>
+<p>And I turned, and I lay back, and I watched, in the dark, as he knelt over me, and I saw the faint gleam of him, and then I felt it, the hot, wet spurt of his seed, on my belly, on my thigh, marking me, claiming me, in the bed I shared with another man, while that man slept on, six inches away, dreaming his blind, ordinary dreams.</p>
+<p>The danger, I understood, lying there in the dark with the smell of us rising and the silence settling back over the bed, was not something I had survived. It was something I had fed on. The moment Ravi had stirred, the moment his hand had landed on my shoulder, my whole body had flooded with a heat that was not fear at all, or not only fear, and I had come apart in a way I had not come apart since the temple. The near-miss was not the price of the pleasure. The near-miss was the pleasure. And I knew, with a certainty that frightened me more than anything that had happened in that bed, that I would want it again. The edge. The breath held. The hand on my shoulder. All of it.</p>
+<p>I was not just a woman having an affair with her son. I was a woman who had found, in the narrow gap between being caught and being safe, the only place in the world where she was fully alive.</p>
+<hr class="ornament" aria-hidden="true">
+<p>We lay there afterwards, side by side, and the enormity of it pressed down on us like a second darkness.</p>
+<p>I could feel him, drying on my skin, under the thin cotton I had pulled back over myself, and the smell of us was in the air, and Ravi slept on, and the fan turned slowly, and the clock ticked, and I understood that we had crossed the last line there was to cross, the one line I had sworn I would never cross, and I had crossed it not in fear, not in weakness, but in the full, clear, terrible knowledge of what I was doing.</p>
+<p>And I was not sorry. That was the thing that kept repeating in my head, like a mantra, like a prayer. I was not sorry. I was not sorry.</p>
+<p>“Tomorrow,” Deva whispered at last, and his hand found mine under the blanket, and his fingers laced with mine, and it was the most tender thing he had ever done to me. “Tomorrow, maa, I am going to bathe you. Slowly. With oil, and water, and my hands. And I am going to wash all of this off you, and then I am going to make you dirty all over again.”</p>
+<p>I turned my head on the pillow, and I looked at him, at the faint shape of him in the dark, and I said, “Why?”</p>
+<p>“Because after this,” he said, and his voice was soft, “we need something gentle. And because I want to worship you the way you deserve. Not like this. Not hidden. But slow, and open, and unhurried.” He squeezed my hand. “You have given me everything, maa. Tomorrow I want to give you something back.”</p>
+<p>And then he was gone, as silently as he had come, and I lay alone in the bed with my husband’s seed long dry and my son’s seed still wet on my skin, and I understood that whatever happened next, whatever the morning brought, I had crossed a river that could not be crossed again, and I had done it with my eyes open.</p>
+<p>And the strangest part, the part that would stay with me for the rest of my life, was how peaceful I felt. How clean. How certain.</p>
+<p>As if I had finally, after twenty-five years, come home.</p>
+<p>I know that what I have written here will read, to some, as madness, or as sin, or as the confession of a woman who has lost her way. Let them think what they will. I am writing this down because I need to remember it, all of it, the terror and the sweetness and the silence, and because I need to say, before I go any further into this story, that I did not fall into this by accident.</p>
+<p>I walked into it, step by step, with my eyes open, and I would walk into it again.</p>
+<p>Every step. Every time. Even the step that put me in this bed, in the dark, with my husband’s breath on my face and my son’s seed on my skin. Even that one. Especially that one.</p>
+<hr class="ornament" aria-hidden="true">
+<p>The morning was a study in how little a house can show.</p>
+<p>Ravi came down at seven, as he always did, and he ate his breakfast, and he read his paper, and he asked me if I had slept well, and I said yes, I had slept well, and I said it with my son’s seed long dried and washed from my skin, and I said it with the memory of that silent, terrible, perfect act still humming in every part of my body, and he believed me, because he always believed me, because belief was the water this house floated on.</p>
+<p>It is a strange thing, to sit at a breakfast table with a man you have betrayed, and to feel, not guilt, but a kind of vast, tender pity. I looked at Ravi, at the grey in his hair, at the careful way he folded his newspaper, at the two sugars he stirred into his tea the way he had stirred them for twenty-five years, and I felt sorry for him, and I felt nothing for him, and the two feelings sat side by side and did not fight. He would never know what he had been missing. He would never know what the bed in which he slept had been for. And in a way, I thought, that was its own mercy. His blindness was his peace, and I was not going to take it from him. Not yet. Not ever, if I could help it.</p>
+<p>Deva came down later, and he said good morning, and his eyes met mine over his father’s shoulder for one fraction of a second, and in that fraction I saw everything: the fear, still there, from the moment Ravi had stirred, and the hunger, still there, always there, and the promise, the bath, the worship, the thing he had said he wanted to give me back.</p>
+<p>And I understood, watching him, that the near-catch had changed something between us. It had not cooled us. It had only made the danger real, made the cost of it real, and in the face of that cost, what we wanted from each other had sharpened into something that needed more than hiding.</p>
+<p>It needed tenderness. It needed water, and oil, and slow hands. It needed the thing he had promised.</p>
+<p>For the first time since this madness began, I was not counting the hours until I could be taken. I was counting the hours until I could be held, and washed, and worshiped, and told, slowly, in the light of day, that I was the most beautiful thing he had ever owned.</p>
+<p>It was a different hunger. Softer. Deeper. And it frightened me more than all the others put together.</p>
+<p>The afternoon could not come fast enough.</p>
+<hr class="ornament" aria-hidden="true">
+<footer class="part-end"><p class="end-title">End of Part Thirteen.</p><p class="end-next">To be continued in <strong>Part Fourteen</strong> — <em>the bath, and the worship that washes nothing away.</em></p></footer>
+    <nav class="part-nav" aria-label="Part navigation">
+      <a class="nav-link prev" href="part-12.html">&larr; Part Twelve</a>
+      <a class="nav-link contents" href="index.html#toc">Contents</a>
+      <a class="nav-link next" href="part-14.html">Part Fourteen &rarr;</a>
+    </nav>
+  </section>
+  <footer class="colophon">
+    <div class="mark">✦</div>
+    <p>Part Thirteen of Part Twenty</p>
+  </footer>
+</main>
+<button id="toTop" aria-label="Back to top">↑</button>
+<script>
+(function () {
+  var root = document.documentElement;
+  var THEMES = ['light', 'sepia', 'dark'];
+  function readTheme() {
+    var t = localStorage.getItem('ammf-theme');
+    return THEMES.indexOf(t) >= 0 ? t : 'light';
+  }
+  function readScale() {
+    var s = parseFloat(localStorage.getItem('ammf-scale'));
+    return (s >= 0.8 && s <= 1.45) ? s : 1;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    var b = document.getElementById('themeBtn');
+    if (b) {
+      b.textContent = (t === 'light') ? '☀' : (t === 'sepia') ? '◐' : '☾';
+      b.setAttribute('aria-label', 'Theme: ' + t);
+    }
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim());
+  }
+  function cycleTheme() {
+    var i = THEMES.indexOf(root.getAttribute('data-theme') || 'light');
+    var next = THEMES[(i + 1) % THEMES.length];
+    applyTheme(next);
+    localStorage.setItem('ammf-theme', next);
+  }
+  function applyScale(s) { root.style.setProperty('--reader-scale', String(s)); }
+  function bumpScale(d) {
+    var s = Math.min(1.45, Math.max(0.8, Math.round((readScale() + d) * 100) / 100));
+    applyScale(s);
+    localStorage.setItem('ammf-scale', String(s));
+  }
+  var bar = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+    if (toTop) toTop.style.display = (h.scrollTop > 700) ? 'flex' : 'none';
+  }
+  var tb = document.getElementById('themeBtn');
+  if (tb) tb.addEventListener('click', cycleTheme);
+  var fm = document.getElementById('fontMinus');
+  var fp = document.getElementById('fontPlus');
+  if (fm) fm.addEventListener('click', function () { bumpScale(-0.05); });
+  if (fp) fp.addEventListener('click', function () { bumpScale(0.05); });
+  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  applyTheme(readTheme());
+  applyScale(readScale());
+  onScroll();
+})();
+</script>
+</body>
+</html>

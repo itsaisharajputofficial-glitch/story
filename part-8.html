@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1e8">
+<meta name="description" content="A Mad Man’s Fiction — Part Eight. A serial work of fiction.">
+<title>A Mad Man’s Fiction — Part Eight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90' fill='%238f1d2c'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --font-body:"Literata",Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+  --font-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --reader-scale:1;
+  --bg:#f7f1e8;--surface:#fdfaf4;--text:#2a231c;--muted:#8d7d6c;--accent:#8f1d2c;
+  --accent-soft:rgba(143,29,44,.07);--line:rgba(42,35,28,.15);--topbar:rgba(247,241,232,.88);
+  --shadow:0 20px 60px rgba(30,20,12,.08);
+}
+[data-theme="sepia"]{--bg:#f1e7cf;--surface:#f7efe0;--text:#44351f;--muted:#8b7958;--accent:#7e1a29;--accent-soft:rgba(126,26,41,.08);--line:rgba(68,53,31,.18);--topbar:rgba(241,231,207,.9)}
+[data-theme="dark"]{--bg:#15110e;--surface:#1c1713;--text:#ddd2c5;--muted:#9b8d7d;--accent:#e08c99;--accent-soft:rgba(224,140,153,.13);--line:rgba(221,210,197,.16);--topbar:rgba(21,17,14,.9)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:calc(1.075rem * var(--reader-scale))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.82;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s ease,color .4s ease;overflow-x:hidden}
+a{color:var(--accent)}
+::selection{background:var(--accent);color:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:70;box-shadow:0 0 10px var(--accent)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem clamp(.9rem,4vw,2rem);background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--font-display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--muted);white-space:nowrap;text-decoration:none}
+.controls{display:flex;align-items:center;gap:.3rem}
+.icon-btn{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;min-width:2.1rem;height:2.1rem;padding:0 .55rem;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:.92rem;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.cover{min-height:100vh;min-height:100dvh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.4rem 4rem;position:relative}
+.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,var(--accent-soft),transparent 60%);pointer-events:none}
+.cover>*{position:relative}
+.cover-kicker{letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--muted);margin:0 0 1.6rem;max-width:34rem;line-height:2}
+.cover-title{font-family:var(--font-display);font-weight:600;font-size:clamp(3.1rem,11vw,6.5rem);line-height:.96;margin:0;letter-spacing:-.01em}
+.cover-sub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 0}
+.cover-cta{margin-top:2.6rem}
+.cta{display:inline-block;text-decoration:none;color:var(--surface);background:var(--accent);padding:.85rem 1.9rem;border-radius:999px;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(143,29,44,.28)}
+.cta:hover{transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.2rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+.reader{padding:0 clamp(1.2rem,4vw,2rem)}
+.toc{padding:4rem 0 5rem;max-width:40rem;margin:0 auto;scroll-margin-top:5rem}
+.toc-heading{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;font-size:1rem;color:var(--muted);margin:0 0 2rem}
+.toc-heading::after{content:"";display:block;width:3.4rem;height:1px;background:var(--accent);margin:.9rem auto 0}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:flex;flex-direction:column;gap:.1rem;text-decoration:none;color:var(--text);padding:1.15rem .4rem;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.toc a:hover{background:var(--accent-soft);padding-left:.9rem}
+.toc .num{font-family:var(--font-display);font-size:.78rem;letter-spacing:.2em;color:var(--accent)}
+.toc .name{font-family:var(--font-display);font-weight:600;font-size:1.35rem;line-height:1.1}
+.toc .sub{color:var(--muted);font-style:italic;font-size:.92rem}
+
+.part{max-width:42rem;margin:0 auto;padding:6rem 0 3rem;scroll-margin-top:4.5rem}
+.part-header{text-align:center;margin-bottom:2.6rem}
+.series{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.part-title{font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,7vw,3.2rem);letter-spacing:.06em;line-height:1;margin:0}
+.epigraph{color:var(--muted);font-style:italic;font-size:.95em;margin:1.2rem auto 0;max-width:32rem}
+.part p{margin:0 0 1.4em}
+.part p.lead::first-letter{font-family:var(--font-display);font-weight:600;float:left;font-size:3.3em;line-height:.8;padding:.05em .13em 0 0;color:var(--accent)}
+hr.ornament{border:0;margin:2.7rem auto;text-align:center;overflow:visible}
+hr.ornament::after{content:"✦ ✦ ✦";color:var(--muted);font-size:.78rem;opacity:.8}
+p.msg{text-align:center;margin:2.4rem auto;max-width:28rem;background:var(--accent-soft);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:1.05rem 1.4rem;font-size:.98em}
+p.msg .who{font-family:var(--font-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.9em;color:var(--accent);margin-right:.35em}
+p.msg .sep{color:var(--muted)}
+p.thought{text-align:center;font-style:italic;font-size:1.14em;line-height:1.6;color:var(--muted);margin:2.2rem auto;max-width:30rem}
+p.thought::before{content:"“ ";color:var(--accent);opacity:.55}
+p.thought::after{content:" ”";color:var(--accent);opacity:.55}
+.part-end{text-align:center;margin:4rem auto 0;padding-top:2.4rem;border-top:1px solid var(--line);max-width:34rem}
+.end-title{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:.82rem;color:var(--muted);margin:0 0 1rem}
+.end-title::before,.end-title::after{content:"—";margin:0 .7em;opacity:.55}
+.end-next{color:var(--muted);font-style:italic;margin:0}
+.end-next em{color:var(--accent);font-style:italic}
+.end-next strong{font-style:normal;letter-spacing:.04em}
+.part-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.nav-link{text-decoration:none;color:var(--text);border:1px solid var(--line);padding:.7rem 1.15rem;border-radius:999px;font-size:.9rem;transition:border-color .2s,color .2s}
+.nav-link:hover{border-color:var(--accent);color:var(--accent)}
+.nav-link.contents{color:var(--muted)}
+.nav-link.disabled{opacity:.35;pointer-events:none}
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:55;display:none;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:999px;width:2.6rem;height:2.6rem;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);font-size:1rem;transition:transform .2s}
+#toTop:hover{transform:translateY(-3px)}
+.colophon{padding:3rem 1.25rem 5rem;text-align:center;color:var(--muted);font-size:.85rem}
+.colophon .mark{font-family:var(--font-display);font-size:1.6rem;color:var(--accent)}
+@media (max-width:640px){.part-nav{flex-direction:column}.nav-link{text-align:center}.brand{font-size:.66rem}}
+@media (max-width:420px){.part p.lead::first-letter{font-size:2.7em}.toc a{padding:1rem .3rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">A Mad Man’s Fiction</a>
+  <div class="controls" role="group" aria-label="Reading controls">
+    <a class="icon-btn" href="index.html#toc" aria-label="Contents" title="Contents">☰</a>
+    <button id="fontMinus" class="icon-btn" aria-label="Decrease text size" title="Smaller text">A−</button>
+    <button id="fontPlus" class="icon-btn" aria-label="Increase text size" title="Larger text">A+</button>
+    <button id="themeBtn" class="icon-btn" aria-label="Change theme" title="Theme">☀</button>
+  </div>
+</header>
+
+<main class="reader">
+  <section id="part-8" class="part" aria-labelledby="part-8-title">
+    <header class="part-header">
+      <p class="series">A Mad Man’s Fiction</p>
+      <h2 class="part-title" id="part-8-title">Part Eight</h2>
+      <p class="epigraph">This is a work of fiction of a mad man with mad tastes.</p>
+    </header>
+<hr class="ornament" aria-hidden="true">
+<p class="lead">I woke at four, as I always did, and the dark was full of him.</p>
+<p>Not his body. His voice. It had followed me out of the week of waiting and into my sleep, that low, unhurried register, and even now, standing barefoot in the kitchen with the stove lit and the water coming to a boil, I could hear it in the hiss of the flame. <em>Coming home tomorrow night. Wear nothing under the saree.</em> I had not slept. I had laid out the white temple saree on the chair, and I had stared at it for an hour, and then I had put it on in the grey dark, and my hands had been steady, and my heart had not been steady at all.</p>
+<p>I was going to the temple to ask God for forgiveness. And I was going to wear nothing under the saree. The two intentions lived in me side by side, and I had stopped pretending one of them was real and the other was not. They were both real. They were both me. That, I was beginning to understand, was the whole terrible shape of the thing.</p>
+<p>The week had changed me. I could feel it in my own body, the way I moved through the dark house, the way my hips swayed a little more, the way my own skin felt new and unfamiliar, like a saree I had never worn before but that fit me perfectly. The woman who had spent twenty-five years invisible had spent one week being seen, being wanted, being commanded from four hundred kilometers away, and she had liked it. That was the sin I was carrying to the temple this morning. Not the acts. The liking. The deep, humming, unashamed liking of it.</p>
+<p>My mother would have understood. That was the thought that stopped me in the dark kitchen, one hand on the tap. Meghna would have understood. The woman they took away, the woman who stood at the door and waited for something that never came, the woman whose hunger had been bigger than the house they kept her in. I had spent twenty-five years afraid of becoming her. And now, standing barefoot at four in the morning with a man’s voice still warm in my ear, I was not sure I was afraid anymore. I was not sure I had ever been afraid of becoming her. I think I had been afraid of becoming her and not being sorry.</p>
+<p>I was not sorry. That was the truth the cold water could not wash off my hands. I was not sorry, and I was going to the temple anyway, the way a woman goes to her mother’s grave to say things she could never say to the living. You do not go for forgiveness. You go because the saying itself is the only relief left.</p>
+<p>By half past five I had fed Ravi and sent him out the door, and by six I was on the temple steps, and the white of my saree was already damp at the small of my back, and the smell of jasmine and camphor and hot stone rose around me like a held breath.</p>
+<hr class="ornament" aria-hidden="true">
+<p>It was a Tuesday, the god’s day, and the queue was longer than usual, and the whole of it, the smell and the sound and the press of bodies, was the exact opposite of the week I had just spent. For seven days I had been alone with a voice. Now I was surrounded by a hundred people and utterly, terrifyingly alone with a secret. Every woman in that queue, I thought, had a hunger of her own. Every one of them had pressed her palms together and asked for something she could not say aloud. And every one of them, like me, had gone home and done exactly what she wanted to do anyway.</p>
+<p>That was the oldest story in the world. The temple did not stop it. The temple only gave it somewhere to confess.</p>
+<hr class="ornament" aria-hidden="true">
+<p>The temple at six in the morning is a river of bodies.</p>
+<p>You do not walk into it. You are carried. The old women in their faded sarees, the office men with their hurried dhotis, the young mothers with babies on their hips, the children running loose, the beggars at the gate with their tin bowls, all of them pressing toward the sanctum where the lamp burns and the bell hangs and the god waits. The air is thick with incense and sweat and oil and the sharp green smell of crushed tulsi. The stone under my bare feet was already warm. Somewhere above it all, a bell rang, and then another, and the sound went through me like a summons.</p>
+<p>I joined the queue. I had done this a thousand times, on every festival, every Monday, every first of the month, and my body knew the rhythm of it, the shuffle and stop, the shuffle and stop, the way your bare feet slide on stone polished smooth by a million other feet. But today the rhythm did not calm me. Today every shuffle toward the sanctum felt like a step toward a verdict.</p>
+<p><em>Forgive me,</em> I practiced in my head. <em>Forgive me. I have done, I have said, I have let be done to me, such things as I cannot bring myself to name even to you.</em></p>
+<p>But even as I shaped the words, the other thing was there, under them, humming. The memory of the phone against my pillow. The sound of his voice saying <em>come for me, maa.</em> The word <em>randi</em> in my own mouth, owned, spoken aloud, and how it had not felt like a fall. How it had felt like a door opening.</p>
+<p>I pressed my palms together. The queue moved. And then, behind me, so close I felt the heat of him before I heard his breath, a voice said, very low, against my ear:</p>
+<p>“Pray for forgiveness, maa. You will need it tonight.”</p>
+<hr class="ornament" aria-hidden="true">
+<p>I did not turn around. I could not. The queue was too tight, the bodies too close, and if I had turned and seen his face in the lamplight I would have done something that could not be undone in the house of God.</p>
+<p>“Deva,” I whispered, and my voice did not even shake. “You came back early.”</p>
+<p>“I caught the morning train.” His body was pressed against my back now, the crowd doing what the crowd does, pushing us together, and I felt him, all of him, and the heat of him, and the white saree with nothing under it suddenly felt like nothing at all. “And I found my mother gone at dawn, in her white saree, walking to the temple like a bride going to meet her groom. So I followed. Is that a sin, maa? To follow what is mine?”</p>
+<p>“You should not be here.”</p>
+<p>“I have been here every week since I was a boy. You brought me. You held my hand through this very queue.” His lips were at my ear, and no one could hear him, no one, and the terror of it and the thrill of it made my knees weak. “Do you remember, maa? I used to press my face into your saree when the crowd got too loud. I would breathe you in. Even then. Even then I knew.”</p>
+<p>“Knew what?”</p>
+<p>“That you smell like the inside of a temple.” His hand found mine, in the crush of bodies, and his fingers closed around my wrist, and his thumb pressed into the racing pulse there, and I thought I would faint. “You smell like jasmine and camphor and something warm underneath. Something no god ever gave you. Something only I have ever noticed.”</p>
+<p>The queue stopped again, and this time his hips were flush against my rear, and the thin white cotton of my saree was the only thing between his heat and my bare skin, and I felt him, hard, pressing into the soft of me, and I bit down on the inside of my lip until I tasted copper.</p>
+<p>“Feel that?” he murmured, and his breath stirred the hair at my temple. “That is what a week of your voice did to me. That is what your photograph did. That is what the word randi in your mouth did.” A pause, and his hips rolled, once, slow, against me, and the crowd pressed on, blind and holy, all around us. “And you are going to carry that home inside you tonight, maa. You are going to carry it the way a devotee carries the lamp from the sanctum. Hot. Careful. Not spilling a drop.”</p>
+<p>“Deva,” I whispered, and it was a plea and a prayer at once.</p>
+<p>“Shhh.” His hand was on my hip now, under the drape of the saree, where no one could see, and his fingers dug in, just enough to bruise. “We are in the house of God. Behave, maa. Or don’t. I like you better when you don’t.”</p>
+<p>The queue moved. We shuffled forward, and his body stayed pressed to mine, and the whole temple, the bells, the chanting, the incense, all of it blurred into a single roaring in my ears, and I was terrified, and I was on fire, and I understood, with a cold, holy clarity, what he was doing.</p>
+<p>He was worshiping me. In the house of God, in the middle of a hundred devotees, he was worshiping me the way I worshiped God, and the blasphemy of it, and the sweetness of it, were the same thing.</p>
+<p>An old woman in the queue ahead of us turned then, her face cracked like old clay, and she smiled at me and said, “Your son holds you so close in the crowd, amma. You are lucky. My sons would not walk two steps with me.”</p>
+<p>I opened my mouth, and no sound came out. It was Deva who answered, smooth as milk, “She is my whole world, amma. I would carry her through this queue on my shoulders if the crowd would allow it.”</p>
+<p>The old woman laughed, and turned back, and the queue moved, and I stood there with my son’s body pressed to mine and his words, <em>my whole world</em>, ringing in my ears, and I knew, I knew, that no one in that temple had any idea what those words meant in his mouth.</p>
+<p>“That was cruel,” I whispered.</p>
+<p>“That was the truth,” he said, and his hand tightened on my hip. “They just don’t know which world I mean.”</p>
+<hr class="ornament" aria-hidden="true">
+<p>At the sanctum, the queue broke, and I pressed my palms together, and I closed my eyes, and I tried, with everything I had left, to pray.</p>
+<p><em>Forgive me,</em> I said, inside my head, where only the god could hear. <em>Forgive me for what I have done. For what I have let be done. For what I am going to do tonight.</em></p>
+<p>And then, because I had promised, because I had carried her name all week, I said the other thing too.</p>
+<p class="thought">And forgive her. Forgive Meghna. My mother. Whatever she did, whatever she was, she was mine, and she suffered, and I never once, not once, understood until now.</p>
+<p>The words rose up out of some place I had kept locked for twenty-five years, and behind my closed eyes I saw her, my mother, Meghna, in her thin cotton saree, her hair loose, her eyes the same wild dark as my own, and I saw the way she used to stand at the door and look down the road, waiting for something that never came, and I saw the day they took her away, and I heard myself, for the first time in a quarter of a century, whisper her name in the house of God.</p>
+<p>And I felt, in that moment, not forgiveness. But something else. A loosening. A crack, fine as a hair, in the wall I had built between myself and the woman I came from.</p>
+<p><em>She was hungry too,</em> I thought, and the thought was a blade. <em>She was hungry, and they called it madness, and they took her away, and I am hungry, and I am calling it love.</em></p>
+<p>I saw her again, more clearly now: Meghna at the well, drawing water, her arms bare, her skin golden in the evening, and the men who watched her from the lane and pretended not to. Meghna humming a song I have never been able to find again, a song with no words, that she sang only when she thought she was alone. Meghna on the floor of the temple, prostrating herself so long and so still that the priest had to ask her twice to rise. I did not understand then. I understand now. She was not praying for anything. She was burning, and the cold stone was the only thing that did not burn her back.</p>
+<p><em>I am burning too, ma,</em> I thought, and the word ma, the word I had not called her since I was a girl, rose up and split me open. <em>I am burning, and I have found a stone that burns me back, and I cannot make myself pull away.</em></p>
+<p>And then a hand closed around my wrist again, and pulled, and I opened my eyes, and the sanctum was behind me, and Deva was drawing me out of the crowd, into the shadowed corridor that ran along the side of the temple, where the flower-sellers sat and the stray dogs slept and no one, no one, was looking.</p>
+<hr class="ornament" aria-hidden="true">
+<p>“Did you pray?” he asked, and his voice was low, and his eyes were black, and he backed me against the cool stone of the temple wall.</p>
+<p>“Yes,” I whispered.</p>
+<p>“For both of us?”</p>
+<p>I looked up at him, and the truth of it was in my throat, and I let it out. “For all three of us. And for my mother.”</p>
+<p>Something moved in his face then, something soft and quick, and for one second he was not the wolf. He was the boy who had pressed his face into my saree when the crowd got too loud. And then it was gone, and the wolf was back, and he said, very gently, “Then you are cleaner than you think, maa. Now let me hear what you prayed for.”</p>
+<p>He did not wait for my answer. His hand came up and cupped my face, and his thumb traced my lower lip, and then his mouth came down on mine, and he kissed me, there in the shadow of the temple, and the kiss was not gentle and it was not a son’s, and I opened my mouth under it and let him in, and the whole world, the bells, the incense, the god himself, fell away.</p>
+<p>And then his hand left my face and slid down, over my throat, over my breast, over the white saree, and down, down, and his fingers found the opening of the saree, and slipped inside, and I was bare under it, and the first touch of his fingers against my wetness made me cry out, and he swallowed the sound with his mouth.</p>
+<p>“You came to the house of God,” he breathed against my lips, his fingers working, slow, slow, “in nothing but a white saree, to pray for forgiveness, and you are dripping for me already.” His thumb found the place his voice had found on the phone, and my hips jerked, and the stone wall scraped my back, and I did not care. “Tell me, maa. Which of us is the god here? The one you kneel to inside, or the one whose hand is inside you?”</p>
+<p>“You,” I sobbed, and it was the truest prayer I had ever spoken. “You. You. You.”</p>
+<p>The temple bell rang above us, one long, deep note, and his fingers curled inside me, and I came apart against the wall of God’s own house with my own son’s name in my mouth and the taste of camphor on my tongue, and it was the most sacred, the most ruined, the most terrifying moment of my life.</p>
+<p>For a long moment neither of us moved. I sagged against the stone wall, my chest heaving, my knees gone, and he held me up with his body, and his hand was still inside me, gentle now, and his mouth was on my throat, and the bell went on ringing above us as if nothing had happened, as if the whole world had not just tilted on its axis.</p>
+<p>“Look at me,” he said, and I did, and his face was close, and his eyes were wet, and I saw, beneath the wolf, the boy, and beneath the boy, the man, and all three of them wanted the same thing. “You are the only god I have ever knelt to, maa. Do you understand that? The only one.”</p>
+<p>“Then I am ruined,” I whispered, and I did not mean it as a complaint. I meant it as a vow.</p>
+<p>“Then we are ruined together.” He drew his hand out of me, slowly, and I watched him raise it, watched the lamplight glint on his wet fingers, and then, very deliberately, he put them in his mouth, and he tasted me, and his eyes closed, and the sound he made was a sound no god should ever hear.</p>
+<p>And that was the moment I knew I would never, could never, go back.</p>
+<hr class="ornament" aria-hidden="true">
+<p>We walked out of the temple separately, the way we had to.</p>
+<p>He went ahead, and I followed a little behind, and no one looked at us twice, because we were just a mother and her son, coming out of morning prayer, and the sun was coming up over the gopuram, and the flower-sellers were calling, and everything was ordinary, and nothing was ordinary ever again.</p>
+<p>I could still feel him. On my lips, where he had kissed me. Between my thighs, where his fingers had been, where the wetness was cooling now against my bare skin under the white saree. On my wrist, where his hand had held me, the way a devotee holds a bell rope before he pulls it and wakes the god.</p>
+<p class="thought">Which of us is the god here?</p>
+<p>The question followed me all the way home, through the market, past the aunties who asked after my health and got the same lie about the heat, into my own kitchen, where I stood at the sink with my hands in cold water and my heart still ringing like a struck bell.</p>
+<p>And I understood, standing there, that I had gone to the temple to be forgiven, and instead I had been confirmed. The god had not taken the hunger away. He had let it be. He had let it burn. And the man who had met me in His shadow and put his hand inside me while the bells rang had not been the devil.</p>
+<p>He had been the answer.</p>
+<hr class="ornament" aria-hidden="true">
+<p>He was waiting for me in the kitchen when I came home.</p>
+<p>I had gone in through the back, and there he was, leaning against the counter in his work clothes, drinking water from a steel glass, as if he had never been away, as if the last week had been a dream. He looked at me, and his eyes went over me, over the white saree, over the damp of it at my throat and my waist, and he smiled, that slow, dark, wolf smile.</p>
+<p>“You are still flushed, maa,” he said, and his voice was the one from the phone, low and unhurried, and it went through me like a hand. “The heat?”</p>
+<p>“The temple,” I said. “It was crowded.”</p>
+<p>“I know.” He set the glass down. “I was there. I saw you kneel. I saw your face when you prayed.” He crossed to me, slowly, and stopped so close that I could smell him, sweat and soap and the faint camphor of the temple still on his shirt, and he reached out and tucked a loose strand of my hair behind my ear, and his fingers lingered on my throat. “And I saw what you did when the bell rang. I did that. In the house of God.” His thumb brushed the hollow of my throat, where my pulse was slamming. “What does that make us, maa?”</p>
+<p>“Yours,” I whispered, and I did not know whose voice I was using, only that it was true. “Both of us. Yours.”</p>
+<p>He looked at me for a long moment, and then he leaned in, and his mouth was at my ear, and he said, very quietly, “Tonight, at dinner, you will sit beside me. And under the table, where no one can see, I am going to put my hand on you, and you are going to sit there, in front of your husband, and you are going to smile and pass the rotis, and you are going to let me. Do you understand?”</p>
+<p>My breath caught. The terror of it and the thrill of it raced through me, and I nodded, because I could not speak.</p>
+<p>“Good girl.” He kissed the corner of my mouth, feather-light, and stepped back. “Wear the green saree. The one that shows your waist when you reach across the table.”</p>
+<p>And he was gone, and I stood in my kitchen with my heart slamming and my hands shaking and the knowledge, cold and certain, that the guilt had not broken me at all.</p>
+<p>It had only made me ready.</p>
+<p>So I bathed, and I oiled my hair, and I wore the green saree, the one he had asked for, the one that showed the soft curve of my waist when I reached across the table. I did not ask myself why I was obeying. The asking was over. I stood in front of the mirror and I watched my own hands tremble over the pleats, and I saw the woman in the glass, and she was not the woman who had gone to the temple this morning to beg for forgiveness. She was the woman who had come home from the temple with God’s own silence ringing in her ears and a son’s command burning in her blood.</p>
+<p>And she was not afraid. She was only hungry.</p>
+<p>And that night, when the house was dark and Ravi was asleep and the guilt should have crushed me, I did not lie awake praying. I lay awake waiting. Because I knew what was coming, and I knew I would not say no, and the knowing of it was not a wound anymore.</p>
+<p>It was a hunger with a name, and a face, and a hand that had been inside me in the house of God, and it was coming home to me.</p>
+<p>And I would go to that dinner, and I would sit beside him, and I would let him put his hand on me under the table while my husband passed the salt, and I would not flinch. Because the woman I had been for twenty-five years would have flinched. The woman I was becoming would only spread her knees a little wider under the cloth and pray that no one noticed the way she was smiling.</p>
+<p>The temple had not taken my sin away. It had taught me to sit still inside it.</p>
+<p>That was its gift. And that was its sentence.</p>
+<p>And I sat on the edge of my bed in my green saree, and I waited for the call to dinner, and I did not pray, and I did not tremble, and I did not, even for one second, think of running.</p>
+<p>I only thought of his hand, under the table, and how long I could keep from crying out.</p>
+<hr class="ornament" aria-hidden="true">
+<footer class="part-end"><p class="end-title">End of Part Eight.</p><p class="end-next">To be continued in <strong>Part Nine</strong> — <em>the family dinner, and the hand under the table.</em></p></footer>
+    <nav class="part-nav" aria-label="Part navigation">
+      <a class="nav-link prev" href="part-7.html">&larr; Part Seven</a>
+      <a class="nav-link contents" href="index.html#toc">Contents</a>
+      <a class="nav-link next" href="part-9.html">Part Nine &rarr;</a>
+    </nav>
+  </section>
+  <footer class="colophon">
+    <div class="mark">✦</div>
+    <p>Part Eight of Part Twenty</p>
+  </footer>
+</main>
+<button id="toTop" aria-label="Back to top">↑</button>
+<script>
+(function () {
+  var root = document.documentElement;
+  var THEMES = ['light', 'sepia', 'dark'];
+  function readTheme() {
+    var t = localStorage.getItem('ammf-theme');
+    return THEMES.indexOf(t) >= 0 ? t : 'light';
+  }
+  function readScale() {
+    var s = parseFloat(localStorage.getItem('ammf-scale'));
+    return (s >= 0.8 && s <= 1.45) ? s : 1;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    var b = document.getElementById('themeBtn');
+    if (b) {
+      b.textContent = (t === 'light') ? '☀' : (t === 'sepia') ? '◐' : '☾';
+      b.setAttribute('aria-label', 'Theme: ' + t);
+    }
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim());
+  }
+  function cycleTheme() {
+    var i = THEMES.indexOf(root.getAttribute('data-theme') || 'light');
+    var next = THEMES[(i + 1) % THEMES.length];
+    applyTheme(next);
+    localStorage.setItem('ammf-theme', next);
+  }
+  function applyScale(s) { root.style.setProperty('--reader-scale', String(s)); }
+  function bumpScale(d) {
+    var s = Math.min(1.45, Math.max(0.8, Math.round((readScale() + d) * 100) / 100));
+    applyScale(s);
+    localStorage.setItem('ammf-scale', String(s));
+  }
+  var bar = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+    if (toTop) toTop.style.display = (h.scrollTop > 700) ? 'flex' : 'none';
+  }
+  var tb = document.getElementById('themeBtn');
+  if (tb) tb.addEventListener('click', cycleTheme);
+  var fm = document.getElementById('fontMinus');
+  var fp = document.getElementById('fontPlus');
+  if (fm) fm.addEventListener('click', function () { bumpScale(-0.05); });
+  if (fp) fp.addEventListener('click', function () { bumpScale(0.05); });
+  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  applyTheme(readTheme());
+  applyScale(readScale());
+  onScroll();
+})();
+</script>
+</body>
+</html>

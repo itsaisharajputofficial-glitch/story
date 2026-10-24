@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1e8">
+<meta name="description" content="A Mad Man’s Fiction — Part Seven. A serial work of fiction.">
+<title>A Mad Man’s Fiction — Part Seven</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90' fill='%238f1d2c'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --font-body:"Literata",Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+  --font-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --reader-scale:1;
+  --bg:#f7f1e8;--surface:#fdfaf4;--text:#2a231c;--muted:#8d7d6c;--accent:#8f1d2c;
+  --accent-soft:rgba(143,29,44,.07);--line:rgba(42,35,28,.15);--topbar:rgba(247,241,232,.88);
+  --shadow:0 20px 60px rgba(30,20,12,.08);
+}
+[data-theme="sepia"]{--bg:#f1e7cf;--surface:#f7efe0;--text:#44351f;--muted:#8b7958;--accent:#7e1a29;--accent-soft:rgba(126,26,41,.08);--line:rgba(68,53,31,.18);--topbar:rgba(241,231,207,.9)}
+[data-theme="dark"]{--bg:#15110e;--surface:#1c1713;--text:#ddd2c5;--muted:#9b8d7d;--accent:#e08c99;--accent-soft:rgba(224,140,153,.13);--line:rgba(221,210,197,.16);--topbar:rgba(21,17,14,.9)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:calc(1.075rem * var(--reader-scale))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.82;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s ease,color .4s ease;overflow-x:hidden}
+a{color:var(--accent)}
+::selection{background:var(--accent);color:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:70;box-shadow:0 0 10px var(--accent)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem clamp(.9rem,4vw,2rem);background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--font-display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--muted);white-space:nowrap;text-decoration:none}
+.controls{display:flex;align-items:center;gap:.3rem}
+.icon-btn{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;min-width:2.1rem;height:2.1rem;padding:0 .55rem;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:.92rem;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.cover{min-height:100vh;min-height:100dvh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.4rem 4rem;position:relative}
+.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,var(--accent-soft),transparent 60%);pointer-events:none}
+.cover>*{position:relative}
+.cover-kicker{letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--muted);margin:0 0 1.6rem;max-width:34rem;line-height:2}
+.cover-title{font-family:var(--font-display);font-weight:600;font-size:clamp(3.1rem,11vw,6.5rem);line-height:.96;margin:0;letter-spacing:-.01em}
+.cover-sub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 0}
+.cover-cta{margin-top:2.6rem}
+.cta{display:inline-block;text-decoration:none;color:var(--surface);background:var(--accent);padding:.85rem 1.9rem;border-radius:999px;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(143,29,44,.28)}
+.cta:hover{transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.2rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+.reader{padding:0 clamp(1.2rem,4vw,2rem)}
+.toc{padding:4rem 0 5rem;max-width:40rem;margin:0 auto;scroll-margin-top:5rem}
+.toc-heading{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;font-size:1rem;color:var(--muted);margin:0 0 2rem}
+.toc-heading::after{content:"";display:block;width:3.4rem;height:1px;background:var(--accent);margin:.9rem auto 0}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:flex;flex-direction:column;gap:.1rem;text-decoration:none;color:var(--text);padding:1.15rem .4rem;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.toc a:hover{background:var(--accent-soft);padding-left:.9rem}
+.toc .num{font-family:var(--font-display);font-size:.78rem;letter-spacing:.2em;color:var(--accent)}
+.toc .name{font-family:var(--font-display);font-weight:600;font-size:1.35rem;line-height:1.1}
+.toc .sub{color:var(--muted);font-style:italic;font-size:.92rem}
+
+.part{max-width:42rem;margin:0 auto;padding:6rem 0 3rem;scroll-margin-top:4.5rem}
+.part-header{text-align:center;margin-bottom:2.6rem}
+.series{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.part-title{font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,7vw,3.2rem);letter-spacing:.06em;line-height:1;margin:0}
+.epigraph{color:var(--muted);font-style:italic;font-size:.95em;margin:1.2rem auto 0;max-width:32rem}
+.part p{margin:0 0 1.4em}
+.part p.lead::first-letter{font-family:var(--font-display);font-weight:600;float:left;font-size:3.3em;line-height:.8;padding:.05em .13em 0 0;color:var(--accent)}
+hr.ornament{border:0;margin:2.7rem auto;text-align:center;overflow:visible}
+hr.ornament::after{content:"✦ ✦ ✦";color:var(--muted);font-size:.78rem;opacity:.8}
+p.msg{text-align:center;margin:2.4rem auto;max-width:28rem;background:var(--accent-soft);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:1.05rem 1.4rem;font-size:.98em}
+p.msg .who{font-family:var(--font-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.9em;color:var(--accent);margin-right:.35em}
+p.msg .sep{color:var(--muted)}
+p.thought{text-align:center;font-style:italic;font-size:1.14em;line-height:1.6;color:var(--muted);margin:2.2rem auto;max-width:30rem}
+p.thought::before{content:"“ ";color:var(--accent);opacity:.55}
+p.thought::after{content:" ”";color:var(--accent);opacity:.55}
+.part-end{text-align:center;margin:4rem auto 0;padding-top:2.4rem;border-top:1px solid var(--line);max-width:34rem}
+.end-title{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:.82rem;color:var(--muted);margin:0 0 1rem}
+.end-title::before,.end-title::after{content:"—";margin:0 .7em;opacity:.55}
+.end-next{color:var(--muted);font-style:italic;margin:0}
+.end-next em{color:var(--accent);font-style:italic}
+.end-next strong{font-style:normal;letter-spacing:.04em}
+.part-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.nav-link{text-decoration:none;color:var(--text);border:1px solid var(--line);padding:.7rem 1.15rem;border-radius:999px;font-size:.9rem;transition:border-color .2s,color .2s}
+.nav-link:hover{border-color:var(--accent);color:var(--accent)}
+.nav-link.contents{color:var(--muted)}
+.nav-link.disabled{opacity:.35;pointer-events:none}
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:55;display:none;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:999px;width:2.6rem;height:2.6rem;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);font-size:1rem;transition:transform .2s}
+#toTop:hover{transform:translateY(-3px)}
+.colophon{padding:3rem 1.25rem 5rem;text-align:center;color:var(--muted);font-size:.85rem}
+.colophon .mark{font-family:var(--font-display);font-size:1.6rem;color:var(--accent)}
+@media (max-width:640px){.part-nav{flex-direction:column}.nav-link{text-align:center}.brand{font-size:.66rem}}
+@media (max-width:420px){.part p.lead::first-letter{font-size:2.7em}.toc a{padding:1rem .3rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">A Mad Man’s Fiction</a>
+  <div class="controls" role="group" aria-label="Reading controls">
+    <a class="icon-btn" href="index.html#toc" aria-label="Contents" title="Contents">☰</a>
+    <button id="fontMinus" class="icon-btn" aria-label="Decrease text size" title="Smaller text">A−</button>
+    <button id="fontPlus" class="icon-btn" aria-label="Increase text size" title="Larger text">A+</button>
+    <button id="themeBtn" class="icon-btn" aria-label="Change theme" title="Theme">☀</button>
+  </div>
+</header>
+
+<main class="reader">
+  <section id="part-7" class="part" aria-labelledby="part-7-title">
+    <header class="part-header">
+      <p class="series">A Mad Man’s Fiction</p>
+      <h2 class="part-title" id="part-7-title">Part Seven</h2>
+      <p class="epigraph">This is a work of fiction of a mad man with mad tastes.</p>
+    </header>
+<hr class="ornament" aria-hidden="true">
+<p class="lead">The first night, he did not call.</p>
+<p>I lay in the dark in my blue saree, still dressed for the wedding that had not happened, and I watched the ceiling, and I waited. The house settled around me, creak by creak, until the only sounds were the fan and Ravi’s breathing and the slow, maddening tick of the clock on the wall. My phone lay on the nightstand like a thing with teeth. I kept my hands at my sides, exactly where he had locked them, and I burned.</p>
+<p><em>He will call,</em> I told myself. <em>He said he would call.</em></p>
+<p>But the hours passed, and the phone stayed dark, and somewhere around two in the morning I understood what he was doing. This was not forgetfulness. This was not the office keeping him. This was the drought. He had told me he was a patient man, that he was the one who enforced the waiting, and now he was proving it from four hundred kilometers away, leaving me to starve on the first night so that I would understand, in my bones, who held the water.</p>
+<p>The cruelty of it made me want him more. That was the worst part. I lay there in the dark and hated him, and the hatred was hot and sweet and it pooled in the same place the wanting did, and by dawn I had pressed my thighs together so hard that the muscles ached, and I had not touched myself, because he had told me not to, and my obedience was the only thing I had left to give him.</p>
+<hr class="ornament" aria-hidden="true">
+<p>The second day was worse.</p>
+<p>The house without him was a different creature. It was quieter, and emptier, and somehow louder, because every corner held a memory of his voice, his hands, the brush of his shoulder in the corridor. I moved through my chores like a woman underwater. Ravi asked me twice if I was well. I said I was tired, and I was, I was tired of everything except the wanting, which had not once let me rest.</p>
+<p>Kamala caught me standing at the window in the afternoon, staring at the road, and she said, in that flat way of hers, “Madam is waiting for someone?”</p>
+<p>“No,” I said, too quickly. “Just air.”</p>
+<p>She made a small sound, neither believing nor disbelieving, and went back to her work, and I stood there with my heart slamming and understood, with a cold little jolt, that the maid saw more than I gave her credit for, and that I would have to be careful, even in my own waiting.</p>
+<p>That night, at half past eleven, the phone lit up.</p>
+<p class="msg"><span class="who">DEVA</span><span class="sep">:</span> Are you awake, maa?</p>
+<p>My hands shook so badly I nearly dropped the phone. <em>Yes,</em> I typed back. <em>Always awake.</em></p>
+<p>The phone rang. Not a message. A call. I snatched it up and pressed it to my ear and said, in a whisper so low I barely heard it myself, “Hello?”</p>
+<p>Silence. For a long, terrible moment, only his breathing, slow and even, and the faint hiss of the line.</p>
+<p>“Say it again,” he said at last, and the sound of his voice, low and rough and close against my ear, went through me like a hand. “I have been waiting two days to hear your voice.”</p>
+<p>“Hello,” I whispered again, and my voice cracked on the word.</p>
+<p>“Hello, who?”</p>
+<p>I closed my eyes. Ravi was asleep in the next room, and I was a married woman lying in her marriage bed whispering into a phone, and the word he wanted from me was the word that undid everything. But I said it. God help me, I said it, because he had been waiting, because I had been waiting, because the drought had done its work and I was thirsty.</p>
+<p>“Hello, Deva.”</p>
+<p>“Good girl.” His voice dropped lower. “Now tell me what you are wearing.”</p>
+<p>My face went hot in the dark. “The blue saree.”</p>
+<p>“Still?”</p>
+<p>“Still.” I swallowed. “I have not taken it off since you left.”</p>
+<p>There was a pause, and then a sound I had never heard from him before, a low, ragged breath that was almost a groan, and the knowledge that I had put that sound in his throat, that I, Priya, could undo him from four hundred kilometers away with nothing but my voice, lit a fire in me that was entirely new. It was not shame. It was power.</p>
+<p>“Two days,” he said, and his voice was thick. “Two days you have sat in that saree and burned, and not once touched what is mine.”</p>
+<p>“It is yours,” I whispered. “I kept it for you.”</p>
+<p>“Describe it to me.” A command, soft as a blade. “Describe the saree on your body, maa. Slowly. I want to see it with your words.”</p>
+<hr class="ornament" aria-hidden="true">
+<p>And so I did.</p>
+<p>I do not know where the words came from. I only know that once I started, I could not stop, that the dark and the distance and the low heat of his voice peeled something off me, some last layer of the woman who could not speak, and left a woman who could, and wanted to, and was starving to be heard.</p>
+<p>“The silk is damp,” I whispered, “because I have been sweating since morning. It sticks to my stomach. To my thighs. When I move, it pulls.” I closed my eyes, and I could feel the cloth on me, and I could feel him listening, and the two together were more than either alone. “My blouse is too tight. I did it up wrong this morning, and my breasts, they strain against it, the cloth is wet there too, between them, in the valley.”</p>
+<p>“Keep going,” he said, and his breathing had changed, and I knew, with a certainty that made my cunt clench, what he was doing on the other end of the line.</p>
+<p>“My hair is loose,” I said, and my own voice was going low and rough, and I did not recognize it, and I loved it, I loved the sound of myself turning into filth for him. “I did not pin it. It is sticking to my neck. To my shoulders.” I paused, and then I said the thing I had never said, the thing that even in the dance school I had only moaned, “And between my legs, Deva, there is a wetness that has not dried for two days, and it is yours, and it is waiting, and I cannot, I cannot,”</p>
+<p>“Stop,” he said.</p>
+<p>I stopped. My breath was coming in short, sharp pulls. My thighs were pressed together under the sheet, and I was trembling, and I had done nothing, nothing, and yet I was closer to the edge than I had ever been in Ravi’s bed.</p>
+<p>“Do you know what you just did, maa?” His voice was almost tender. “You spoke. For the first time, in your own voice, you told me what your body is doing for me. That is the real door. That is the door that does not close.” A pause. “Now. I want proof. Get up. Go to the mirror. And send me a photograph of the woman I have been starving.”</p>
+<p>My heart seized. A photograph. The word alone was a weight, a risk, a thing that could not be taken back. But I was already climbing out of bed, already padding barefoot across the dark room to the mirror on the wall, already lifting my phone.</p>
+<p>And I sent it to him.</p>
+<hr class="ornament" aria-hidden="true">
+<p>I will not describe the photograph. I will only say that the woman in it was a woman I had never met before, a woman in a clinging blue saree with her hair loose and her eyes wild and her lips parted, a woman who looked like she had been interrupted in the middle of a sin she had no intention of finishing alone. I sent it, and I stood there in the dark, and I waited, and the waiting was the sweetest terror I had ever known.</p>
+<p>When his voice came back, it was changed. Hoarse. Almost reverent.</p>
+<p>“This,” he said, and I heard him breathe, heard the wet sound of it, and I knew what he was doing, and I was not shocked, I was not disgusted, I was on fire, “this is the woman they call sanskari. This is the woman who fasts on Mondays and covers her head for the postman. Look at you, maa. Look at what you send me when I am four hundred kilometers away and starving.”</p>
+<p>“Deva,” I whispered, and it was not a name anymore, it was a plea, “tell me what to do. I will do it. Anything. I will do anything.”</p>
+<p>“Anything,” he repeated, and the word was a caress and a threat. “Careful, maa. The phone remembers everything.” Then, softer, “Not tonight. Tonight you go back to bed, and you keep your hands at your sides, and you think about my voice. That is your assignment. Tomorrow night, if you are good, I will tell you where to put your hands.”</p>
+<p>“Please,” I breathed, and I hated the begging and I loved it, “please, Deva, tonight, I need,”</p>
+<p>“Need,” he cut me off, and the word came out sharp, and it hit me like a slap, “is mine to decide. You wait. That is what you do, maa. You wait, and you get wetter, and you think about the fact that I am going to come home to a woman who has been obedient for a week and has not once touched what belongs to me. Do you understand?”</p>
+<p>“Yes,” I whispered. “Yes, Deva.”</p>
+<p>“Good girl. Sleep now.”</p>
+<p>The line went dead. I stood in the dark in my damp saree, shaking, burning, and I understood, for the first time, that his cruelty was not cruelty at all. It was patience. It was the slow, deliberate winding of a spring that, when it finally released, would snap the world in half.</p>
+<p>And I could not wait for it to break.</p>
+<hr class="ornament" aria-hidden="true">
+<p>The next day, he did not wait for the night.</p>
+<p>It was mid-morning. Ravi was in the drawing room with his paper and his bad knee up on the stool. Kamala was sweeping the back veranda. I was in the kitchen, and my phone buzzed against the counter.</p>
+<p class="msg"><span class="who">DEVA</span><span class="sep">:</span> Go to the bedroom. Stand at the window. Unhook one hook of your blouse. Send me the proof.</p>
+<p>I stared at the words until they blurred. In the middle of the day. In my own house. With my husband twenty feet away and my maid within earshot and the whole colony awake beyond the window.</p>
+<p><em>You cannot,</em> I thought. <em>You absolutely cannot.</em></p>
+<p>And then I wiped my hands on my saree and I walked, calm as a woman going to fetch a comb, out of the kitchen, past the drawing room door where Ravi sat with his paper, and up the stairs to the bedroom.</p>
+<p>The window faced the back lane. I stood at it, and the thin curtain was drawn, and the sun came through it and laid a warm hand on my chest. My fingers went to my blouse, to the hook at the top, and they were steady, steadier than my heart, and they opened it. One hook. The blouse gaped a little over my breast, and a sliver of my skin showed, and I lifted my phone and I photographed it, that small, secret opening, that one hook undone for a man four hundred kilometers away, and I sent it.</p>
+<p>His reply came at once.</p>
+<p class="msg"><span class="who">DEVA</span><span class="sep">:</span> That is one hook. Now think about what I will do when I get home and there is not one hook left to unhook. Wear the white blouse tomorrow. The thin one.</p>
+<p class="msg"><span class="who">DEVA</span><span class="sep">:</span> And do not do up the hook until I tell you.</p>
+<p>I did not do it up. I went back downstairs with my blouse gaping one hook open and my heart hammering, and Ravi looked up and said, “You changed your blouse?”</p>
+<p>“No,” I said, and my voice was so calm it frightened me. “It is just the heat.”</p>
+<p>“It is hot,” he agreed, and went back to his paper, and I walked into the kitchen and stood at the sink with my hands in cold water and my blouse open one hook over my breast and a fire burning behind my ribs that no cold water on earth could touch.</p>
+<p><em>This is what he does,</em> I thought, and the thought was almost admiring. <em>He makes the whole house his. Even in daylight. Even with everyone watching. He owns the day now, not just the night.</em></p>
+<p>And I was not afraid. I was not even ashamed. I was only, terribly, completely, his.</p>
+<hr class="ornament" aria-hidden="true">
+<p>The third night, he gave me my hands back.</p>
+<p>I had spent the day in a fever. The waiting was its own kind of touch now. Every hour I checked my phone. Every sound in the house made my heart lurch. By evening I was wound so tight that when Kamala dropped a spoon on the floor I nearly screamed, and Ravi looked at me over his glasses and asked, again, if I was unwell, and I said, again, that I was tired, and the lie tasted like honey and ash.</p>
+<p>At half past eleven, the phone rang.</p>
+<p>“Are you ready, maa?” he said, without greeting.</p>
+<p>“Yes.”</p>
+<p>“Where are you?”</p>
+<p>“In my bed. Ravi is asleep beside me.”</p>
+<p>There was a pause, and when he spoke again his voice had dropped into that low, unhurried register that made my spine go soft. “Good. Then this is what you are going to do. You are going to put the phone on the pillow beside your head, and you are not going to hang up, and you are going to do exactly what I tell you. And if you make a sound loud enough to wake him, I will stop. Do you understand?”</p>
+<p>“Yes, Deva.”</p>
+<p>“Then unpleat your saree. Slowly. Let it fall open. Tell me when it is open.”</p>
+<p>I did. The silk slid apart, and the night air touched my belly, my thighs, and I heard myself say, “It is open.”</p>
+<p>“Now your blouse. Do not remove it. Just open it. I want to imagine your breasts against the cloth, not free. Just covered, and hot, and mine.”</p>
+<p>My fingers found the hooks. One, two, three. The blouse fell open over my breasts, and the weight of them, the heat of them, pressed against the loose cloth, and I whispered, “It is open.”</p>
+<p>“Now put your hand on your stomach, maa. Flat. Feel the heat. That heat is mine. I put it there.” His voice was a leash, and I was already straining against it. “And now you are going to slide that hand down, very slowly, into the wet place between your thighs, and you are going to touch it, and you are going to tell me what you find there.”</p>
+<p>My hand moved before my mind could object. It slid down over the soft plain of my belly, through the dark thatch, and into the heat, and the first touch made my back arch off the mattress, and I bit down on my lip to keep from crying out.</p>
+<p>“Tell me,” he said.</p>
+<p>“Wet,” I breathed. “Deva, I am so wet, I am, it is dripping, I can feel it on my fingers, I have never,”</p>
+<p>“Never what?”</p>
+<p>“Never this much. Not for anyone.”</p>
+<p>“For me,” he corrected, and the possessiveness in his voice was a brand. “Now one finger. Just one. And you are going to circle, slowly, exactly the way I would, and you are going to say my name, and you are going to mean it.”</p>
+<p>I did. One finger, slow circles, the way I imagined his thumb, and his name rose out of me like a prayer, low and broken, “Deva, Deva, Deva,” and I could hear his breathing on the other end of the line, fast now, ragged, and the knowledge that he was touching himself to the sound of me touching myself was the filthiest, sweetest thing that had ever happened in that marriage bed.</p>
+<p>“Faster,” he said. “And do not stop. You are going to come for me, maa, and you are going to come with my name in your mouth, and you are going to do it quietly, quietly, because your husband is sleeping six inches away, and he will never know that his sanskari wife is coming apart in the dark for her own son.”</p>
+<p>The wave was already rising. I had been starving for days, and his voice was the last thing I needed, and I was so close, so close, my thighs shaking, my teeth buried in my lip, and the world was narrowing to the sound of his breath and the terrible, wonderful words falling out of his mouth, “come for me, maa, now, now,”</p>
+<p>And I came.</p>
+<p>It tore through me like a wall of water, and I arched off the bed, and I clamped my free hand over my mouth, and I screamed into my own palm, his name, his name, his name, and Ravi slept on, blind and breathing, and I lay there shattered and shaking with the phone still pressed to the pillow, and I understood, in the wreckage of it, that I had just given him something no one had ever had, not Ravi, not any man: my release, given on command, by his voice alone, from four hundred kilometers away.</p>
+<p>“That,” he said at last, and his voice was thick and reverent, “is what your cunt sounds like when it finally tells the truth, maa. Send me the photograph. Show me what you made of yourself for me.”</p>
+<p>I sent it. I sent it with shaking fingers and burning cheeks, and I did not wait for his verdict, because I already knew it. I lay back in the wreckage of my own making, my saree open, my blouse open, my hand still wet, and I felt, for the first time, no shame at all. Only a deep, humming satisfaction, like a bell that had finally been struck after years of hanging silent.</p>
+<p>His voice came back after a long moment, and it was soft now, and it was the softness that undid me.</p>
+<p>“You are my sanskari randi, maa,” he said, and the word, the filthy, terrible word, hung in the dark of my marriage bed like smoke. “Say it. Say it so I can hear you own it.”</p>
+<p>I closed my eyes. The word was there, on my tongue, and it was ugly and it was true, and I wanted it, I wanted to give it to him, the way I had given him everything else.</p>
+<p>“Say it,” he said again, and there was no command in it now, only hunger.</p>
+<p>“Your sanskari randi,” I whispered. And then, louder, because the dark was listening and I wanted the dark to hear, “I am your sanskari randi, Deva. Yours. Only yours.”</p>
+<p>The sound he made then was not a word. It was a sound a man makes when something inside him breaks open. And then there was only his breathing, harsh and fast, and then, after a long, shuddering silence, his voice, wrecked:</p>
+<p>“That is my good girl. Sleep now, maa. Dream of being mine.”</p>
+<p>The line went dead.</p>
+<hr class="ornament" aria-hidden="true">
+<p>He did not call again for two days.</p>
+<p>Two days of silence. Two days of me moving through the house with his last words still burning in my mouth, with the memory of my own release still humming in my body, with the photographs of myself, my open, glistening, unashamed self, sitting in his phone somewhere four hundred kilometers away. Two days in which the wanting and the waiting and the filth and the fear all curdled together inside me until I could not tell one from the other.</p>
+<p>And here was the strangest part, the part I could not have predicted and could not deny: it was not his hands I missed most. It was his voice. That low, unhurried register that had become a room I could step into and close the door. I caught myself holding the silent phone to my ear at odd hours, just to feel the shape of it, just to remember the way a single word of his could unlock me. I had become addicted to a voice. And an addict will do anything, forgive anything, risk anything, for one more fix.</p>
+<p>And the white blouse. The thin one. I wore it the next day, the way he had told me, and all day it clung to my breasts and showed the shadow of my nipples through the cloth, and every time Ravi looked at me and saw nothing, the secret between me and the phone grew a little heavier, and a little sweeter, and a little more dangerous.</p>
+<p>And then the guilt came. Not all at once. It came slow, in the quiet hours, in the afternoon heat, in the way Ravi reached for his tea without looking up from his paper, in the way he said, “You seem better today,” and meant it kindly, and did not know, would never know, what I had done while he slept beside me. The guilt came, and I did not fight it. I had earned it. I had earned every gram of it, and I carried it through the house like a heavy thing, and it was the only weight I had left that still felt honest.</p>
+<p>By the fifth day, I had made up my mind. I would go to the temple. I would sit before the deity and I would ask for forgiveness, not because I believed I deserved it, but because I had to say the words aloud, to someone, to something, or the words would eat me from the inside. I would pray for myself. And I would pray, as I had not prayed in years, for my mother, Meghna, whose name I had not spoken since the day they took her away, and whose ghost I had been running from for as long as I could remember.</p>
+<p><em>Forgive me,</em> I would say. <em>Forgive us both.</em></p>
+<p>And then, on the evening of the sixth day, the phone lit up one last time.</p>
+<p class="msg"><span class="who">DEVA</span><span class="sep">:</span> Coming home tomorrow night. Wear nothing under the saree.</p>
+<hr class="ornament" aria-hidden="true">
+<p>I read it three times. My heart did not know whether to leap or to sink. Tomorrow night. He was coming home, and I was to meet him dressed as his, and everything I had done on the phone, every filthy word, every photograph, every command obeyed, was going to walk through the front door and stand before me in the flesh, and I did not know if I was ready for the collision.</p>
+<p>So I did the only thing I could do. I put the phone down, and I laid out my white temple saree for the morning, and I told myself that if I could sit before God and ask for forgiveness and still want him afterward, then I would know, at last, what I truly was.</p>
+<p>And I would go to the temple, and I would pray, and the answer, whatever it was, would be waiting for me in the smell of incense and camphor and the weight of a hundred other sinners pressing in around me.</p>
+<p>And somewhere under all of it, under the guilt and the prayer and the fear, the wanting burned on, untouched by any of it, patient and certain, the way a lamp burns in a locked room. No temple could put it out. No god had ever asked it to. It was mine now, and I was beginning, for the first time, to suspect that it had always been mine, and that I had only ever been waiting for someone to light it.</p>
+<p><em>Forgive me,</em> I whispered into the dark, and the dark did not answer, and I did not sleep.</p>
+<hr class="ornament" aria-hidden="true">
+<footer class="part-end"><p class="end-title">End of Part Seven.</p><p class="end-next">To be continued in <strong>Part Eight</strong> — <em>the temple, and the prayer that becomes a sin.</em></p></footer>
+    <nav class="part-nav" aria-label="Part navigation">
+      <a class="nav-link prev" href="part-6.html">&larr; Part Six</a>
+      <a class="nav-link contents" href="index.html#toc">Contents</a>
+      <a class="nav-link next" href="part-8.html">Part Eight &rarr;</a>
+    </nav>
+  </section>
+  <footer class="colophon">
+    <div class="mark">✦</div>
+    <p>Part Seven of Part Twenty</p>
+  </footer>
+</main>
+<button id="toTop" aria-label="Back to top">↑</button>
+<script>
+(function () {
+  var root = document.documentElement;
+  var THEMES = ['light', 'sepia', 'dark'];
+  function readTheme() {
+    var t = localStorage.getItem('ammf-theme');
+    return THEMES.indexOf(t) >= 0 ? t : 'light';
+  }
+  function readScale() {
+    var s = parseFloat(localStorage.getItem('ammf-scale'));
+    return (s >= 0.8 && s <= 1.45) ? s : 1;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    var b = document.getElementById('themeBtn');
+    if (b) {
+      b.textContent = (t === 'light') ? '☀' : (t === 'sepia') ? '◐' : '☾';
+      b.setAttribute('aria-label', 'Theme: ' + t);
+    }
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim());
+  }
+  function cycleTheme() {
+    var i = THEMES.indexOf(root.getAttribute('data-theme') || 'light');
+    var next = THEMES[(i + 1) % THEMES.length];
+    applyTheme(next);
+    localStorage.setItem('ammf-theme', next);
+  }
+  function applyScale(s) { root.style.setProperty('--reader-scale', String(s)); }
+  function bumpScale(d) {
+    var s = Math.min(1.45, Math.max(0.8, Math.round((readScale() + d) * 100) / 100));
+    applyScale(s);
+    localStorage.setItem('ammf-scale', String(s));
+  }
+  var bar = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+    if (toTop) toTop.style.display = (h.scrollTop > 700) ? 'flex' : 'none';
+  }
+  var tb = document.getElementById('themeBtn');
+  if (tb) tb.addEventListener('click', cycleTheme);
+  var fm = document.getElementById('fontMinus');
+  var fp = document.getElementById('fontPlus');
+  if (fm) fm.addEventListener('click', function () { bumpScale(-0.05); });
+  if (fp) fp.addEventListener('click', function () { bumpScale(0.05); });
+  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  applyTheme(readTheme());
+  applyScale(readScale());
+  onScroll();
+})();
+</script>
+</body>
+</html>

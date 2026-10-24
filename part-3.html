@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1e8">
+<meta name="description" content="A Mad Man’s Fiction — Part Three. A serial work of fiction.">
+<title>A Mad Man’s Fiction — Part Three</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90' fill='%238f1d2c'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --font-body:"Literata",Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+  --font-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --reader-scale:1;
+  --bg:#f7f1e8;--surface:#fdfaf4;--text:#2a231c;--muted:#8d7d6c;--accent:#8f1d2c;
+  --accent-soft:rgba(143,29,44,.07);--line:rgba(42,35,28,.15);--topbar:rgba(247,241,232,.88);
+  --shadow:0 20px 60px rgba(30,20,12,.08);
+}
+[data-theme="sepia"]{--bg:#f1e7cf;--surface:#f7efe0;--text:#44351f;--muted:#8b7958;--accent:#7e1a29;--accent-soft:rgba(126,26,41,.08);--line:rgba(68,53,31,.18);--topbar:rgba(241,231,207,.9)}
+[data-theme="dark"]{--bg:#15110e;--surface:#1c1713;--text:#ddd2c5;--muted:#9b8d7d;--accent:#e08c99;--accent-soft:rgba(224,140,153,.13);--line:rgba(221,210,197,.16);--topbar:rgba(21,17,14,.9)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:calc(1.075rem * var(--reader-scale))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.82;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s ease,color .4s ease;overflow-x:hidden}
+a{color:var(--accent)}
+::selection{background:var(--accent);color:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:70;box-shadow:0 0 10px var(--accent)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem clamp(.9rem,4vw,2rem);background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--font-display);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--muted);white-space:nowrap;text-decoration:none}
+.controls{display:flex;align-items:center;gap:.3rem}
+.icon-btn{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;min-width:2.1rem;height:2.1rem;padding:0 .55rem;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:.92rem;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.cover{min-height:100vh;min-height:100dvh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.4rem 4rem;position:relative}
+.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,var(--accent-soft),transparent 60%);pointer-events:none}
+.cover>*{position:relative}
+.cover-kicker{letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--muted);margin:0 0 1.6rem;max-width:34rem;line-height:2}
+.cover-title{font-family:var(--font-display);font-weight:600;font-size:clamp(3.1rem,11vw,6.5rem);line-height:.96;margin:0;letter-spacing:-.01em}
+.cover-sub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:1.8rem 0 0}
+.cover-cta{margin-top:2.6rem}
+.cta{display:inline-block;text-decoration:none;color:var(--surface);background:var(--accent);padding:.85rem 1.9rem;border-radius:999px;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(143,29,44,.28)}
+.cta:hover{transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.2rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+.reader{padding:0 clamp(1.2rem,4vw,2rem)}
+.toc{padding:4rem 0 5rem;max-width:40rem;margin:0 auto;scroll-margin-top:5rem}
+.toc-heading{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-align:center;font-size:1rem;color:var(--muted);margin:0 0 2rem}
+.toc-heading::after{content:"";display:block;width:3.4rem;height:1px;background:var(--accent);margin:.9rem auto 0}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc a{display:flex;flex-direction:column;gap:.1rem;text-decoration:none;color:var(--text);padding:1.15rem .4rem;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.toc a:hover{background:var(--accent-soft);padding-left:.9rem}
+.toc .num{font-family:var(--font-display);font-size:.78rem;letter-spacing:.2em;color:var(--accent)}
+.toc .name{font-family:var(--font-display);font-weight:600;font-size:1.35rem;line-height:1.1}
+.toc .sub{color:var(--muted);font-style:italic;font-size:.92rem}
+
+.part{max-width:42rem;margin:0 auto;padding:6rem 0 3rem;scroll-margin-top:4.5rem}
+.part-header{text-align:center;margin-bottom:2.6rem}
+.series{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.part-title{font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,7vw,3.2rem);letter-spacing:.06em;line-height:1;margin:0}
+.epigraph{color:var(--muted);font-style:italic;font-size:.95em;margin:1.2rem auto 0;max-width:32rem}
+.part p{margin:0 0 1.4em}
+.part p.lead::first-letter{font-family:var(--font-display);font-weight:600;float:left;font-size:3.3em;line-height:.8;padding:.05em .13em 0 0;color:var(--accent)}
+hr.ornament{border:0;margin:2.7rem auto;text-align:center;overflow:visible}
+hr.ornament::after{content:"✦ ✦ ✦";color:var(--muted);font-size:.78rem;opacity:.8}
+p.msg{text-align:center;margin:2.4rem auto;max-width:28rem;background:var(--accent-soft);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:1.05rem 1.4rem;font-size:.98em}
+p.msg .who{font-family:var(--font-display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.9em;color:var(--accent);margin-right:.35em}
+p.msg .sep{color:var(--muted)}
+p.thought{text-align:center;font-style:italic;font-size:1.14em;line-height:1.6;color:var(--muted);margin:2.2rem auto;max-width:30rem}
+p.thought::before{content:"“ ";color:var(--accent);opacity:.55}
+p.thought::after{content:" ”";color:var(--accent);opacity:.55}
+.part-end{text-align:center;margin:4rem auto 0;padding-top:2.4rem;border-top:1px solid var(--line);max-width:34rem}
+.end-title{font-family:var(--font-display);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:.82rem;color:var(--muted);margin:0 0 1rem}
+.end-title::before,.end-title::after{content:"—";margin:0 .7em;opacity:.55}
+.end-next{color:var(--muted);font-style:italic;margin:0}
+.end-next em{color:var(--accent);font-style:italic}
+.end-next strong{font-style:normal;letter-spacing:.04em}
+.part-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.nav-link{text-decoration:none;color:var(--text);border:1px solid var(--line);padding:.7rem 1.15rem;border-radius:999px;font-size:.9rem;transition:border-color .2s,color .2s}
+.nav-link:hover{border-color:var(--accent);color:var(--accent)}
+.nav-link.contents{color:var(--muted)}
+.nav-link.disabled{opacity:.35;pointer-events:none}
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:55;display:none;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:999px;width:2.6rem;height:2.6rem;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);font-size:1rem;transition:transform .2s}
+#toTop:hover{transform:translateY(-3px)}
+.colophon{padding:3rem 1.25rem 5rem;text-align:center;color:var(--muted);font-size:.85rem}
+.colophon .mark{font-family:var(--font-display);font-size:1.6rem;color:var(--accent)}
+@media (max-width:640px){.part-nav{flex-direction:column}.nav-link{text-align:center}.brand{font-size:.66rem}}
+@media (max-width:420px){.part p.lead::first-letter{font-size:2.7em}.toc a{padding:1rem .3rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<header class="topbar">
+  <a class="brand" href="index.html">A Mad Man’s Fiction</a>
+  <div class="controls" role="group" aria-label="Reading controls">
+    <a class="icon-btn" href="index.html#toc" aria-label="Contents" title="Contents">☰</a>
+    <button id="fontMinus" class="icon-btn" aria-label="Decrease text size" title="Smaller text">A−</button>
+    <button id="fontPlus" class="icon-btn" aria-label="Increase text size" title="Larger text">A+</button>
+    <button id="themeBtn" class="icon-btn" aria-label="Change theme" title="Theme">☀</button>
+  </div>
+</header>
+
+<main class="reader">
+  <section id="part-3" class="part" aria-labelledby="part-3-title">
+    <header class="part-header">
+      <p class="series">A Mad Man’s Fiction</p>
+      <h2 class="part-title" id="part-3-title">Part Three</h2>
+      <p class="epigraph">This is a work of fiction of a mad man with mad tastes.</p>
+    </header>
+<hr class="ornament" aria-hidden="true">
+<p class="lead">I waited until the house was asleep.</p>
+<p>The clock on the wall said half past eleven, and I had watched every minute of it crawl by. Ravi lay on his back beside me, breathing slow and deep, his mouth slightly open, the way he always slept after his two pegs of whisky. The house had settled around us, the last creak of the door, the last sigh of the ceiling fan, until the only sounds left were his breathing and my own heart, which had not slowed all day.</p>
+<p>I had not moved for an hour. I lay stiff as a board, staring at the ceiling, my hands folded over my chest like a corpse, listening. Listening to the house. Listening to my own blood. Listening for a sound I both dreaded and, God forgive me, wanted.</p>
+<p>Then my phone lit up under the pillow.</p>
+<p class="msg"><span class="who">DEVA</span><span class="sep">:</span> Come.</p>
+<p>One word. My whole body answered it before my mind could. A flush of heat rose up my throat. My cunt, I let myself think the word now, there was no hiding from it anymore, my cunt pulsed, once, hard, and I felt the first slick heat of my own body beginning to betray me.</p>
+<p>I slipped out of bed without a sound. The floor was cold under my bare feet, and the shock of it helped, a little. I stood in the dark in my thin night blouse and petticoat, he had told me, in a second message that had made my face burn, to come <em>as I was</em>, and I felt the air of the room move over my skin like a stranger’s breath.</p>
+<p><em>Hai bhagwan,</em> I whispered to the dark. <em>What have I become?</em></p>
+<p>Ravi did not stir. Of course he did not stir. For twenty-five years, the only thing that could wake him was his own alarm.</p>
+<hr class="ornament" aria-hidden="true">
+<p>The corridor was dark. I walked on the edges of the floorboards the way I had learned to as a girl, avoiding every creak, my heart hammering so loud I was sure it would wake the whole house. My bare feet whispered over the wood. My petticoat whispered against my thighs. The whole world seemed to be holding its breath with me.</p>
+<p>His door was ajar. A sliver of yellow light leaked through the gap, thin as a knife blade.</p>
+<p>I stood outside it for a long time. My hand on the door. My breath fogging the wood.</p>
+<p><em>You can still turn back,</em> said a voice in my head. The voice of twenty-five years. The voice of the woman the colony called sanskari. <em>You can still be his mother. You can still walk away, and tomorrow this will all have been a fever dream.</em></p>
+<p>And then, louder, from the place inside me that had been hungry for so long, the place that woke at four in the morning and asked <em>is this all there is</em>, another voice answered.</p>
+<p class="thought">But I don’t want to turn back.</p>
+<p>I pushed the door open.</p>
+<p>I stepped inside. I closed the door behind me. And I locked it, the bolt sliding home slow, and loud, and final, like a knife being drawn from its sheath.</p>
+<p>He was standing by the window, in a thin white vest and loose cotton shorts, with his back to me. The lamp was low, and the light poured over the muscles of his shoulders, the thick column of his neck, the way his arms hung at his sides like weapons at rest.</p>
+<p>When he turned, his eyes went over me the way they always did, slowly, like a man reading something he had waited years to read. And this time I let him. This time I stood still and let his eyes travel from my bare feet, up my bare calves, over the soft swell of my hips under the thin petticoat, over the heavy rise of my breasts in the night blouse, to my face, flushed and hot.</p>
+<p>“Come here, maa,” he said. His voice was rough, as if he had not spoken for hours. Or as if he had been speaking only to himself, in the dark, about this.</p>
+<p>I walked to him. My legs were trembling. I stopped an arm’s length away.</p>
+<p>“Closer.”</p>
+<p>I stepped closer. Now I could smell him, the clean smell of soap, and under it, the sharp, hot, animal smell of a man’s wanting. It went straight to my head, and then lower. My cunt pulsed again, and I pressed my thighs together, and he saw it, and his lips twitched.</p>
+<p>“Turn around,” he said.</p>
+<p><em>Hai Ram,</em> I breathed it, and then I turned.</p>
+<p>Slowly, like a woman in a dream, I turned until my back was to him and I was facing the window, the dark, the night pressing in from outside. My breath came fast and shallow. My hands hung at my sides. And behind me, I felt him, the heat of him, the nearness of him, the quiet, patient hunger of him, so close that the fine hairs on the back of my neck stood up.</p>
+<p>For a long, terrible, beautiful moment, he did not touch me. He only stood there, and I could feel his eyes on my body, on my shoulders, on the dip of my waist, on the wide, soft swell of my rear under the thin petticoat, and the waiting itself was a kind of touch, a kind of undressing.</p>
+<p>Then his hands landed on my hips.</p>
+<p>I gasped. I could not help it. His palms were warm and dry and so much bigger than I remembered, bigger than Ravi’s, bigger than any man’s who had ever touched me, and they curled around my hips through the cloth, and squeezed, once, slow, and my whole body went liquid and hot.</p>
+<p>“Maa,” he breathed, against my hair. “Do you have any idea how long I have waited to put my hands here?”</p>
+<p>I shook my head. I could not find my voice. I did not want to find my voice. Some part of me was screaming, <em>this is your son, this is your son</em>, but the sound was very far away, drowned out by the rush of my own blood.</p>
+<p>His hands moved. Slowly, so slowly, they slid down over the curve of my hips, and then down, and then, oh, they were cupping my rear through the petticoat, two broad hands full of me, squeezing, kneading, testing the weight of me, and I made a sound I had never made in my life, a low, broken moan that seemed to come from somewhere deeper than my throat.</p>
+<p>“God,” he said, and his voice cracked. “So soft. So full. Maa, you’ve been hiding this from me for twenty-four years.”</p>
+<p>“Deva,” I tried, but the word came out a whimper.</p>
+<p>“Shhh.” His mouth was at my ear now, hot and wet, and I could feel his breath on my throat. “Don’t talk. Don’t think. Just feel. Let me worship you, maa.”</p>
+<p>And then his hands were kneading me in earnest, slow and deep, and I was gripping the window sill, and the night pressed its cold face to the glass, and all I could feel was his heat behind me, his hands on me, and the terrible, shameful, glorious truth that I never, ever wanted him to stop.</p>
+<p>His mouth found my neck.</p>
+<p>I felt the heat of it first, his lips, soft and wet, pressing to the side of my throat where my pulse beat wildest, and then the wet, dragging stroke of his tongue, and I made a sound that was half moan, half sob, and my head fell back against his shoulder without my permission, baring my throat to him like an animal surrendering.</p>
+<p>“Good,” he murmured against my skin. “So good, maa. Do you know how you smell? Do you know what the smell of you does to me?”</p>
+<p>I shook my head, helpless. I did not know. I could not think.</p>
+<p>“Like sandalwood,” he said, “and sweat, and the soap you use, and under all of it, you. Just you. The smell of a woman. I could live inside this smell, maa. I could die inside it and thank God.”</p>
+<p>His hands never stopped moving. While his mouth worked at my neck, his fingers kneaded my rear through the petticoat in slow, deep circles, squeezing and releasing, pulling me back against him, and with every squeeze I felt the thick, hard length of him pressing into the small of my back through his shorts, and my cunt ached, and my thighs pressed together, and I began, shamefully, to rock.</p>
+<p>“That’s it,” he breathed. “Move for me. Feel me. Feel what you do to me, maa.”</p>
+<p>And then his hips moved, and I felt him, the full, heavy, terrifying truth of him, grinding against my rear, slow and deliberate, and a sob caught in my throat, because it was sin, it was all sin, and yet I was pressing back against him, and my body was opening like a flower in the dark.</p>
+<p>And then his hand moved from my rear, around my hip, and down, and his fingers found the front of my petticoat, and the heat of his palm settled over the wet, aching place between my thighs through the cloth, and I cried out, a sound so loud in the silent room that we both froze, listening, for the creak of a bed, the shuffle of feet, anything.</p>
+<p>There was nothing. Only the dark, and my ragged breath, and his hand, still pressed against me, feeling the heat of my wanting through the thin cotton.</p>
+<p>“You’re soaked through,” he breathed, wondering, and I felt his fingers press, just a little, just enough to make me see stars. “Maa. You are soaked through, and I have barely touched you.” His lips found my ear, and his voice dropped to a filthy, reverent whisper. “You were made for this. You were made for me. Weren’t you?”</p>
+<p>I nodded, because I could not speak, and because it was true, and because in that moment I believed it with my whole body, the way a drowning woman believes in the rope.</p>
+<p>“Do you know what I want to do to you?” His voice was ragged now, right against my ear, and the words came fast and filthy and hot. “I want to pull this petticoat down and see you. All of you. I want to spread your cheeks and put my mouth on you, maa. I want to lick you there until you scream. I want to feel you shaking against my tongue.”</p>
+<p>I whimpered. I could not stop it. My nails dug into the window sill.</p>
+<p>“I want to feel your cunt,” he said, and the word, in his mouth, was a prayer, “I want to feel how wet you are for me. Because you are wet, aren’t you, maa? Right now. For your own son.”</p>
+<p>I shook my head, no, no, I could not say it, but my hips did not stop moving, and my thighs were slick, and we both knew the truth.</p>
+<p>“Say it,” he growled, and his teeth grazed my throat. “Say you’re wet for me.”</p>
+<p>I did not want to say it. I wanted to say it more than I had ever wanted anything.</p>
+<p><em>Hai Ram,</em> I thought, <em>he is asking his own mother this, and I am going to answer him.</em></p>
+<p>“I’m wet,” I whispered. And then, because the dam had broken and the words were coming whether I wanted them to or not: “I’m wet for you, Deva.”</p>
+<p>The sound he made, a low, ragged, hungry noise, half growl, half prayer, went through me like fire. His teeth closed on the soft place where my neck met my shoulder, not hard enough to hurt, hard enough to mark, and his hips ground against me, and his hands pulled my rear back into him, and for a long, blind, glorious moment we moved together like that, in the dark, against the window, with the whole house sleeping around us and the night watching through the glass.</p>
+<p>“Good girl,” he breathed against the place he had bitten. “My good, wet, beautiful girl.”</p>
+<p>Not mother. <em>Girl.</em> The word undid me. My knees went weak, and I would have fallen if he had not been holding me, and I felt a sob rise in my chest that had nothing to do with shame.</p>
+<p>Before he turned me, he kept me there against the window, and he talked.</p>
+<p>“I have a list, maa,” he murmured, and his lips moved down my throat, and I felt each word against my skin like a brand. “A list of everything I am going to do to you, now that you are mine. Do you want to hear it?”</p>
+<p>I nodded, helpless. I wanted to hear it. I wanted to live inside his words.</p>
+<p>“First,” he said, and his teeth grazed my collarbone, “I am going to unwrap you. The saree, the blouse, the petticoat. One cloth at a time, one night at a time, until there is nothing left between us. And you are going to stand bare in front of me, and you are not going to cover yourself, and you are going to let me look at you until you shake.”</p>
+<p>His hand slid from my rear around to my belly, and then up, slowly, to the underside of my breast, and he cupped me through the night blouse, and I moaned.</p>
+<p>“Then,” he said, “I am going to put my mouth on you. Here.” He squeezed my breast. “And here.” His other hand slid down, over my belly, and came to rest on the dark, wet heat between my thighs, and I cried out and bucked against his palm. “And here, maa. Everywhere. I am going to lick you and suck you and bite you until you forget your own name and can only remember mine.”</p>
+<p>“Deva,” I gasped.</p>
+<p>“And when you are dripping and shaking and begging,” he said, his voice dropping lower, “I am going to give you what your body has been screaming for since the moment you walked in here. But not tonight.” He pulled his hand away from my cunt, slowly, deliberately, and I whimpered at the loss. “Tonight, you only hear the list. Tonight, you only burn with it.”</p>
+<p>He turned me in his arms, then, until I was facing him, and his hands came up to frame my face, and he looked down at me with those black, burning eyes, and I saw in them something that terrified me more than his hunger: love. The same love that had held my hand as a boy. The same love, grown teeth.</p>
+<p>“I am going to make you feel things you have never felt, maa,” he said. “But not tonight.”</p>
+<p>The words landed like a blow. I stared at him. “What?”</p>
+<p>“Not tonight.” He said it slowly, savoring it, and his thumb traced my lower lip, wet and soft. “Tonight, I only wanted you here. Wanted you wet. Wanted you wanting. And you are, aren’t you? You are aching for me right now, maa. I can feel it. I can smell it.” He leaned close, and his lips brushed my ear, and his voice was a low, cruel caress. “And now I am going to send you back to bed, and you are going to lie beside my father, and you are going to burn.”</p>
+<p>The cruelty of it took my breath. I had climbed his stairs trembling with need, and I had let him knead me and bite me and grind against me until I was a single raw nerve, and now, now, when my cunt was dripping and my knees were shaking and my whole body was screaming for him, he was going to send me away. Not because he did not want me. But because he wanted me <em>like this</em>: wet, and aching, and begging, and his.</p>
+<p>“Deva, please,” I said again, and I did not care how it sounded. “Please. Just, just let me.”</p>
+<p>“Let you what?” He tilted his head, and his smile was slow and knowing. “Touch yourself? Come on my thigh like a bitch in heat?” The word <em>bitch</em> went through me like a slap and a kiss at once, and I felt my cunt clench around nothing. “You will do that in your own bed, maa. Alone. While he sleeps. And you will think of me, and you will be grateful that I let you come at all.”</p>
+<p>I was shaking. “And if I don’t?”</p>
+<p>“Then you will burn all night, and tomorrow you will be twice as hungry, and I will make you beg twice as hard.” He brushed his lips over my forehead. “Either way, maa, I win. Either way, you are mine.”</p>
+<p>“You cannot,” my voice cracked, “Deva, you cannot leave me like this. Please.”</p>
+<p>“Please,” he repeated, and his eyes glittered. “There it is. That’s the word I’ve waited two years to hear from you, maa. And it is only the first night.” He pressed a soft kiss to my forehead, like a blessing, like a brand. “Now listen, because this is important.”</p>
+<p>I listened. I would have listened to anything, in that moment, to keep his hands on me.</p>
+<p>“You will not wash yourself tonight.” His voice was steady, low, a command. “You will go back to bed exactly as you are. You will not touch yourself again, not yet. You will lie there and you will ache, and you will think of me, and tomorrow, when you wake, you will still smell of tonight. Of me. Of your own wanting.” He tilted my chin up, so I could not look away. “Do you understand, maa?”</p>
+<p>“Yes,” I whispered. “I understand.”</p>
+<p>“Good girl.” He kissed my forehead again, and then he turned me toward the door, and his hands settled on my shoulders, and he walked me toward it like a man walking a prisoner, or a bride. “Now go. Quietly. And remember, maa, every drop of you is mine now. The ache is mine. The wetness is mine. You are only keeping them warm for me.”</p>
+<p>I went.</p>
+<p>I walked the dark corridor back to my own room on legs that shook, and I could feel him between my thighs with every step, the ghost of his grind, the memory of his teeth, the echo of his filthy, beautiful words. The house was silent. My husband was a dark shape under the blanket, snoring softly. And I slipped into bed beside him as if I were slipping into another woman’s life.</p>
+<p>I lay still for a long time. My body was on fire. My cunt ached and throbbed, empty and wet and desperate, and I pressed my thighs together and tried to breathe, tried to pray, tried to think of anything but him, and failed, completely, entirely, at all of it.</p>
+<p><em>You will not touch yourself,</em> he had said. <em>Not yet.</em></p>
+<p>But my hand had already found its way between my legs, as if it belonged to someone else, as if my body had stopped listening to anything but its own hunger. I bit my lip until I tasted blood, and my fingers slipped through the slick heat of myself, and I found the place that ached worst of all, and I touched it, and I had to clamp my other hand over my mouth to keep from crying out.</p>
+<p><em>Not yet,</em> his voice said in my head. <em>Not yet.</em></p>
+<p>But it was already too late. My hips were already moving. My fingers were already circling. And beside me, my husband snored on, blind and deaf and far away, while I, his sanskari wife, his faithful wife of twenty-five years, shook and shuddered and came, silently, with my own son’s name burning behind my teeth.</p>
+<p>My fingers were not my own. I made them his. I touched myself the way I imagined he would touch me, slow, and then not slow. I circled that hard, aching pearl of me until my hips lifted off the bed, and then I pushed two fingers inside myself, and the wet sound of it was so loud in the silent room that I froze, certain Ravi would wake. He did not. He only snored. And I let my fingers move again, deeper, while my other hand crept up under my blouse and found my own breast and squeezed, and I imagined it was his mouth, his teeth, his name, and I came apart in silence, my body a bow pulled tight and then released, over and over, until I lay limp and shaking in the damp sheets, with my son’s name still burning behind my teeth and my husband sleeping blind beside me.</p>
+<p>When it was over, I lay in the wet dark of my own shame and pleasure, and I did not wash myself.</p>
+<p>I kept every drop. Just as he had said. I did not even press a cloth to myself.</p>
+<p>I did not sleep.</p>
+<p>I lay in the dark with the smell of my own release on my fingers and the taste of copper on my lip, and I listened to Ravi snore, and I felt, for the first time in my life, the full, cold weight of what I had done. Not the sin, I had stopped counting sins somewhere between his teeth and my own fingers. The weight was something else: the knowledge that I was not the woman I had pretended to be. That under the sarees and the sindoor and the four o’clock mornings, there was a woman who came at the thought of her own son, and she was not sorry.</p>
+<p>She was hungry.</p>
+<p>I turned my face into the pillow, and I could still smell him on my skin, his soap, his heat, the faint salt of his mouth on my throat. And I knew, with a certainty that terrified me, that I would go to him again. That I would go to him as often as he asked. That whatever this was, it had already begun, and I was already lost.</p>
+<p><em>Every drop of you is mine,</em> he had said.</p>
+<p>I pressed my thighs together, and I felt the truth of it, warm and slick between them.</p>
+<p>He was right.</p>
+<p>He was right about everything.</p>
+<p>I thought of his hands on my hips, broad and warm. Of his teeth on my throat, marking me. Of the list he had whispered against my skin, one cloth at a time, one night at a time, and my body answered with a fresh, warm flood that soaked the sheet beneath me. Even now, even spent, I wanted him. That was the horror and the wonder of it. Even empty, I wanted.</p>
+<p>In the grey light before dawn, I got up and stood before the mirror in my room. My night blouse was still twisted, still unwashed, and my hair was a mess, and there was a faint, dark mark on my throat where his teeth had been. I touched it with the tips of my fingers, and the ghost of his mouth flared hot against my skin, and I felt my cunt clench, and I saw, in the mirror, the face of a woman I did not fully recognize.</p>
+<p>She was flushed. Her lips were swollen from being bitten. Her eyes were wide and dark and, beneath the shame, alive in a way they had not been for twenty-five years.</p>
+<p><em>So this is what it is to be wanted,</em> I thought. <em>This is what it is to burn.</em></p>
+<p>And I understood, then, what he had meant when he called it a cure. It did not feel like a cure. It felt like a sickness. But it was the sweetest sickness I had ever known, and I did not want to be well.</p>
+<hr class="ornament" aria-hidden="true">
+<footer class="part-end"><p class="end-title">End of Part Three.</p><p class="end-next">To be continued in <strong>Part Four</strong> — <em>the kitchen, and the lesson in obedience.</em></p></footer>
+    <nav class="part-nav" aria-label="Part navigation">
+      <a class="nav-link prev" href="part-2.html">&larr; Part Two</a>
+      <a class="nav-link contents" href="index.html#toc">Contents</a>
+      <a class="nav-link next" href="part-4.html">Part Four &rarr;</a>
+    </nav>
+  </section>
+  <footer class="colophon">
+    <div class="mark">✦</div>
+    <p>Part Three of Part Twenty</p>
+  </footer>
+</main>
+<button id="toTop" aria-label="Back to top">↑</button>
+<script>
+(function () {
+  var root = document.documentElement;
+  var THEMES = ['light', 'sepia', 'dark'];
+  function readTheme() {
+    var t = localStorage.getItem('ammf-theme');
+    return THEMES.indexOf(t) >= 0 ? t : 'light';
+  }
+  function readScale() {
+    var s = parseFloat(localStorage.getItem('ammf-scale'));
+    return (s >= 0.8 && s <= 1.45) ? s : 1;
+  }
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    var b = document.getElementById('themeBtn');
+    if (b) {
+      b.textContent = (t === 'light') ? '☀' : (t === 'sepia') ? '◐' : '☾';
+      b.setAttribute('aria-label', 'Theme: ' + t);
+    }
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim());
+  }
+  function cycleTheme() {
+    var i = THEMES.indexOf(root.getAttribute('data-theme') || 'light');
+    var next = THEMES[(i + 1) % THEMES.length];
+    applyTheme(next);
+    localStorage.setItem('ammf-theme', next);
+  }
+  function applyScale(s) { root.style.setProperty('--reader-scale', String(s)); }
+  function bumpScale(d) {
+    var s = Math.min(1.45, Math.max(0.8, Math.round((readScale() + d) * 100) / 100));
+    applyScale(s);
+    localStorage.setItem('ammf-scale', String(s));
+  }
+  var bar = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+    if (toTop) toTop.style.display = (h.scrollTop > 700) ? 'flex' : 'none';
+  }
+  var tb = document.getElementById('themeBtn');
+  if (tb) tb.addEventListener('click', cycleTheme);
+  var fm = document.getElementById('fontMinus');
+  var fp = document.getElementById('fontPlus');
+  if (fm) fm.addEventListener('click', function () { bumpScale(-0.05); });
+  if (fp) fp.addEventListener('click', function () { bumpScale(0.05); });
+  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  applyTheme(readTheme());
+  applyScale(readScale());
+  onScroll();
+})();
+</script>
+</body>
+</html>
